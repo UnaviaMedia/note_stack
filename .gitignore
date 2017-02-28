@@ -1,3 +1,6 @@
 # Ignore vagrant files
 .vagrant/
 ubuntu-xenial*.log
+
+# Ignore node_modules
+node_modules/
