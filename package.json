@@ -4,6 +4,7 @@
   "description": "Simple web app for note taking",
   "main": "index.js",
   "scripts": {
+	"start": "node server.js",
     "webpack-watch": "webpack -w",
     "express-server": "node ./server",
     "dev": "concurrent --kill-others \"npm run webpack-watch\" \"npm run express-server\"",

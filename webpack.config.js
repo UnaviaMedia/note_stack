@@ -1,7 +1,13 @@
+var path = require('path');
+
+const DIST_DIR = path.join(__dirname, 'dist');
+const CLIENT_DIR = path.join(__dirname, 'src');
+
 module.exports = {
-	entry: './src/client.js',
+	context: CLIENT_DIR,
+	entry: './main',
 	output: {
-		path: './public',
+		path: DIST_DIR,
 		filename: 'bundle.js'
 	},
 	module: {
@@ -14,6 +20,6 @@ module.exports = {
 		]
 	},
 	resolve: {
-		extensions: ['*', '.js', '.json']
+		extensions: ['*', '.js', '.json', '.jsx']
 	}
 };
