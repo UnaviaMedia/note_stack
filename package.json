@@ -1,0 +1,19 @@
+{
+  "name": "note_stack",
+  "version": "0.0.1",
+  "description": "Simple web app for note taking",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UnaviaMedia/note_stack.git"
+  },
+  "author": "unaviamedia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UnaviaMedia/note_stack/issues"
+  },
+  "homepage": "https://github.com/UnaviaMedia/note_stack#readme"
+}
