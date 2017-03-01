@@ -16,16 +16,12 @@ app.use(webpackDevMiddleware(compiler, {
 	publicPath: config.output.publicPath
 }));
 
+
+//Require the API routes
+require('./routes')(app);
+
 app.get('/', function(req, res) {
 	res.sendFile(path.join(DIST_DIR, 'index.html'));
-});
-
-app.get('/api/list', function(req, res) {
-	//TODO: Get things from database and return a response
-	res.json([
-		{ text: 'Note 1' },
-		{ text: 'Note 2' }
-	]);
 });
 
 app.get('*', function(req, res) {
@@ -33,6 +29,7 @@ app.get('*', function(req, res) {
 	console.error('ROUTING: Invalid path')
 	res.sendFile(path.join(DIST_DIR, 'index.html'));
 });
+
 
 // Listen on specified port or 3000 if unspecified
 app.listen(process.env.PORT || PORT, function() {
