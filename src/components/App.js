@@ -1,12 +1,15 @@
 import React from 'react';
+import Note from '../components/Note';
+import NoteList from '../components/NoteList';
 
 class App extends React.Component {
 	render() {
 		return (
 			<div>
 				<h1>Hello World!</h1>
+				<NoteList />
 			</div>
-		)
+		);
 	}
 }
 
