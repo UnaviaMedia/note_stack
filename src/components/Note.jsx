@@ -5,7 +5,7 @@ class Note extends React.Component {
 		return (
 			<div className='note'>
 				<span className='note__title'>{this.props.title}</span>
-				<div className='note__body'>{this.props.value}</div>
+				<div className='note__body'>{this.props.text}</div>
 			</div>
 		);
 	}

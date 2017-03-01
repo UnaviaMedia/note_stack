@@ -9,8 +9,8 @@ module.exports = function(app) {
 	app.get('/api/list', function(req, res) {
 		//TODO: Get things from database and return a response
 		res.json([
-			{ text: 'Note 1' },
-			{ text: 'Note 2' }
+			{ id: 1, title: 'Note 1', text: 'Random string' },
+			{ id: 2, title: 'Note 2', text: 'Another note' }
 		]);
 	});
 }

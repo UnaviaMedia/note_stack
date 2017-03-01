@@ -1,23 +1,31 @@
 import React from 'react';
 import Note from '../components/Note';
 
-const noteList = [
-	{ id: 1, title: 'Title 1', value: 'This is note 1' },
-	{ id: 2, title: 'Title 2', value: 'This is note 2' }
-];
-
 class NoteList extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			list: noteList
+			list: []
 		}
+	}
+	componentDidMount() {
+		const that = this;
+		fetch('/api/list').
+			//Convert response to json
+			then((resp) => resp.json()).
+			//Set state with response data
+			then(function(data) {
+				that.setState({ list: data });
+			}).
+			catch(function(error) {
+				console.error('FETCH: Fetch operation failed => ' + error);
+			});
 	}
 	render() {
 		return (
 			<ul>
 				{ this.state.list.map( note =>
-					<li key={note.id}><Note title={note.title} value={note.value} /></li>) }
+					<li key={note.id}><Note title={note.title} text={note.text} /></li>) }
 			</ul>
 		);
 	}
