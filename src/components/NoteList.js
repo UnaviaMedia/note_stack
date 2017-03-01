@@ -2,8 +2,8 @@ import React from 'react';
 import Note from '../components/Note';
 
 const noteList = [
-	{ id: 1, value: "Note 1" },
-	{ id: 2, value: "Note 2" }
+	{ id: 1, title: 'Title 1', value: 'This is note 1' },
+	{ id: 2, title: 'Title 2', value: 'This is note 2' }
 ];
 
 class NoteList extends React.Component {
@@ -17,7 +17,7 @@ class NoteList extends React.Component {
 		return (
 			<ul>
 				{ this.state.list.map( note =>
-					<li key={note.id}><Note value={note.value} /></li>) }
+					<li key={note.id}><Note title={note.title} value={note.value} /></li>) }
 			</ul>
 		);
 	}

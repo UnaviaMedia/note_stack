@@ -41,7 +41,7 @@ npm install --save express
 
 npm install --save-dev webpack
 #npm install --save-dev webpack-dev-server
-#npm install --save-dev webpack-dev-middleware
+npm install --save-dev webpack-dev-middleware
 #npm install --save-dev webpack-hot-middleware
 npm install --save-dev concurrently
 

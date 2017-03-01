@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './components/App';
-//import Note from './components/Note';
 
 //import ExampleComponents from './react_examples/exampleComponents'
 //import ValidationComponent from './react_examples/validationComponent'
