@@ -13,28 +13,3 @@ ReactDOM.render(
 	<App />,
 	document.getElementById('root')
 );
-
-/*ReactDOM.render(
-	<ValidationComponent />,
-	document.getElementById('root')
-);*/
-
-/*ReactDOM.render(
-	<EventComponent />,
-	document.getElementById('root')
-);*/
-
-/*ReactDOM.render(
-	<RefComponent />,
-	document.getElementById('root')
-);*/
-
-/*ReactDOM.render(
-	<LifeCycleComponent />,
-	document.getElementById('root')
-);*/
-
-/*ReactDOM.render(
-	<DynamicDataComponent />,
-	document.getElementById('root')
-);*/
