@@ -40,7 +40,6 @@ npm install --save express
 # Webpack
 
 npm install --save-dev webpack
-#npm install --save-dev webpack-dev-server
 npm install --save-dev webpack-dev-middleware
 #npm install --save-dev webpack-hot-middleware
 npm install --save-dev concurrently
@@ -58,6 +57,5 @@ npm install --save-dev babel-preset-react	# Babel preset for React
 npm install --save react
 npm install --save react-dom
 npm install --save redux
-#npm install --save-dev react-hot-loader
 
 ```
