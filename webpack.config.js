@@ -8,10 +8,11 @@ module.exports = {
 	entry: './main',
 	output: {
 		path: DIST_DIR,
+		publicPath: '/',
 		filename: 'bundle.js'
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
@@ -20,6 +21,6 @@ module.exports = {
 		]
 	},
 	resolve: {
-		extensions: ['*', '.js', '.json', '.jsx']
+		extensions: ['.js', '.json', '.jsx']
 	}
 };

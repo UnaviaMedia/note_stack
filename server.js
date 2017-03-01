@@ -1,20 +1,23 @@
-//require('babel-register');
-//require('./server.babel');
+require('babel-register');
 
-//import path from 'path';
-//import express from 'express';
 var path = require('path');
 var express = require('express');
+var webpackDevMiddleware = require("webpack-dev-middleware");
+var webpack = require("webpack");
+var config = require("./webpack.config");
 
 const DIST_DIR = path.join(__dirname, 'dist');
 const PORT = 3000;
 
-const app = express();
+var app = express();
+var compiler = webpack(config);
 
-app.use(express.static(DIST_DIR));
+app.use(webpackDevMiddleware(compiler, {
+	publicPath: config.output.publicPath
+}));
 
 app.get('*', function(req, res) {
-	res.sendFile(path.join(DIST_DIR, "index.html"));
+	res.sendFile(path.join(DIST_DIR, 'index.html'));
 });
 
 // Listen on specified port or 3000 if unspecified
