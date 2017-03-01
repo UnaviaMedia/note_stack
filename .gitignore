@@ -6,4 +6,4 @@ ubuntu-xenial*.log
 node_modules/
 npm-debug.log
 
-bundle.js
+dist/bundle.js

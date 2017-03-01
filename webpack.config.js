@@ -5,7 +5,7 @@ const CLIENT_DIR = path.join(__dirname, 'src');
 
 module.exports = {
 	context: CLIENT_DIR,
-	entry: './main',
+	entry: './index',
 	output: {
 		path: DIST_DIR,
 		publicPath: '/',
