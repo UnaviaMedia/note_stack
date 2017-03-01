@@ -1,4 +1,4 @@
-var path = require('path');
+const path = require('path');
 
 const DIST_DIR = path.join(__dirname, 'dist');
 const CLIENT_DIR = path.join(__dirname, 'src');
@@ -14,7 +14,7 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.js$/,
+				test: /\.jsx?$/,
 				exclude: /node_modules/,
 				loader: 'babel-loader'
 			}

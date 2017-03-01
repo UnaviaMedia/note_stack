@@ -1,4 +1,4 @@
-require('babel-register');
+//require('babel-register');
 
 var path = require('path');
 var express = require('express');
@@ -16,7 +16,21 @@ app.use(webpackDevMiddleware(compiler, {
 	publicPath: config.output.publicPath
 }));
 
+app.get('/', function(req, res) {
+	res.sendFile(path.join(DIST_DIR, 'index.html'));
+});
+
+app.get('/api/list', function(req, res) {
+	//TODO: Get things from database and return a response
+	res.json([
+		{ text: 'Note 1' },
+		{ text: 'Note 2' }
+	]);
+});
+
 app.get('*', function(req, res) {
+	//TODO: Change this to display an error page
+	console.error('ROUTING: Invalid path')
 	res.sendFile(path.join(DIST_DIR, 'index.html'));
 });
 

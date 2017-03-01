@@ -14,3 +14,5 @@ ReactDOM.render(
 	<App />,
 	document.getElementById('root')
 );
+
+console.log('LOAD: index.js');
