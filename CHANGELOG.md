@@ -21,3 +21,4 @@
 - Added MySQL and database files
 - Worked through issues on dev machine with mysql
 - Added Node and Express API
+	- CRUD operations and querying
