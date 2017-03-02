@@ -1,3 +1,5 @@
+const connection = require('./dbconnection');
+
 module.exports = function(app) {
 	app.get('/test', function(req, res) {
 		res.json({
@@ -8,9 +10,14 @@ module.exports = function(app) {
 
 	app.get('/api/list', function(req, res) {
 		//TODO: Get things from database and return a response
-		res.json([
-			{ id: 1, title: 'Note 1', text: 'Random string' },
-			{ id: 2, title: 'Note 2', text: 'Another note' }
-		]);
+		//connection.connect();
+
+		connection.query('SELECT id, title, text FROM Note;', function(err, rows) {
+			//if (err) throw err;
+
+			res.json(rows)
+		});
+
+		//connection.end();
 	});
 }

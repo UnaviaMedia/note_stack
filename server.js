@@ -2,6 +2,8 @@
 
 var path = require('path');
 var express = require('express');
+var mysql = require('mysql');
+
 var webpackDevMiddleware = require("webpack-dev-middleware");
 var webpack = require("webpack");
 var config = require("./webpack.config");
@@ -12,6 +14,7 @@ const PORT = 3000;
 var app = express();
 var compiler = webpack(config);
 
+//Configure webpack-dev-middleware
 app.use(webpackDevMiddleware(compiler, {
 	publicPath: config.output.publicPath
 }));
@@ -26,8 +29,7 @@ app.get('/', function(req, res) {
 
 app.get('*', function(req, res) {
 	//TODO: Change this to display an error page
-	console.error('ROUTING: Invalid path')
-	res.sendFile(path.join(DIST_DIR, 'index.html'));
+	res.sendFile(path.join(DIST_DIR, 'error.html'));
 });
 
 
