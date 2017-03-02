@@ -26,7 +26,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 //Require the API routes
-//require('./routes')(app);
 const routes = require('./routes');
 app.use('/note', routes);
 
