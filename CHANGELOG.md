@@ -22,3 +22,6 @@
 - Worked through issues on dev machine with mysql
 - Added Node and Express API
 	- CRUD operations and advanced querying
+
+**March 02, 2017**
+- Configured C9 to act as a cloud editor
