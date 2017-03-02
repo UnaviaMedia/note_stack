@@ -54,6 +54,9 @@ app.get('*', function(req, res) {
 	res.sendFile(path.join(DIST_DIR, 'error.html'));
 });
 
+//////////////////////////////////////////////////
+//	Server Listen
+//////////////////////////////////////////////////
 
 // Listen on specified port (or 3000) if unspecified
 app.listen(process.env.PORT || PORT, process.env.IP, function() {
