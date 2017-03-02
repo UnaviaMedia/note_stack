@@ -4,13 +4,12 @@ const router = express.Router();
 //Require database connection
 const db = require('./db');
 
+function checkNumber(number) {
+	return /^\d+$/.test(number) ? number : 0;
+}
+
 router.get('/', function(req, res) {
 	//TODO: Get things from database and return a response
-
-	//Number validation (positive and integer)
-	function checkNumber(number) {
-		return /^\d+$/.test(number) ? number : 0;
-	}
 
 	//Get the request parameters and validate them
 	let limit = checkNumber(req.query.limit);
@@ -42,8 +41,25 @@ router.put('/:id', function(req, res) {
 });
 
 router.delete('/:id', function(req, res) {
-	let id = req.params.id;
-	res.json({ msg: `DELETE: Delete request received for id: ${req.params.id}` });
+	//Get id of Note to delete and validate it
+	let id = checkNumber(req.params.id);
+
+	if (id > 0) {
+		//TODO: Any validation/processing
+		//res.json({ msg: `DELETE: Delete request received for id: ${id}` });
+
+		db.query('DELETE FROM Note WHERE id=?;', [id], function(err, rows, fields) {
+			if (err) {
+				//TODO: Handle errors
+				res.json({ msg: 'DELETE ERROR: Failed', err: err });
+			}
+
+			//TODO: Any validation/processing
+			res.json({ msg: `DELETE: Delete request received for id: ${id}, ${rows.affectedRows} rows affected` });
+		});
+	} else {
+		res.json({ msg: `DELETE: Delete failed for invalid key '${req.params.id}'` });
+	}
 });
 
 module.exports = router;
