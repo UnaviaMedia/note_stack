@@ -5,7 +5,7 @@
 const express = require('express');
 const router = express.Router();
 
-const noteDAL = require('../dal/notes');
+const noteDAL = requireModule('api/dal/notes');
 
 //GET request to retrieve all notes with optional queries
 router.get('/', function(req, res) {

@@ -1,15 +1,18 @@
 'use strict'
 
+//Enable the global appRequire function to eliminate unnecessary paths
+require('./require_module');
+
 //Required dependencies
-var path = require('path');
-var express = require('express');
-var mysql = require('mysql');
-var bodyParser = require('body-parser');
+const path = require('path');
+const express = require('express');
+const mysql = require('mysql');
+const bodyParser = require('body-parser');
 
 //Development dependencies
-var webpackDevMiddleware = require("webpack-dev-middleware");
-var webpack = require("webpack");
-var config = require("./webpack.config");
+const webpackDevMiddleware = require("webpack-dev-middleware");
+const webpack = require("webpack");
+const config = require("./webpack.config");
 
 const DIST_DIR = path.join(__dirname, 'dist');
 const PORT = 3000;
