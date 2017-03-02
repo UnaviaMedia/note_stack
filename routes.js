@@ -11,6 +11,10 @@ function checkNumber(number) {
 	return /^\d+$/.test(number) ? parseInt(number) : 0;
 }
 
+
+//TODO: Refactor and move into separate modules, combining where possible (invalid ids, etc)
+
+
 router.get('/', function(req, res) {
 	//Get the request parameters and validate them
 	let limit = checkNumber(req.query.limit);
