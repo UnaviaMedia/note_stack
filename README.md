@@ -7,8 +7,11 @@ The stack involved is a mix of technologies, including the following:
 - NodeJS
 - ExpressJS
 - React
+- MySQL
 - SASS
-- Bootstrap 4
+
+## Helpful Docs
+- [Node.js MySQL - mysqljs/mysql](https://github.com/mysqljs/mysql)
 
 ## Install
 Download or clone the repository after configuring the server setup
