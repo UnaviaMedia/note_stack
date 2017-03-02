@@ -14,3 +14,10 @@
 - Watch tutorial on React and started experimenting
 - Read React book while starting to code components
 	- Intend to learn Redux later to replace state
+
+**March 01, 2017**
+- Added sample API call from component
+- Restructured files
+- Added MySQL and database files
+- Worked through issues on dev machine with mysql
+- Added Node and Express API
