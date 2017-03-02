@@ -3,6 +3,7 @@
 var path = require('path');
 var express = require('express');
 var mysql = require('mysql');
+var bodyParser = require('body-parser');
 
 var webpackDevMiddleware = require("webpack-dev-middleware");
 var webpack = require("webpack");
@@ -18,6 +19,10 @@ var compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, {
 	publicPath: config.output.publicPath
 }));
+
+//Support encoded bodies
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 //Require the API routes
