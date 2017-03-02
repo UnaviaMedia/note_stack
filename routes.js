@@ -6,6 +6,7 @@ const router = express.Router();
 //Require database connection
 const db = require('./db');
 
+//Function to verify that a number is a valid, positive integer
 function checkNumber(number) {
 	return /^\d+$/.test(number) ? parseInt(number) : 0;
 }
@@ -16,11 +17,11 @@ router.get('/', function(req, res) {
 	let start = checkNumber(req.query.start);
 	let order = new Set(['asc', 'desc']).has(req.query.order) ? req.query.order : 'desc';
 
-	//Create ordering SQL
+	//Create advanced querying SQL
 	let limitSQL = limit > 0 ? `LIMIT ${db.escape(limit)}` : '';
-	let startSQL = start >= 0 && limit > 0 ? `OFFSET ${db.escape(start)}` : '';
+	let startSQl = start >= 0 && limit > 0 ? `OFFSET ${db.escape(start)}` : '';	//Offset can only be enabled when limit is used
 	let orderSQL = `ORDER BY id ${order}`;
-	let querySql = `${orderSQL} ${limitSQL} ${startSQL}`;
+	let querySql = `${orderSQL} ${limitSQL} ${startSQl}`;
 
 	db.query(`SELECT id, title, text FROM Note ${querySql};`, function(err, result, fields) {
 		if (err) {
@@ -36,6 +37,30 @@ router.get('/', function(req, res) {
 			limit: limit,
 			start: start,
 			order: order,
+			data: result
+		});
+	});
+});
+
+router.get('/:id', function(req, res) {
+	//Get id of Note to select and validate it
+	let id = checkNumber(req.params.id);
+
+	if (id <= 0) {
+		res.json({ msg: `SELECT FAILED: Select failed with invalid id '${req.params.id}'` });
+		return;
+	}
+
+	db.query(`SELECT id, title, text FROM Note WHERE id=?;`, [id], function(err, result, fields) {
+		if (err) {
+			//TODO: Handle errors
+			res.json({ msg: 'SELECT ERROR: Select failed', err: err });
+			return;
+		}
+
+		//TODO: Any validation/processing
+		res.json({
+			msg: `SELECT: Select processed, ${result.length} rows returned`,
 			data: result
 		});
 	});
