@@ -1,31 +1,29 @@
+const express = require('express');
+const router = express.Router();
+
+//Require database connection
 const db = require('./db');
 
-module.exports = function(app) {
-	app.get('/test', function(req, res) {
-		res.json({
-			endpoint: '/test',
-			message: 'Endpoint reached successfully'
-		});
-	});
+router.get('/', function(req, res) {
+	//TODO: Get things from database and return a response
+	console.log(req.query);
 
-	app.get('/note', function(req, res) {
-		//TODO: Get things from database and return a response
-
-		db.query('SELECT id, title, text FROM Note;', function(err, rows, fields) {
-			//TODO: Any validation/processing
-			res.json(rows)
-		});
+	db.query('SELECT id, title, text FROM Note;', function(err, rows, fields) {
+		//TODO: Any validation/processing
+		res.json({ data: rows, query: req.query });
 	});
+});
 
-	app.post('/note/add', function(req, res) {
-		res.json({ msg: 'POST: Post request received' });
-	});
+router.post('/add', function(req, res) {
+	res.json({ msg: 'POST: Post request received' });
+});
 
-	app.put('/note', function(req, res) {
-		res.json({ msg: 'PUT: Update request received' });
-	});
+router.put('/:id', function(req, res) {
+	res.json({ msg: `PUT: Update request received for id: ${req.params.id}` });
+});
 
-	app.delete('/note', function(req, res) {
-		res.json({ msg: 'DELETE: Delete request received' });
-	});
-}
+router.delete('/:id', function(req, res) {
+	res.json({ msg: `DELETE: Delete request received for id: ${req.params.id}` });
+});
+
+module.exports = router;

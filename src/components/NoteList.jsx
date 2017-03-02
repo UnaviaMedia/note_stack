@@ -15,7 +15,7 @@ class NoteList extends React.Component {
 			then((resp) => resp.json()).
 			//Set state with response data
 			then(function(data) {
-				that.setState({ list: data });
+				that.setState({ list: data.data });
 			}).
 			catch(function(error) {
 				console.error('FETCH: Fetch operation failed => ' + error);

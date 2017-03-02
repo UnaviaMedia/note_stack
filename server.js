@@ -21,19 +21,29 @@ app.use(webpackDevMiddleware(compiler, {
 
 
 //Require the API routes
-require('./routes')(app);
+//require('./routes')(app);
+const routes = require('./routes');
+app.use('/note', routes);
 
+
+//Index route
 app.get('/', function(req, res) {
 	res.sendFile(path.join(DIST_DIR, 'index.html'));
 });
 
+//Sample route
+app.get('/test', function(req, res) {
+	res.json({ msg: 'GET: Test endpoint reached successfully' });
+});
+
+//Catch-all route (used for error handling)
 app.get('*', function(req, res) {
 	//TODO: Change this to display an error page
 	res.sendFile(path.join(DIST_DIR, 'error.html'));
 });
 
 
-// Listen on specified port or 3000 if unspecified
+// Listen on specified port (or 3000) if unspecified
 app.listen(process.env.PORT || PORT, function() {
 	console.log('Node server listening on port 3000');
 });
