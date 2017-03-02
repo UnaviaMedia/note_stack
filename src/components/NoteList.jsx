@@ -10,7 +10,7 @@ class NoteList extends React.Component {
 	}
 	componentDidMount() {
 		const that = this;
-		fetch('/api/list').
+		fetch('/note').
 			//Convert response to json
 			then((resp) => resp.json()).
 			//Set state with response data
