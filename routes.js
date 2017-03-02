@@ -7,7 +7,7 @@ const router = express.Router();
 const db = require('./db');
 
 function checkNumber(number) {
-	return /^\d+$/.test(number) ? number : 0;
+	return /^\d+$/.test(number) ? parseInt(number) : 0;
 }
 
 router.get('/', function(req, res) {
@@ -16,7 +16,13 @@ router.get('/', function(req, res) {
 	let start = checkNumber(req.query.start);
 	let order = new Set(['asc', 'desc']).has(req.query.order) ? req.query.order : 'desc';
 
-	db.query('SELECT id, title, text FROM Note;', function(err, result, fields) {
+	//Create ordering SQL
+	let limitSQL = limit > 0 ? `LIMIT ${db.escape(limit)}` : '';
+	let startSQL = start >= 0 && limit > 0 ? `OFFSET ${db.escape(start)}` : '';
+	let orderSQL = `ORDER BY id ${order}`;
+	let querySql = `${orderSQL} ${limitSQL} ${startSQL}`;
+
+	db.query(`SELECT id, title, text FROM Note ${querySql};`, function(err, result, fields) {
 		if (err) {
 			//TODO: Handle errors
 			res.json({ msg: 'SELECT ERROR: Select failed', err: err });
