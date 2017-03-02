@@ -17,30 +17,41 @@ The stack involved is a mix of technologies, including the following:
 ## Install
 Download or clone the repository after configuring the server setup
 
-## Configuration
-
 ```bash
 # MySQL
 sudo apt install -y mysql-server
-
+sudo mysql_secure_installation
 
 # NodeJS
-
-# Install nodejs and build tools
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo apt install -y nodejs
-sudo apt install -y build-essentials
+sudo apt install -y nodejs build-essentials
+
+cd {{project_directory}}
 
 # NPM
+npm install
 
-# Create package.json file and enter information when prompted
-#	To install all dependencies, run `npm install` from `app` directory
-npm init
-
-# Add following line to .bashrc and then source file
+# Add following line to .bashrc and then source file, adds node_modules to $PATH
 export PATH="./node_modules/.bin:$PATH"
 source ~/.bashrc
-
-# Install npm packages from project root
-npm install
 ```
+
+## Descriptions
+- NodeJS
+	- Lightweight server
+- Express
+	- Simple web server framework
+- MySql
+	- Relational database
+- Body-parser
+	- Parses request bodies
+- Webpack
+	- Bundles and processes client code
+- React
+	- Clientside components and View-management
+- Redux
+	- Single source of stage management for React components
+- Git
+	- Source control management for code
+- Babel
+	- ES2015 (EcmaScript6) transpiler
