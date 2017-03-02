@@ -26,10 +26,10 @@ router.get('/', function(req, res) {
 	//Create advanced querying SQL
 	let limitSQL = limit > 0 ? `LIMIT ${db.escape(limit)}` : '';
 	let startSQl = start >= 0 && limit > 0 ? `OFFSET ${db.escape(start)}` : '';	//Offset can only be enabled when limit is used
-	let orderSQL = `ORDER BY id ${order}`;
+	let orderSQL = `ORDER BY dateCreated ${order}`;
 	let querySql = `${orderSQL} ${limitSQL} ${startSQl}`;
 
-	db.query(`SELECT id, title, text FROM Note ${querySql};`, function(err, result, fields) {
+	db.query(`SELECT id, title, text, dateCreated, dateModified FROM Note ${querySql};`, function(err, result, fields) {
 		if (err) {
 			//TODO: Handle errors
 			res.json({ msg: 'SELECT ERROR: Select failed', err: err });
@@ -39,7 +39,6 @@ router.get('/', function(req, res) {
 		//TODO: Any validation/processing
 		res.json({
 			msg: `SELECT: Select processed, ${result.length} rows returned`,
-			//query: req.query,
 			limit: limit,
 			start: start,
 			order: order,
@@ -57,7 +56,7 @@ router.get('/:id', function(req, res) {
 		return;
 	}
 
-	db.query(`SELECT id, title, text FROM Note WHERE id=?;`, [id], function(err, result, fields) {
+	db.query(`SELECT id, title, text, dateCreated, dateModified FROM Note WHERE id=? ORDER BY dateCreated;`, [id], function(err, result, fields) {
 		if (err) {
 			//TODO: Handle errors
 			res.json({ msg: 'SELECT ERROR: Select failed', err: err });
