@@ -16,6 +16,10 @@ Download or clone the repository after configuring the server setup
 ## Configuration
 
 ```bash
+# MySQL
+sudo apt install -y mysql-server
+
+
 # NodeJS
 
 # Install nodejs and build tools
