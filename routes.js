@@ -9,8 +9,6 @@ function checkNumber(number) {
 }
 
 router.get('/', function(req, res) {
-	//TODO: Get things from database and return a response
-
 	//Get the request parameters and validate them
 	let limit = checkNumber(req.query.limit);
 	let start = checkNumber(req.query.start);
@@ -42,23 +40,23 @@ router.put('/:id', function(req, res) {
 });
 
 router.delete('/:id', function(req, res) {
-	//TODO: Any validation/processing
-
 	//Get id of Note to delete and validate it
 	let id = checkNumber(req.params.id);
 
-	if (id > 0) {
-		db.query('DELETE FROM Note WHERE id=?;', [id], function(err, rows, fields) {
-			if (err) {
-				//TODO: Handle errors
-				res.json({ msg: 'DELETE ERROR: Delete failed', err: err });
-			}
-
-			res.json({ msg: `DELETE: Delete request received for id: ${id}, ${rows.affectedRows} rows affected` });
-		});
-	} else {
+	if (id <= 0) {
 		res.json({ msg: `DELETE: Delete failed for invalid key '${req.params.id}'` });
+		return;
 	}
+
+	db.query('DELETE FROM Note WHERE id=?;', [id], function(err, rows, fields) {
+		if (err) {
+			//TODO: Handle errors
+			res.json({ msg: 'DELETE ERROR: Delete failed', err: err });
+		}
+
+		//TODO: Handle no rows being deleted
+		res.json({ msg: `DELETE: Delete request for id: ${id}, ${rows.affectedRows} rows affected` });
+	});
 });
 
 module.exports = router;
