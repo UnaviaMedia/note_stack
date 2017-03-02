@@ -22,6 +22,12 @@ class NoteList extends React.Component {
 			});
 	}
 	render() {
+		if (!this.state.list) {
+			return (
+				<li>No notes found</li>
+			);
+		}
+		
 		return (
 			<ul>
 				{ this.state.list.map( note =>

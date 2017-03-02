@@ -1,4 +1,4 @@
-//require('babel-register');
+'use strict'
 
 var path = require('path');
 var express = require('express');
@@ -44,6 +44,6 @@ app.get('*', function(req, res) {
 
 
 // Listen on specified port (or 3000) if unspecified
-app.listen(process.env.PORT || PORT, function() {
+app.listen(process.env.PORT || PORT, process.env.IP, function() {
 	console.log('Node server listening on port 3000');
 });
