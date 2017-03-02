@@ -23,13 +23,14 @@ Download or clone the repository after configuring the server setup
 # MySQL
 sudo apt install -y mysql-server
 
+sudo mysql_secure_installation
+
 
 # NodeJS
 
 # Install nodejs and build tools
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo apt install -y nodejs
-sudo apt install -y build-essentials
+sudo apt install -y nodejs build-essentials
 
 # NPM
 
