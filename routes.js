@@ -19,6 +19,7 @@ router.get('/', function(req, res) {
 	db.query('SELECT id, title, text FROM Note;', function(err, rows, fields) {
 		if (err) {
 			//TODO: Handle errors
+			res.json({ msg: 'SELECT ERROR: Select failed', err: err });
 		}
 
 		//TODO: Any validation/processing
@@ -41,20 +42,18 @@ router.put('/:id', function(req, res) {
 });
 
 router.delete('/:id', function(req, res) {
+	//TODO: Any validation/processing
+
 	//Get id of Note to delete and validate it
 	let id = checkNumber(req.params.id);
 
 	if (id > 0) {
-		//TODO: Any validation/processing
-		//res.json({ msg: `DELETE: Delete request received for id: ${id}` });
-
 		db.query('DELETE FROM Note WHERE id=?;', [id], function(err, rows, fields) {
 			if (err) {
 				//TODO: Handle errors
-				res.json({ msg: 'DELETE ERROR: Failed', err: err });
+				res.json({ msg: 'DELETE ERROR: Delete failed', err: err });
 			}
 
-			//TODO: Any validation/processing
 			res.json({ msg: `DELETE: Delete request received for id: ${id}, ${rows.affectedRows} rows affected` });
 		});
 	} else {
