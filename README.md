@@ -37,29 +37,6 @@ npm init
 export PATH="./node_modules/.bin:$PATH"
 source ~/.bashrc
 
-# Express
-
-npm install --save express
-
-# Webpack
-
-npm install --save-dev webpack
-npm install --save-dev webpack-dev-middleware
-#npm install --save-dev webpack-hot-middleware
-npm install --save-dev concurrently
-
-# Babel
-npm install --save-dev babel-core			# Core library
-npm install --save-dev babel-cli			# Command line interface
-npm install --save-dev babel-loader			# Webpack plugin
-npm install --save-dev babel-register		# Automatic compilation hook
-npm install --save-dev babel-preset-es2015	# Babel preset for ES6
-npm install --save-dev babel-preset-stage-0
-npm install --save-dev babel-preset-react	# Babel preset for React
-
-# React
-npm install --save react
-npm install --save react-dom
-npm install --save redux
-
+# Install npm packages from project root
+npm install
 ```
