@@ -1,4 +1,4 @@
-const connection = require('./dbconnection');
+const db = require('./db');
 
 module.exports = function(app) {
 	app.get('/test', function(req, res) {
@@ -10,14 +10,10 @@ module.exports = function(app) {
 
 	app.get('/api/list', function(req, res) {
 		//TODO: Get things from database and return a response
-		//connection.connect();
 
-		connection.query('SELECT id, title, text FROM Note;', function(err, rows) {
-			//if (err) throw err;
-
+		db.query('SELECT id, title, text FROM Note;', function(err, rows, fields) {
+			//TODO: Any validation/processing
 			res.json(rows)
 		});
-
-		//connection.end();
 	});
 }
