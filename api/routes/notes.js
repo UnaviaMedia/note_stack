@@ -6,7 +6,7 @@ const express = require('express');
 const router = express.Router();
 
 //Require database connection
-const db = require('./db');
+const db = require('../../db');
 
 //Function to verify that a number is a valid, positive integer
 function checkNumber(number) {

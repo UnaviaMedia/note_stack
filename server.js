@@ -33,8 +33,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 /* API Routes */
 
 //Require the API routes
-const routes = require('./routes');
-app.use('/note', routes);
+const noteRoutes = require('./api/routes/notes');
+app.use('/note', noteRoutes);
 
 /* Default Routes */
 
