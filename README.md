@@ -11,7 +11,8 @@ The stack involved is a mix of technologies, including the following:
 - SASS
 
 ## Helpful Docs
-- [Node.js MySQL - mysqljs/mysql](https://github.com/mysqljs/mysql)
+- [Node.js MySQL GitHub](https://github.com/mysqljs/mysql)
+- [Express Docs](https://expressjs.com)
 
 ## Install
 Download or clone the repository after configuring the server setup
