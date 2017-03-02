@@ -1,10 +1,12 @@
 'use strict'
 
+//Required dependencies
 var path = require('path');
 var express = require('express');
 var mysql = require('mysql');
 var bodyParser = require('body-parser');
 
+//Development dependencies
 var webpackDevMiddleware = require("webpack-dev-middleware");
 var webpack = require("webpack");
 var config = require("./webpack.config");
@@ -12,8 +14,8 @@ var config = require("./webpack.config");
 const DIST_DIR = path.join(__dirname, 'dist');
 const PORT = 3000;
 
-var app = express();
-var compiler = webpack(config);
+const app = express();
+const compiler = webpack(config);
 
 //Configure webpack-dev-middleware
 app.use(webpackDevMiddleware(compiler, {
@@ -24,11 +26,17 @@ app.use(webpackDevMiddleware(compiler, {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//////////////////////////////////////////////////
+//	Routes
+//////////////////////////////////////////////////
+
+/* API Routes */
 
 //Require the API routes
 const routes = require('./routes');
 app.use('/note', routes);
 
+/* Default Routes */
 
 //Index route
 app.get('/', function(req, res) {
