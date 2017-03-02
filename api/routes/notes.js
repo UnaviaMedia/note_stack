@@ -7,6 +7,8 @@ const router = express.Router();
 
 const noteDAL = requireModule('api/dal/notes');
 
+//TODO: Return response logic to the router (here)
+
 //GET request to retrieve all notes with optional queries
 router.get('/', function(req, res) {
 	noteDAL.list(req, res);

@@ -1,12 +1,14 @@
 'use strict'
 
 //Require database connection
-const db = require('../../db');
+const db = requireModule('db');
 
 //Function to verify that a number is a valid, positive integer
 function checkNumber(number) {
 	return /^\d+$/.test(number) ? parseInt(number) : 0;
 }
+
+//TODO: Return response logic to the router (here)
 
 class NoteDAL {
 	static list(req, res) {
