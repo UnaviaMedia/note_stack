@@ -9,6 +9,17 @@ const noteDAL = requireModule('api/dal/notes');
 
 //TODO: Return response logic to the router (here)
 
+//Sample function to demonstrate the use of Promises
+router.get('/test/:number', function(req, res) {
+	let number = req.params.number;
+	
+	noteDAL.test(number).then(function(result) {
+		res.json({ msg: `Success: ${result}` });
+	}).catch(function(result) {
+		res.json({ msg: `Error: ${result}` });
+	});
+});
+
 //GET request to retrieve all notes with optional queries
 router.get('/', function(req, res) {
 	noteDAL.list(req, res);

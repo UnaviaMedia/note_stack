@@ -11,6 +11,18 @@ function checkNumber(number) {
 //TODO: Return response logic to the router (here)
 
 class NoteDAL {
+	static test(param) {
+		var promise = new Promise(function(resolve, reject) {
+			if (param > 5) {
+				resolve('Greater than 5');
+			} else {
+				reject('Less than 5');
+			}
+		});
+		
+		return promise;
+	}
+	
 	static list(req, res) {
 		//Get the request parameters and validate them
 		let limit = checkNumber(req.query.limit);
@@ -23,7 +35,7 @@ class NoteDAL {
 		let orderSQL = `ORDER BY dateCreated ${order}`;
 		let querySql = `${orderSQL} ${limitSQL} ${startSQl}`;
 
-		db.query(`SELECT id, title, text, dateCreated, dateModified FROM Note ${querySql};`, function(err, result, fields) {
+		db.query(`SELECT id, title, text, dateCreated, dateModified, finished FROM Note ${querySql};`, function(err, result, fields) {
 			if (err) {
 				//TODO: Handle errors
 				res.json({ msg: 'SELECT ERROR: Select failed', err: err });
@@ -50,7 +62,7 @@ class NoteDAL {
 			return;
 		}
 
-		db.query(`SELECT id, title, text, dateCreated, dateModified FROM Note WHERE id=? ORDER BY dateCreated;`, [id], function(err, result, fields) {
+		db.query(`SELECT id, title, text, dateCreated, dateModified, finished FROM Note WHERE id=? ORDER BY dateCreated;`, [id], function(err, result, fields) {
 			if (err) {
 				//TODO: Handle errors
 				res.json({ msg: 'SELECT ERROR: Select failed', err: err });
