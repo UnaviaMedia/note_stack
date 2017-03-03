@@ -1,5 +1,7 @@
 'use strict'
 
+const ApiResponse = requireModule('api/api_response.js');
+
 //Require database connection
 const db = requireModule('db');
 
@@ -14,9 +16,9 @@ class NoteDAL {
 	static test(param) {
 		var promise = new Promise(function(resolve, reject) {
 			if (param > 5) {
-				resolve('Greater than 5');
+				resolve(new ApiResponse(0, 'Greater than 5', { input: param }));
 			} else {
-				reject('Less than 5');
+				resolve(new ApiResponse(0, 'Less than 5', { input: param }));
 			}
 		});
 		

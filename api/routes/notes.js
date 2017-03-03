@@ -7,6 +7,12 @@ const router = express.Router();
 
 const noteDAL = requireModule('api/dal/notes');
 
+//Function to verify that a number is a valid, positive integer
+function checkNumber(number) {
+	return /^\d+$/.test(number) ? parseInt(number) : 0;
+}
+
+
 //TODO: Return response logic to the router (here)
 
 //Sample function to demonstrate the use of Promises
@@ -14,9 +20,9 @@ router.get('/test/:number', function(req, res) {
 	let number = req.params.number;
 	
 	noteDAL.test(number).then(function(result) {
-		res.json({ msg: `Success: ${result}` });
+		res.json(result);
 	}).catch(function(result) {
-		res.json({ msg: `Error: ${result}` });
+		res.json(result);
 	});
 });
 
