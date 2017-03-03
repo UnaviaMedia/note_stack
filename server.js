@@ -1,19 +1,24 @@
 'use strict'
 
-var path = require('path');
-var express = require('express');
-var mysql = require('mysql');
-var bodyParser = require('body-parser');
+//Enable the global appRequire function to eliminate unnecessary paths
+require('./require_module');
 
-var webpackDevMiddleware = require("webpack-dev-middleware");
-var webpack = require("webpack");
-var config = require("./webpack.config");
+//Required dependencies
+const path = require('path');
+const express = require('express');
+const mysql = require('mysql');
+const bodyParser = require('body-parser');
+
+//Development dependencies
+const webpackDevMiddleware = require("webpack-dev-middleware");
+const webpack = require("webpack");
+const config = require("./webpack.config");
 
 const DIST_DIR = path.join(__dirname, 'dist');
 const PORT = 3000;
 
-var app = express();
-var compiler = webpack(config);
+const app = express();
+const compiler = webpack(config);
 
 //Configure webpack-dev-middleware
 app.use(webpackDevMiddleware(compiler, {
@@ -24,11 +29,17 @@ app.use(webpackDevMiddleware(compiler, {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//////////////////////////////////////////////////
+//	Routes
+//////////////////////////////////////////////////
+
+/* API Routes */
 
 //Require the API routes
-const routes = require('./routes');
-app.use('/note', routes);
+const noteRoutes = require('./api/routes/notes');
+app.use('/note', noteRoutes);
 
+/* Default Routes */
 
 //Index route
 app.get('/', function(req, res) {
@@ -46,6 +57,9 @@ app.get('*', function(req, res) {
 	res.sendFile(path.join(DIST_DIR, 'error.html'));
 });
 
+//////////////////////////////////////////////////
+//	Server Listen
+//////////////////////////////////////////////////
 
 // Listen on specified port (or 3000) if unspecified
 app.listen(process.env.PORT || PORT, process.env.IP, function() {
