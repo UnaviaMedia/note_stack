@@ -1,11 +1,5 @@
 'use strict'
 
-class ApiResponse {
-    constructor(code, msg, data) {
-        this.code = code;
-        this.msg = msg;
-        this.data = data;
-    }
+module.exports = function(code, msg, data) {
+    return { code, msg, data };
 }
-
-module.exports = ApiResponse;
