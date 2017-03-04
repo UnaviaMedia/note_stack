@@ -43,3 +43,4 @@
 
 **March 04, 2017**
 - Additional webpack configuration for SCSS sourcemaps
+- Added Foundation Sites SCSS
