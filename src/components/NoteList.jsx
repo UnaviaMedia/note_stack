@@ -29,7 +29,7 @@ class NoteList extends React.Component {
 		}
 
 		return (
-			<ul>
+			<ul className='note-list'>
 				{ this.state.list.map( note =>
 					<li key={note.id}><Note title={note.title} text={note.content} /></li>) }
 			</ul>

@@ -5,7 +5,7 @@ import React from 'react';
 class NoteFilter extends React.Component {
 	render() {
 		return (
-			<input className='note-filter' type='text' />
+			<input className='input note-filter' type='text' placeholder='Filter' />
 		);
 	}
 }
