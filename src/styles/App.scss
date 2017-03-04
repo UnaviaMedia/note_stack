@@ -1,21 +1,4 @@
-//TODO: Replace selector (very expensive)
-* {
-	box-sizing: border-box;
-}
-
-html, body {
-	margin: 0;
-	padding: 0;
-	background-color: rgb(253, 253, 253);
-	box-sizing: border-box;
-}
-
-.input {
-	margin-bottom: 1rem;
-	padding: 0.5rem;
-}
-
-html, body, #root, .app { height: 100%; }
+@import 'base';
 
 .app {
 	display: flex;
@@ -109,13 +92,10 @@ html, body, #root, .app { height: 100%; }
 
 .editor__actions {
 	display: flex;
-	flex-direction: row-reverse;
-}
+	justify-content: flex-end;
 
-.btn {
-	padding: 0.75rem 1rem;
-	color: white;
-	background-color: dodgerblue;
-	border: none;
-	cursor: pointer;
+	.btn {
+		margin-left: 0.5rem;
+		padding: 0.75rem 1.5rem;
+	}
 }

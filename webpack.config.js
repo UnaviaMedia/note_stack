@@ -6,6 +6,8 @@ const CLIENT_DIR = path.join(__dirname, 'src');
 
 module.exports = {
 	context: CLIENT_DIR,
+	devtool: 'source-map',
+	//Entry file (index.js)
 	entry: './index',
 	output: {
 		path: DIST_DIR,

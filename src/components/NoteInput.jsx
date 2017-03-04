@@ -19,6 +19,7 @@ class NoteInput extends React.Component {
 					<textarea ref='noteInput' className='editor__content input' rows='10' cols='50' />
 				</div>
 				<div className='editor__actions'>
+					<input type='button' className='btn' value='Cancel' onClick={this.storeNote.bind(this)} />
 					<input type='button' className='btn' value='Add' onClick={this.storeNote.bind(this)} />
 				</div>
 			</div>
