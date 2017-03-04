@@ -10,10 +10,10 @@ CREATE USER 'ns_api'@'localhost' IDENTIFIED BY 'Passw0rD';
 GRANT SELECT, INSERT, DELETE, UPDATE, EXECUTE ON NoteStack.* TO 'ns_api'@'localhost';
 
 -- Grant stored procedure execution
-GRANT EXECUTE ON PROCEDURE NoteStack.sp_GetNote TO 'ns_api';
-GRANT EXECUTE ON PROCEDURE NoteStack.sp_GetNotes TO 'ns_api';
-GRANT EXECUTE ON PROCEDURE NoteStack.sp_CreateNote TO 'ns_api';
-GRANT EXECUTE ON PROCEDURE NoteStack.sp_UpdateNote TO 'ns_api';
-GRANT EXECUTE ON PROCEDURE NoteStack.sp_DeleteNote TO 'ns_api';
+GRANT EXECUTE ON PROCEDURE NoteStack.sp_GetNote TO 'ns_api'@'localhost';
+GRANT EXECUTE ON PROCEDURE NoteStack.sp_GetNotes TO 'ns_api'@'localhost';
+GRANT EXECUTE ON PROCEDURE NoteStack.sp_CreateNote TO 'ns_api'@'localhost';
+GRANT EXECUTE ON PROCEDURE NoteStack.sp_UpdateNote TO 'ns_api'@'localhost';
+GRANT EXECUTE ON PROCEDURE NoteStack.sp_DeleteNote TO 'ns_api'@'localhost';
 
 FLUSH PRIVILEGES;

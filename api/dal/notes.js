@@ -22,7 +22,7 @@ class NoteDAL {
 			}
 		});
 	}
-	
+
 	static list(limit, start, order) {
 		return new Promise(function(resolve, reject) {
 			db.query('call sp_GetNotes(?, ?, ?)', [limit, start, order], function(err, result, fields) {
@@ -30,12 +30,15 @@ class NoteDAL {
 					reject(ApiResponse(1, 'SELECT DB ERROR', err));
 					return;
 				}
-	
-				resolve(ApiResponse(0, `GET: ${result ? result[0].length: 0} rows returned`, result));
+
+				//Extract necessary data from result (caused by stored procedure?)
+				result = result[0];
+
+				resolve(ApiResponse(0, `GET: ${result ? result.length: 0} rows returned`, result));
 			});
 		});
 	}
-	
+
 	static get(id) {
 		return new Promise(function(resolve, reject) {
 			db.query('CALL sp_GetNote(?)', [id], function(err, result, fields) {
@@ -43,8 +46,11 @@ class NoteDAL {
 					reject(ApiResponse(1, 'SELECT DB ERROR', err));
 					return;
 				}
-				
-				resolve(ApiResponse(0, `GET: ${result ? result[0].length : 0} rows returned`, result));
+
+				//Extract necessary data from result (caused by stored procedure?)
+				result = result[0];
+
+				resolve(ApiResponse(0, `GET: ${result ? result.length : 0} rows returned`, result));
 			});
 		});
 	}
@@ -56,8 +62,8 @@ class NoteDAL {
 					reject(ApiResponse(1, 'CREATE DB ERROR', err));
 					return;
 				}
-	
-				resolve(ApiResponse(0, `POST: ${result ? result.affectedRows: 0} row affected`, result));
+
+				resolve(ApiResponse(0, `POST: ${result ? result.affectedRows: 0} rows affected`, result));
 			});
 		});
 	}
@@ -69,7 +75,7 @@ class NoteDAL {
 					reject(ApiResponse(1, 'UPDATE DB ERROR', err));
 					return;
 				}
-	
+
 				//TODO: Still have undefined warning
 				resolve(ApiResponse(0, `UPDATE: ${result ? result.affectedRows : 0} rows affected`, result));
 			});
@@ -83,7 +89,7 @@ class NoteDAL {
 					reject(ApiResponse(1, 'DELETE DB ERROR', err));
 					return;
 				}
-				
+
 				resolve(ApiResponse(0, `DELETE: ${result ? result.affectedRows : 0} rows affected`, result));
 			});
 		});

@@ -29,10 +29,11 @@ CREATE PROCEDURE sp_GetNotes(IN p_limit INT, IN p_offset INT, IN p_order VARCHAR
 BEGIN
 	-- A limit of 0 should be no limit, and also disables offset
 	IF p_limit = 0 THEN
-		SET p_limit = 18446744073709551615;
+		-- No specified offset should use the current row count (avoids actually limiting anything)
+		SELECT COUNT(*) INTO p_limit FROM Note;
 		SET p_offset = 0;
 	END IF;
-	
+
 	SELECT id, title, content, dateCreated, dateModified
 	FROM Note
 	ORDER BY

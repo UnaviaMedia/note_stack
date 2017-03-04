@@ -14,8 +14,8 @@ class NoteList extends React.Component {
 			//Convert response to json
 			then((resp) => resp.json()).
 			//Set state with response data
-			then(function(data) {
-				that.setState({ list: data.data });
+			then(function(response) {
+				that.setState({ list: response.data });
 			}).
 			catch(function(error) {
 				console.error('FETCH: Fetch operation failed => ' + error);
@@ -27,11 +27,12 @@ class NoteList extends React.Component {
 				<li>No notes found</li>
 			);
 		}
-		
+		console.log(this.state.list);
+
 		return (
 			<ul>
 				{ this.state.list.map( note =>
-					<li key={note.id}><Note title={note.title} text={note.text} /></li>) }
+					<li key={note.id}><Note title={note.title} text={note.content} /></li>) }
 			</ul>
 		);
 	}
