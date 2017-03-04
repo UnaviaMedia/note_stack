@@ -25,3 +25,12 @@
 
 **March 02, 2017**
 - Configured C9 to act as a cloud editor
+- Add initial database connection
+- Modularized API routing by adding DAL and abstracting to it
+- Created a global require function (based on node_modules/ folder)
+
+**March 03, 2017**
+- Added Promises to DAL functions and consume them in API endpoints
+- Added ApiResponse object to standardize the API responses
+- Standardized endpoint responses
+- Added Stored Procedures to replace SQL string queries and updated callers
