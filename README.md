@@ -23,9 +23,11 @@ sudo apt install -y mysql-server
 sudo mysql_secure_installation
 
 # Create database
+mysql -u root -p -e "DROP DATABASE IF EXISTS NoteStack;"
+mysql -u root -p < sql/tables.sql
+mysql -u root -p < sql/load_data.sql
+mysql -u root -p < sql/procedures.sql
 mysql -u root -p < sql/db_auth.sql
-mysql -u ns_admin -p < sql/tables.sql
-mysql -u ns_api -p < sql/load_data.sql
 
 # NodeJS
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
@@ -39,6 +41,9 @@ npm install
 # Add following line to .bashrc and then source file, adds node_modules to $PATH
 export PATH="./node_modules/.bin:$PATH"
 source ~/.bashrc
+
+# Start server and build webpack
+npm run start
 ```
 
 ## Descriptions
