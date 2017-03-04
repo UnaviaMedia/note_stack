@@ -10,7 +10,7 @@ const db = mysql.createConnection({
 	password:	'Passw0rD',
 	database:	'NoteStack',
 	debug: [
-		'ComQueryPacket', 'ResultSetHeaderPacket', 'RowDataPacket'
+		'ComQueryPacket', 'ResultSetHeaderPacket'
 	]
 });
 
@@ -19,8 +19,8 @@ db.connect(function(err) {
 	if (err) {
 		console.error(`Error connecting: ${err.stack}`);
 		return;
-	}	
-	
+	}
+
 	console.log(`Connected as id ${db.threadId}`);
 });
 

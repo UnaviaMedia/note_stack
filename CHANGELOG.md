@@ -40,3 +40,6 @@
 	- [extract-text-webpack-plugin](https://github.com/webpack-contrib/extract-text-webpack-plugin) for GitHub documentation
 - Added basic styling to app
 - Modularized SCSS files and updated components to match
+
+**March 04, 2017**
+- Additional webpack configuration for SCSS sourcemaps

@@ -9,3 +9,4 @@ npm-debug.log
 # Ignore generated files
 dist/bundle.js
 dist/styles.css
+dist/*.map
