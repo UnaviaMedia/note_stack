@@ -1,5 +1,13 @@
-//Import base styles (reset, etc)
-@import 'base';
+//Import foundation-sites
+@import 'settings';
+@import 'foundation';
+
+@include foundation-global-styles;
+@include foundation-flex-grid;
+@include foundation-flex-classes;
+@include foundation-visibility-classes;
+
+//@import 'base';
 
 .app {
 	display: flex;

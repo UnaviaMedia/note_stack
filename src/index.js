@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+require('./styles/App.scss');
+
 import App from './components/App';
 
 //import ExampleComponents from './react_examples/exampleComponents'

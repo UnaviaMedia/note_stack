@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const DIST_DIR = path.join(__dirname, 'dist');
@@ -30,11 +31,15 @@ module.exports = {
 					use: [{
 						loader: 'css-loader',
 						options: {
+							autoprefixer: true,
 							sourceMap: true
 						}
 					}, {
 						loader: 'sass-loader',
 						options: {
+							includePaths: [
+								'node_modules/foundation-sites/scss'
+							],
 							sourceMap: true
 						}
 					}]
