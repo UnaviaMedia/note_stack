@@ -1,7 +1,8 @@
 import React from 'react';
-import NoteList from '../components/NoteList';
-import NoteInput from '../components/NoteInput';
-import NoteFilter from '../components/NoteFilter';
+import Header from './Header';
+import Sidebar from './Sidebar';
+import NoteEditor from './NoteEditor';
+import Footer from './Footer';
 
 //TODO: Modularize SCSS files (currently holds all styles)
 require('../styles/App.scss');
@@ -10,26 +11,17 @@ class App extends React.Component {
 	render() {
 		return (
 			<section className='app'>
-				<header className='app__header'>
-					<h1>NoteStack</h1>
-				</header>
+				<Header />
 				<section className='app__body'>
-					<section className='body__sidebar'>
-						<NoteFilter />
-						<NoteList />
-					</section>
+					<Sidebar />
 					<section className='body__content'>
-						<NoteInput />
+						<NoteEditor />
 					</section>
 				</section>
-				<footer className='app__footer'>
-					&copy; Kendall Roth
-				</footer>
+				<Footer />
 			</section>
 		);
 	}
 }
-
-//const StatelessComponent = () => <h1>React Stateless</h1>;
 
 export default App;

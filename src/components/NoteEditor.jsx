@@ -1,8 +1,10 @@
 import React from 'react';
 
+require('../styles/NoteEditor.scss');
+
 //TODO: Figure out how to bind the NoteInput to the list of data
 
-class NoteInput extends React.Component {
+class NoteEditor extends React.Component {
 	constructor() {
 		super();
 	}
@@ -27,4 +29,4 @@ class NoteInput extends React.Component {
 	}
 }
 
-export default NoteInput;
+export default NoteEditor;
