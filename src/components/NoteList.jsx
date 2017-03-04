@@ -27,7 +27,6 @@ class NoteList extends React.Component {
 				<li>No notes found</li>
 			);
 		}
-		console.log(this.state.list);
 
 		return (
 			<ul>
