@@ -26,6 +26,7 @@ module.exports = {
 			//Process SCSS files
 			{
 				test: /\.scss$/,
+				//Uses plugin to extract styles and create a separate stylesheet
 				use: ExtractTextPlugin.extract({
 					fallback: 'style-loader',
 					use: [{
@@ -38,6 +39,7 @@ module.exports = {
 						loader: 'sass-loader',
 						options: {
 							includePaths: [
+								//Include path to foundations-sites scss
 								'node_modules/foundation-sites/scss'
 							],
 							sourceMap: true

@@ -4,7 +4,7 @@ import Sidebar from './Sidebar';
 import NoteEditor from './NoteEditor';
 import Footer from './Footer';
 
-//TODO: Modularize SCSS files (currently holds all styles)
+require('../styles/App.scss');
 
 class App extends React.Component {
 	render() {
