@@ -6,4 +6,6 @@ ubuntu-xenial*.log
 node_modules/
 npm-debug.log
 
+# Ignore generated files
 dist/bundle.js
+dist/styles.css
