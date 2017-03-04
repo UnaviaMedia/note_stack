@@ -34,3 +34,7 @@
 - Added ApiResponse object to standardize the API responses
 - Standardized endpoint responses
 - Added Stored Procedures to replace SQL string queries and updated callers
+- Added SCSS compiling
+	- [Setup Webpack with SASS](https://www.jonathan-petitcolas.com/2015/05/15/howto-setup-webpack-on-es6-react-application-with-sass.html)
+	- [Webpack - Migrating from v1 to v2](https://webpack.js.org/guides/migrating/) helped to understand and upgrade previous guide
+- Added basic styling
