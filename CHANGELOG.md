@@ -39,3 +39,4 @@
 	- [Webpack - Migrating from v1 to v2](https://webpack.js.org/guides/migrating/) helped to understand and upgrade previous guide
 	- [extract-text-webpack-plugin](https://github.com/webpack-contrib/extract-text-webpack-plugin) for GitHub documentation
 - Added basic styling to app
+- Modularized SCSS files and updated components to match
