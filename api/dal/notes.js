@@ -14,138 +14,78 @@ function checkNumber(number) {
 
 class NoteDAL {
 	static test(param) {
-		var promise = new Promise(function(resolve, reject) {
+		return new Promise(function(resolve, reject) {
 			if (param > 5) {
-				resolve(new ApiResponse(0, 'Greater than 5', { input: param }));
+				resolve(ApiResponse(0, 'Greater than 5', { input: param }));
 			} else {
-				resolve(new ApiResponse(0, 'Less than 5', { input: param }));
+				resolve(ApiResponse(1, 'Less than 5', { input: param }));
 			}
 		});
-		
-		return promise;
 	}
 	
-	static list(req, res) {
-		//Get the request parameters and validate them
-		let limit = checkNumber(req.query.limit);
-		let start = checkNumber(req.query.start);
-		let order = new Set(['asc', 'desc']).has(req.query.order) ? req.query.order : 'desc';
-
-		//Create advanced querying SQL
-		let limitSQL = limit > 0 ? `LIMIT ${db.escape(limit)}` : '';
-		let startSQl = start >= 0 && limit > 0 ? `OFFSET ${db.escape(start)}` : '';	//Offset can only be enabled when limit is used
-		let orderSQL = `ORDER BY dateCreated ${order}`;
-		let querySql = `${orderSQL} ${limitSQL} ${startSQl}`;
-
-		db.query(`SELECT id, title, text, dateCreated, dateModified, finished FROM Note ${querySql};`, function(err, result, fields) {
-			if (err) {
-				//TODO: Handle errors
-				res.json({ msg: 'SELECT ERROR: Select failed', err: err });
-				return;
-			}
-
-			//TODO: Any validation/processing
-			res.json({
-				msg: `SELECT: Select processed, ${result.length} rows returned`,
-				limit: limit,
-				start: start,
-				order: order,
-				data: result
+	static list(limit, start, order) {
+		return new Promise(function(resolve, reject) {
+			db.query('call sp_GetNotes(?, ?, ?)', [limit, start, order], function(err, result, fields) {
+				if (err) {
+					reject(ApiResponse(1, 'SELECT DB ERROR', err));
+					return;
+				}
+	
+				resolve(ApiResponse(0, `GET: ${result ? result[0].length: 0} rows returned`, result));
+			});
+		});
+	}
+	
+	static get(id) {
+		return new Promise(function(resolve, reject) {
+			db.query('CALL sp_GetNote(?)', [id], function(err, result, fields) {
+				if (err) {
+					reject(ApiResponse(1, 'SELECT DB ERROR', err));
+					return;
+				}
+				
+				resolve(ApiResponse(0, `GET: ${result ? result[0].length : 0} rows returned`, result));
 			});
 		});
 	}
 
-	static get(req, res) {
-		//Get id of Note to select and validate it
-		let id = checkNumber(req.params.id);
-
-		if (id <= 0) {
-			res.json({ msg: `SELECT FAILED: Select failed with invalid id '${req.params.id}'` });
-			return;
-		}
-
-		db.query(`SELECT id, title, text, dateCreated, dateModified, finished FROM Note WHERE id=? ORDER BY dateCreated;`, [id], function(err, result, fields) {
-			if (err) {
-				//TODO: Handle errors
-				res.json({ msg: 'SELECT ERROR: Select failed', err: err });
-				return;
-			}
-
-			//TODO: Any validation/processing
-			res.json({
-				msg: `SELECT: Select processed, ${result.length} rows returned`,
-				data: result
+	static create(title, content) {
+		return new Promise(function(resolve, reject) {
+			db.query('CALL sp_CreateNote(?, ?);', [title, content], function(err, result, fields) {
+				if (err) {
+					reject(ApiResponse(1, 'CREATE DB ERROR', err));
+					return;
+				}
+	
+				resolve(ApiResponse(0, `POST: ${result ? result.affectedRows: 0} row affected`, result));
 			});
 		});
 	}
 
-	static create(req, res) {
-		let title = req.body.title;
-		let text = req.body.text;
-
-		//TODO: Extend validation to include error messages
-		if (!title || !text) {
-			res.json({ msg: 'INSERT FAILED: Insert failed with invalid body' });
-			return;
-		}
-
-		db.query('INSERT INTO Note (title, text) VALUES (?, ?);', [title, text], function(err, result, fields) {
-			if (err) {
-				//TODO: Handle errors
-				res.json({ msg: 'INSERT ERROR: Insert failed', err: err });
-				return;
-			}
-
-			res.json({ msg: `INSERT: Insert processed, ${result.affectedRows} rows affected` });
+	static update(id, title, content) {
+		return new Promise(function(resolve, reject) {
+			db.query('CALL sp_UpdateNote(?, ?, ?)', [id, title, content], function(err, result, fields) {
+				if (err) {
+					reject(ApiResponse(1, 'UPDATE DB ERROR', err));
+					return;
+				}
+	
+				//TODO: Still have undefined warning
+				resolve(ApiResponse(0, `UPDATE: ${result ? result.affectedRows : 0} rows affected`, result));
+			});
 		});
 	}
 
-	static update(req, res) {
-		let id = checkNumber(req.params.id);
-		let title = req.body.title;
-		let text = req.body.text;
-
-		//Validate Note id
-		if (id <= 0) {
-			res.json({ msg: `UPDATE FAILED: Update failed with invalid id '${req.params.id}'` });
-			return;
-		}
-
-		//TODO: Extend validation to include error messages
-		if (!title || !text) {
-			res.json({ msg: 'UPDATE FAILED: Update failed with invalid body' });
-			return;
-		}
-
-		db.query('UPDATE Note SET title=?, text=? WHERE id=?;', [title, text, id], function(err, result, fields) {
-			if (err) {
-				//TODO: Handle errors
-				res.json({ msg: 'Update ERROR: Update failed', err: err });
-				return;
-			}
-
-			res.json({ msg: `UPDATE: Update processed, ${result.affectedRows} rows affected` });
-		});
-	}
-
-	static delete(req, res) {
-		//Get id of Note to delete and validate it
-		let id = checkNumber(req.params.id);
-
-		if (id <= 0) {
-			res.json({ msg: `DELETE FAILED: Delete failed with invalid id '${req.params.id}'` });
-			return;
-		}
-
-		db.query('DELETE FROM Note WHERE id=?;', [id], function(err, result, fields) {
-			if (err) {
-				//TODO: Handle errors
-				res.json({ msg: 'DELETE ERROR: Delete failed', err: err });
-				return;
-			}
-
-			//TODO: Handle no rows being deleted
-			res.json({ msg: `DELETE: Delete processed, ${result.affectedRows} rows affected` });
+	static delete(id) {
+		return new Promise(function(resolve, reject) {
+			db.query(`CALL sp_DeleteNote(?);`, [id], function(err, result, fields) {
+				if (err) {
+					reject(ApiResponse(1, 'DELETE DB ERROR', err));
+					return;
+				}
+				
+				resolve(ApiResponse(0, `DELETE: ${result ? result.affectedRows : 0} rows affected`, result));
+			});
 		});
 	}
 }
