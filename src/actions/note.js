@@ -25,7 +25,7 @@ export const changeFilterText = (filterText) => {
 //Action to change the filter limit
 export const changeFilterLimit = (filterLimit) => {
 	return {
-		type: 'CHANGE_FILTER_LIMIT',
+		type: 'CHANGE_FILTER_OPTIONS',
 		filterLimit
 	}
 };
@@ -33,7 +33,7 @@ export const changeFilterLimit = (filterLimit) => {
 //Action to change the filter start/offset
 export const changeFilterStart = (filterStart) => {
 	return {
-		type: 'CHANGE_FILTER_START',
+		type: 'CHANGE_FILTER_OPTIONS',
 		filterStart
 	}
 };
@@ -41,7 +41,7 @@ export const changeFilterStart = (filterStart) => {
 //Action to change the filter order
 export const changeFilterOrder = (filterOrder) => {
 	return {
-		type: 'CHANGE_FILTER_ORDER',
+		type: 'CHANGE_FILTER_OPTIONS',
 		filterOrder
 	}
 };

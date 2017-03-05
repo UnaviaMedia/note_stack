@@ -15,6 +15,12 @@ const ui = (state = {}, action) => {
 			return Object.assign({}, state, {
 				filterText: action.filterText
 			});
+		case 'CHANGE_FILTER_OPTIONS':
+			return Object.assign({}, state, {
+				filterLimit: action.filterLimit,
+				filterStart: action.filterStart,
+				filterOrder: action.filterOrder
+			});
 		default:
 			return state;
 	}
