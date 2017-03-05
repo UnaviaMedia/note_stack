@@ -5,6 +5,15 @@ import { createStore } from 'redux';
 import noteApp from './reducers';
 import App from './components/App';
 
+import 'script-loader!jquery';
+import 'script-loader!foundation-sites/js/foundation.core';
+import 'script-loader!foundation-sites/js/foundation.util.keyboard';
+import 'script-loader!foundation-sites/js/foundation.util.box';
+import 'script-loader!foundation-sites/js/foundation.util.triggers';
+import 'script-loader!foundation-sites/js/foundation.util.mediaQuery';
+import 'script-loader!foundation-sites/js/foundation.util.motion';
+import 'script-loader!foundation-sites/js/foundation.reveal';
+
 let store = createStore(noteApp, {
 	notes: [
 		{ id: 1, title: 'React is cool', content: 'This is the content of the note' },
@@ -25,5 +34,8 @@ ReactDOM.render(
 	</Provider>,
 	document.getElementById('root')
 );
+
+//Initialize Foundation JS
+$(document).foundation();
 
 console.log('LOAD: index.js');

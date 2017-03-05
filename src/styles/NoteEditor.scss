@@ -40,12 +40,14 @@
 .editor--edit {
 	input {
 		flex-grow: 1;
+		width: auto;
 		padding: 0.25rem 0;
 		font-size: 24px;
 		font-weight: bold;
 		background-color: transparent;
 		border: none;
 		border-bottom: 2px solid indianred;
+		box-shadow: none;
 	}
 
 	textarea {
@@ -54,6 +56,7 @@
 		border: none;
 		border-right: 1px solid indianred;
 		border-left: 1px solid indianred;
+		box-shadow: none;
 	}
 }
 

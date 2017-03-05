@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { changeEditState } from '../actions/note';
+import { toggleEditState } from '../actions/note';
 import { deleteNote } from '../actions/note';
 import ButtonBar from '../components/ButtonBar';
 
@@ -17,19 +17,19 @@ const mapDispatchToProps = (dispatch) => {
 			onDeleteClick: (id) => {
 				console.log('onDeleteClick');
 				dispatch(deleteNote(id)); //Delete the current note
-				dispatch(changeEditState(false)); //Ensure a viewing state
+				dispatch(toggleEditState(false)); //Ensure a viewing state
 			},
 			onEditClick: () => {
 				console.log('onEditClick');
-				dispatch(changeEditState(true)); //Switch to a editing state
+				dispatch(toggleEditState(true)); //Switch to a editing state
 			},
 			onCancelClick: () => {
 				console.log('onCancelClick');
-				dispatch(changeEditState(false)); //Switch back to a viewing state
+				dispatch(toggleEditState(false)); //Switch back to a viewing state
 			},
 			onSaveClick: () => {
 				console.log('onSaveClick');
-				dispatch(changeEditState(false)); //Switch to a viewing state
+				dispatch(toggleEditState(false)); //Switch to a viewing state
 			}
 		}
 	};

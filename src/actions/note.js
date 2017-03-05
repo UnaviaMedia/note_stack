@@ -7,9 +7,9 @@ export const loadNote = (id) => {
 };
 
 //Action to change the edit state of the app
-export const changeEditState = (isEditing) => {
+export const toggleEditState = (isEditing) => {
 	return {
-		type: 'CHANGE_EDIT_STATE',
+		type: 'TOGGLE_EDIT_STATE',
 		isEditing
 	};
 };
@@ -22,27 +22,21 @@ export const changeFilterText = (filterText) => {
 	};
 };
 
-//Action to change the filter limit
-export const changeFilterLimit = (filterLimit) => {
+//Action to toggle whether the settings modal is shown
+export const toggleSettingsState = (isSettingsShown) => {
 	return {
-		type: 'CHANGE_FILTER_OPTIONS',
-		filterLimit
-	}
+		type: 'TOGGLE_SETTINGS_STATE',
+		isSettingsShown
+	};
 };
 
-//Action to change the filter start/offset
-export const changeFilterStart = (filterStart) => {
+//Action to change the filter options
+export const changeFilterOptions = (filterOptions) => {
 	return {
 		type: 'CHANGE_FILTER_OPTIONS',
-		filterStart
-	}
-};
-
-//Action to change the filter order
-export const changeFilterOrder = (filterOrder) => {
-	return {
-		type: 'CHANGE_FILTER_OPTIONS',
-		filterOrder
+		filterLimit: filterOptions.filterLimit,
+		filterStart: filterOptions.filterStart,
+		filterOffset: filterOptions.filterOffset
 	}
 };
 
