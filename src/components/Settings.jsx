@@ -1,19 +1,28 @@
 import React from 'react';
+import { Field, reduxForm } from 'redux-form';
 
-const Settings = ({ isSettingsShown, events }) => {
+let Settings = ({
+	isSettingsShown,		//Whether modal is shown (UNUSED)
+	onSettingsClick,		//Handler for Settings button (gear)
+	onSettingsCancelClick,	//Handler for Cancel button
+	handleSubmit			//Handler expected by redux-form (calls the onSubmit event from container)
+}) => {
 	return (
 		<div className='settings'>
-			<a href='#' onClick={events.onSettingsClick}>
+			<a href='#' onClick={onSettingsClick}>
 				<i className='fi-widget'></i>
 			</a>
-			<section className='reveal tiny settings-modal' id='settings-modal' data-reveal>
+			<form className='reveal tiny settings-modal' id='settings-modal'
+				onSubmit={ handleSubmit } data-reveal
+				data-close-on-click='false' data-close-on-esc='false'
+			>
 				<h2>Settings</h2>
 				<div className='row'>
 					<div className='column'>
 						<label>Sort order:</label>
 						<div className='switch small'>
-							<input className='switch-input' id='asc-desc' type='checkbox' name='orderSwitch' />
-							<label className='switch-paddle' htmlFor='asc-desc'>
+							<Field type='checkbox' name='order' component='input' id='settings-order' className='switch-input' />
+							<label className='switch-paddle' htmlFor='settings-order'>
 								<span className='show-for-sr'>Sort Order</span>
 								<span className='switch-active' aria-hidden='true'>A</span>
 								<span className='switch-inactive' aria-hidden='true'>D</span>
@@ -24,31 +33,35 @@ const Settings = ({ isSettingsShown, events }) => {
 				<div className='row'>
 					<div className='column'>
 						<label htmlFor='settings-limit'>Limit</label>
-						<input type='number' id='settings-limit' placeholder='Limit' min='0' max='100' />
+						<Field type='number' name='limit' component='input' placeholder='Limit' min='0' max='100' />
 					</div>
 					<div className='column'>
 						<label htmlFor='settings-offset'>Start</label>
-						<input type='number' id='settings-offset' placeholder='Start' min='0' max='100' />
+						<Field type='number' name='offset' component='input' placeholder='Start' min='0' max='100' />
 					</div>
 				</div>
 				<div className='row'>
 					<div className='column'>
-						<a href='#' className='button secondary' onClick={events.onSettingsCancelClick}>
+						<a href='#' className='button secondary' onClick={onSettingsCancelClick}>
 							<i className='fi-x'></i>
 							&ensp;Cancel
 						</a>
 					</div>
 					<div className='column'>
-						<a href='#' className='button primary' onClick={events.onSettingsSaveClick}>
+						<button type='submit' className='button primary'>
 							<i className='fi-check'></i>
 							&ensp;Save
-						</a>
+						</button>
 					</div>
 				</div>
-			</section>
-			<script>console.log('test'); $('#settings-modal').foundation('open');</script>
+			</form>
 		</div>
 	);
 };
+
+//Set up the redux-form binding to the unique id 'settings'
+Settings = reduxForm({
+	form: 'settings'
+})(Settings);
 
 export default Settings;

@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+//import { combineReducers } from 'redux';
 
 //Reducer for UI state
 const ui = (state = {}, action) => {

@@ -24,7 +24,8 @@ let store = createStore(noteApp, {
 	ui: {
 		//TODO: Dynamically change this
 		currentNoteId: 1,
-		isEditing: false
+		isEditing: false,		//View mode at start
+		isSettingsShown: false	//Settings hidden at start
 	}
 }, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 

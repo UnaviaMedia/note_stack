@@ -3,14 +3,18 @@
 		//Filter state
 		filterText: 'random',
 		filterOrder: 'asc',
-		filterLimit: '10',
-		filterStart: '5',
+		filterLimit: 10,
+		filterStart: 5,
 		//Editor state
 		isEditing: false,
 		//Currently viewed note (whether editing or viewing)
 		currentNoteId: 2,
 		//Setting modal state
-		isSettingsShown: false
+		isSettingsShown: false,
+		settingsClone: {
+			filterOrder: 'desc',
+			filterLimit: 10
+		}
 	},
 	notes: [
 		{
