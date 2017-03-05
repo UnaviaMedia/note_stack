@@ -17,7 +17,11 @@ let store = createStore(noteApp, {
 			title: 'Redux is nice',
 			content: 'Random contents of the note'
 		}
-	]
+	],
+	ui: {
+		//TODO: Dynamically change this
+		currentNoteId: 1
+	}
 }, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(

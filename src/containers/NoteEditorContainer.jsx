@@ -7,7 +7,8 @@ const mapStateToProps = (state) => {
 	//Get the note that correponds to the selected item
 	const note = state.notes.filter((item) => state.ui.currentNoteId === item.id);
 	return {
-		note: note[0]
+		note: note[0],
+		isEditing: false
 	};
 };
 
