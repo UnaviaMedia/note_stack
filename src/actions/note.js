@@ -1,16 +1,16 @@
 //Action to display a note
-export const loadNote = (id) => {
+export const setEditorNote = (id) => {
 	return {
-		type: 'LOAD_NOTE',
+		type: 'SET_EDITOR_NOTE',
 		id
 	};
 };
 
 //Action to change the edit state of the app
-export const toggleEditState = (isEditing) => {
+export const setEditorState = (editorState) => {
 	return {
-		type: 'TOGGLE_EDIT_STATE',
-		isEditing
+		type: 'SET_EDITOR_STATE',
+		editorState
 	};
 };
 

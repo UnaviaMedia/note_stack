@@ -12,8 +12,8 @@
 	&.button-group {
 		margin-bottom: 0;
 
-		& a:first-of-type { border-radius: 3px 0 0 3px; }
-		& a:last-of-type { border-radius: 0 3px 3px 0; }
+		& button:first-of-type { border-radius: 3px 0 0 3px; }
+		& button:last-of-type { border-radius: 0 3px 3px 0; }
 	}
 
 	.button {
@@ -23,7 +23,7 @@
 
 	.button--delete { background-color: #F44336; }
 	.button--edit { background-color: #2196F3; }
-	.button--save { background-color: #4CAF50; }
+	.button--save, .button--add { background-color: #4CAF50; }
 	.button--cancel { background-color: #607D8B; }
 }
 

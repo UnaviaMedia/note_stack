@@ -3,7 +3,7 @@ import ButtonBarContainer from '../containers/ButtonBarContainer';
 
 require('../styles/NoteEditor.scss');
 
-const ViewNote = ({ note = {}, isEditing }) => {
+const ViewNote = ({ note = {} }) => {
 	if (note === null) {
 		//TODO: Add handling for initial state
 	}
@@ -19,7 +19,10 @@ const ViewNote = ({ note = {}, isEditing }) => {
 	);
 }
 
-const EditNote = ({ note, isEditing }) => {
+const EditNote = ({ note }) => {
+	if (!note) {
+
+	}
 	return (
 		<div className='editor editor--edit'>
 			<div className='editor__header'>
@@ -27,22 +30,25 @@ const EditNote = ({ note, isEditing }) => {
 				<ButtonBarContainer />
 			</div>
 			<div className='editor__content'>
-				{/*<textarea ref='noteInput' className='editor__content input' rows='10' cols='50' />*/}
 				<textarea className='editor__content input' value={note.content} />
 			</div>
 		</div>
 	);
 }
 
-const NoteEditor = ({ note, isEditing }) => {
+const NoteEditor = ({ note, editorState = 'VIEW' }) => {
 	//Called when one of the parameters changes state
 	console.log(note);
 
-	if (isEditing) {
-		return <EditNote isEditing='true' note={note} />
+	switch (editorState) {
+		case 'ADD':
+			return <EditNote />;
+		case 'EDIT':
+			return <EditNote note={note} />;
+		case 'VIEW':
+		default:
+			return <ViewNote note={note} />;
 	}
-
-	return <ViewNote isEditing='false' note={note} />
 };
 
 export default NoteEditor;

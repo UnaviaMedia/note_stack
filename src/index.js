@@ -24,7 +24,7 @@ let store = createStore(noteApp, {
 	ui: {
 		//TODO: Dynamically change this
 		currentNoteId: 1,
-		isEditing: false,		//View mode at start
+		editorState: 'VIEW',		//View mode at start
 		isSettingsShown: false	//Settings hidden at start
 	}
 }, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
@@ -39,4 +39,4 @@ ReactDOM.render(
 //Initialize Foundation JS
 $(document).foundation();
 
-console.log('LOAD: index.js');
+console.log('LOADED: index.js');

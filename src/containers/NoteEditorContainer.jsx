@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
 	const note = state.notes.filter((item) => state.ui.currentNoteId === item.id);
 	return {
 		note: note[0], //Ensure only one note is returned
-		isEditing: state.ui.isEditing
+		editorState: state.ui.editorState
 	};
 };
 

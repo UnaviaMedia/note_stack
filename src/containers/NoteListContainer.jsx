@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
-import { loadNote } from '../actions/note';
-import { toggleEditState } from '../actions/note';
+import { setEditorState, setEditorNote } from '../actions/note';
 import NoteList from '../components/NoteList';
 
 const getFilteredNotes = (notes, filter) => {
@@ -24,8 +23,8 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		onNoteClick: (id) => {
 			console.log('onNoteClick');
-			dispatch(loadNote(id)); //Load the selected note into the editor
-			dispatch(toggleEditState(false)); //Ensure a viewing state
+			dispatch(setEditorNote(id)); //Load the selected note into the editor
+			dispatch(setEditorState('VIEW')); //Ensure a viewing state
 			//TODO: Cancel changes (might be done automatically)
 		}
 	};

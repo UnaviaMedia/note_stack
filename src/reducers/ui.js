@@ -1,15 +1,13 @@
-//import { combineReducers } from 'redux';
-
 //Reducer for UI state
 const ui = (state = {}, action) => {
 	switch (action.type) {
-		case 'LOAD_NOTE':
+		case 'SET_EDITOR_NOTE':
 			return Object.assign({}, state, {
 				currentNoteId: action.id
 			});
-		case 'TOGGLE_EDIT_STATE':
+		case 'SET_EDITOR_STATE':
 			return Object.assign({}, state, {
-				isEditing: action.isEditing
+				editorState: action.editorState
 			});
 		case 'CHANGE_FILTER_TEXT':
 			return Object.assign({}, state, {
@@ -29,9 +27,5 @@ const ui = (state = {}, action) => {
 			return state;
 	}
 };
-
-/*const ui = combineReducers({
-	loadNote
-});*/
 
 export default ui;

@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Button = ({ icon = 'lock', className = '', onClick }) => {
+const Button = ({ icon = 'lock', type='', className = '', onClick }) => {
 	return (
-		<a href='#' className={`button ${className}`} onClick={onClick}>
+		<button className={`button ${className}`} type={type} onClick={onClick}>
 			<i className={`fi-${icon}`}></i>
-		</a>
+		</button>
 	);
 };
 
