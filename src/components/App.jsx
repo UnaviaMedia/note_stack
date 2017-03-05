@@ -1,26 +1,24 @@
 import React from 'react';
 import Header from './Header';
-import Sidebar from './Sidebar';
-import NoteEditor from './NoteEditor';
+import Sidebar from '../containers/Sidebar';
+import NoteEditorContainer from '../containers/NoteEditorContainer';
 import Footer from './Footer';
 
 require('../styles/App.scss');
 
-class App extends React.Component {
-	render() {
-		return (
-			<section className='app'>
-				<Header />
-				<section className='app__body'>
-					<Sidebar />
-					<section className='body__content'>
-						<NoteEditor />
-					</section>
+const App = () => {
+	return (
+		<section className='app'>
+			<Header />
+			<section className='app__body'>
+				<Sidebar />
+				<section className='body__content'>
+					<NoteEditorContainer />
 				</section>
-				<Footer />
 			</section>
-		);
-	}
-}
+			<Footer />
+		</section>
+	);
+};
 
 export default App;

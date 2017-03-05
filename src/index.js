@@ -1,17 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import noteApp from './reducers';
 import App from './components/App';
 
-//import ExampleComponents from './react_examples/exampleComponents'
-//import ValidationComponent from './react_examples/validationComponent'
-//import EventComponent from './react_examples/eventComponent';
-//import RefComponent from './react_examples/refComponent';
-//import LifeCycleComponent from './react_examples/lifeCycleComponent';
-//import DynamicDataComponent from './react_examples/dynamicDataComponent';
+let store = createStore(noteApp, {
+	notes: [
+		{
+			id: 1,
+			title: 'React is cool',
+			content: 'This is the content of the note'
+		},
+		{
+			id: 2,
+			title: 'Redux is nice',
+			content: 'Random contents of the note'
+		}
+	]
+}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
-	<App />,
+	<Provider store={store}>
+		<App />
+	</Provider>,
 	document.getElementById('root')
 );
 

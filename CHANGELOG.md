@@ -44,3 +44,4 @@
 **March 04, 2017**
 - Additional webpack configuration for SCSS sourcemaps
 - Added Foundation Sites SCSS
+- Learned about Redux from an Egghead.io course and following along in CodePen
