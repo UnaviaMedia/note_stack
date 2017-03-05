@@ -14,11 +14,36 @@ export const changeEditState = (isEditing) => {
 	};
 };
 
+//Action to change the filter text
 export const changeFilterText = (filterText) => {
 	return {
 		type: 'CHANGE_FILTER_TEXT',
 		filterText
 	};
+};
+
+//Action to change the filter limit
+export const changeFilterLimit = (filterLimit) => {
+	return {
+		type: 'CHANGE_FILTER_LIMIT',
+		filterLimit
+	}
+};
+
+//Action to change the filter start/offset
+export const changeFilterStart = (filterStart) => {
+	return {
+		type: 'CHANGE_FILTER_START',
+		filterStart
+	}
+};
+
+//Action to change the filter order
+export const changeFilterOrder = (filterOrder) => {
+	return {
+		type: 'CHANGE_FILTER_ORDER',
+		filterOrder
+	}
 };
 
 
