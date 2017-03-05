@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './Header';
-import Sidebar from './Sidebar';
+import SidebarContainer from '../containers/SidebarContainer';
 import NoteEditorContainer from '../containers/NoteEditorContainer';
 import Footer from './Footer';
 
@@ -12,7 +12,7 @@ const App = () => {
 		<section className='app'>
 			<Header />
 			<section className='app__body'>
-				<Sidebar />
+				<SidebarContainer />
 				<section className='body__content'>
 					<NoteEditorContainer />
 				</section>

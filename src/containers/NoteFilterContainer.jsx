@@ -6,7 +6,7 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		//Call whenever filter text changes
 		onTextChange: (event) => {
-			console.log('onFlterTextChange');
+			console.log('onFilterTextChange');
 			dispatch(changeFilterText(event.target.value)); //Update the current filter text
 		}
 	};
