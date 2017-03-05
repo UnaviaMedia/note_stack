@@ -11,13 +11,9 @@ const mapStateToProps = (state) => {
 	};
 };
 
-const mapDispatchToProps = (dispatch) => {
-	return {};
-};
-
 const NoteEditorContainer = connect(
 	mapStateToProps,
-	mapDispatchToProps
+	null
 )(NoteEditor);
 
 export default NoteEditorContainer;

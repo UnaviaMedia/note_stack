@@ -2,9 +2,6 @@ import React from 'react';
 import Button from './Button';
 
 const ButtonBar = ({ currentNoteId, isEditing, events }) => {
-	//Map the two event objects (store events override state events)
-	//const events = Object.assign({}, stateEvents, storeEvents);
-
 	if (isEditing) {
 		return (
 			<div className='editor__actions button-group'>

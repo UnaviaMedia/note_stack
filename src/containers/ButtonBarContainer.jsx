@@ -7,8 +7,7 @@ import ButtonBar from '../components/ButtonBar';
 const mapStateToProps = (state) => {
 	return {
 		currentNoteId: state.ui.currentNoteId,
-		isEditing: state.ui.isEditing,
-		//stateEvents: {}
+		isEditing: state.ui.isEditing
 	};
 };
 

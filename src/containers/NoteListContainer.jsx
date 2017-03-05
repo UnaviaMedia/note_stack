@@ -4,6 +4,7 @@ import { changeEditState } from '../actions/note';
 import NoteList from '../components/NoteList';
 
 const getFilteredNotes = (notes, filter) => {
+	//Return all notes with an empty filter
 	if (!filter || filter === '') {
 		return notes;
 	}

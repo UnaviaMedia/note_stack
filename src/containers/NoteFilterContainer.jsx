@@ -2,13 +2,9 @@ import { connect } from 'react-redux';
 import { changeFilterText } from '../actions/note';
 import NoteFilter from '../components/NoteFilter';
 
-//Call whenever filter text changes
-const mapStateToProps = (state) => {
-	return {};
-};
-
 const mapDispatchToProps = (dispatch) => {
 	return {
+		//Call whenever filter text changes
 		onTextChange: (event) => {
 			console.log('onTextChange');
 			dispatch(changeFilterText(event.target.value)); //Update the current filter text
@@ -17,7 +13,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const NoteFilterContainer = connect(
-	mapStateToProps,
+	null,
 	mapDispatchToProps
 )(NoteFilter);
 
