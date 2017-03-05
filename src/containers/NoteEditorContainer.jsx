@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-//import { loadNote } from '../actions/note';
 import NoteEditor from '../components/NoteEditor';
 
 //Call whenever current note updates (from NoteList)
@@ -8,7 +7,7 @@ const mapStateToProps = (state) => {
 	const note = state.notes.filter((item) => state.ui.currentNoteId === item.id);
 	return {
 		note: note[0],
-		isEditing: false
+		isEditing: state.ui.isEditing
 	};
 };
 

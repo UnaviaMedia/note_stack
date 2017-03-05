@@ -6,6 +6,8 @@
 @include foundation-flex-grid;
 @include foundation-flex-classes;
 @include foundation-visibility-classes;
+@include foundation-button;
+@include foundation-button-group;
 
 @import 'base';
 
@@ -49,6 +51,8 @@ html, body, #root, .app { height: 100%; }
 }
 
 .body__content {
+	display: flex;
+	flex-direction: column;
 	flex-grow: 2;
 	padding: 1rem 2rem;
 }

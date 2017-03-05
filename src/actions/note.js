@@ -3,7 +3,14 @@ export const loadNote = (id) => {
 	return {
 		type: 'LOAD_NOTE',
 		id: id
-	}
+	};
+};
+
+export const changeEditState = (isEditing) => {
+	return {
+		type: 'CHANGE_EDIT_STATE',
+		isEditing: isEditing
+	};
 };
 
 

@@ -4,7 +4,8 @@ import Sidebar from '../containers/Sidebar';
 import NoteEditorContainer from '../containers/NoteEditorContainer';
 import Footer from './Footer';
 
-require('../styles/App.scss');
+import '../styles/App.scss';
+import 'foundation-icons/foundation-icons.scss';
 
 const App = () => {
 	return (

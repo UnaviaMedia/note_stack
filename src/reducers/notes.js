@@ -1,5 +1,5 @@
-//Manage operations on a set
-const notes = (state = {}, action) => {
+//Reducer for notes
+const notes = (state = [], action) => {
 	switch (action.type) {
 		case 'GET_NOTE':
 			return state;
@@ -10,7 +10,8 @@ const notes = (state = {}, action) => {
 		case 'UPDATE_NOTE':
 			return state;
 		case 'DELETE_NOTE':
-			return state;
+			//Filter out the deleted note
+			return state.filter(note => note.id !== action.id);
 		default:
 			return state;
 	}

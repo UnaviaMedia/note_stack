@@ -2,7 +2,31 @@
 .editor {
 	display: flex;
 	flex-direction: column;
-	min-height: 50%;
+	flex-grow: 1;
+
+	hr {
+		margin: 1rem auto;
+		border-top: 1px solid dodgerblue;
+	}
+}
+
+.editor__header {
+	display: flex;
+
+	h2 {
+		flex-grow: 1;
+		display: inline-block;
+		margin: 0;
+	}
+
+	input {
+		flex-grow: 1;
+		padding: 0.25rem;
+		font-weight: bold;
+		background-color: transparent;
+		border: none;
+		border-bottom: 2px solid indianred;
+	}
 }
 
 .editor__content {
@@ -14,20 +38,24 @@
 	min-height: 50px;
 }
 
-.editor__title {
-	width: 100%;
-}
-
-.editor__content {
-	flex-grow: 1;
-}
-
 .editor__actions {
-	display: flex;
-	justify-content: flex-end;
+	display: inline-block;
+	margin-left: 1rem;
 
-	.btn {
-		margin-left: 0.5rem;
-		padding: 0.75rem 1.5rem;
+	&.button-group {
+		margin-bottom: 0;
+
+		& a:first-of-type { border-radius: 3px 0 0 3px; }
+		& a:last-of-type { border-radius: 0 3px 3px 0; }
 	}
+
+	.button {
+		padding: 0.5rem 0.75rem;
+		text-decoration: none;
+	}
+
+	.button--delete { background-color: #F44336; }
+	.button--edit { background-color: #2196F3; }
+	.button--save { background-color: #4CAF50; }
+	.button--cancel { background-color: #2196F3; }
 }
