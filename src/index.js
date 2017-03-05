@@ -7,16 +7,10 @@ import App from './components/App';
 
 let store = createStore(noteApp, {
 	notes: [
-		{
-			id: 1,
-			title: 'React is cool',
-			content: 'This is the content of the note'
-		},
-		{
-			id: 2,
-			title: 'Redux is nice',
-			content: 'Random contents of the note'
-		}
+		{ id: 1, title: 'React is cool', content: 'This is the content of the note' },
+		{ id: 2, title: 'Redux is nice', content: 'Random contents of the note' },
+		{ id: 3, title: 'Partway to completion!', content: 'More text to follow' },
+		{ id: 4, title: 'I am getting tired though', content: 'Lorem impsum asdkfjs afqwej oiu kj ojaaksjdi' }
 	],
 	ui: {
 		//TODO: Dynamically change this
