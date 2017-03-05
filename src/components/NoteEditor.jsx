@@ -14,7 +14,6 @@ const ViewNote = ({ note = {}, isEditing }) => {
 				<h2>{note.title}</h2>
 				<ButtonBarContainer />
 			</div>
-			<hr />
 			<div className='editor__content'>{note.content}</div>
 		</div>
 	);
@@ -27,7 +26,6 @@ const EditNote = ({ note, isEditing }) => {
 				<input type='text' className='editor__title input' placeholder='Title' value={note.title} />
 				<ButtonBarContainer />
 			</div>
-			<hr />
 			<div className='editor__content'>
 				{/*<textarea ref='noteInput' className='editor__content input' rows='10' cols='50' />*/}
 				<textarea className='editor__content input' value={note.content} />

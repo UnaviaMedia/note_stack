@@ -3,45 +3,11 @@
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
-
-	hr {
-		margin: 1rem auto;
-		border-top: 1px solid dodgerblue;
-	}
-}
-
-.editor__header {
-	display: flex;
-
-	h2 {
-		flex-grow: 1;
-		display: inline-block;
-		margin: 0;
-	}
-
-	input {
-		flex-grow: 1;
-		padding: 0.25rem 0;
-		font-size: 24px;
-		font-weight: bold;
-		background-color: transparent;
-		border: none;
-		border-bottom: 2px solid indianred;
-	}
-}
-
-.editor__content {
-	display: flex;
-	flex-direction: column;
-	flex-grow: 1;
-	width: 100%;
-	max-width: 100%;
-	min-height: 50px;
 }
 
 .editor__actions {
 	display: inline-block;
-	margin-left: 1rem;
+	margin-left: 2rem;
 
 	&.button-group {
 		margin-bottom: 0;
@@ -59,4 +25,49 @@
 	.button--edit { background-color: #2196F3; }
 	.button--save { background-color: #4CAF50; }
 	.button--cancel { background-color: #607D8B; }
+}
+
+//Styles that pertain to viewing mode only
+.editor--view {
+	h2 {
+		flex-grow: 1;
+		display: inline-block;
+		margin: 0;
+		border-bottom: 2px solid indianred;
+	}
+}
+
+//Styles that pertain to editing mode only
+.editor--edit {
+	input {
+		flex-grow: 1;
+		padding: 0.25rem 0;
+		font-size: 24px;
+		font-weight: bold;
+		background-color: transparent;
+		border: none;
+		border-bottom: 2px solid indianred;
+	}
+
+	textarea {
+		padding: 0.5rem;
+		background-color: transparent;
+		border: none;
+		border-right: 1px solid indianred;
+		border-left: 1px solid indianred;
+	}
+}
+
+.editor__header {
+	display: flex;
+	margin-bottom: 1.5rem;
+}
+
+.editor__content {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	width: 100%;
+	max-width: 100%;
+	min-height: 50px;
 }
