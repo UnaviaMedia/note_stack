@@ -21,7 +21,8 @@
 
 	input {
 		flex-grow: 1;
-		padding: 0.25rem;
+		padding: 0.25rem 0;
+		font-size: 24px;
 		font-weight: bold;
 		background-color: transparent;
 		border: none;
@@ -57,5 +58,5 @@
 	.button--delete { background-color: #F44336; }
 	.button--edit { background-color: #2196F3; }
 	.button--save { background-color: #4CAF50; }
-	.button--cancel { background-color: #2196F3; }
+	.button--cancel { background-color: #607D8B; }
 }
