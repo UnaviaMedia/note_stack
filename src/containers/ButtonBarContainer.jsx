@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) => {
 		events: {
 			onAddClick: () => {
 				console.log('onAddClick');
-				dispatch(setEditorNote(-1));
+				//dispatch(setEditorNote(-1));
 				dispatch(setEditorState('ADD'));//Switch to an editing state
 			},
 			onEditClick: () => {
@@ -33,6 +33,7 @@ const mapDispatchToProps = (dispatch) => {
 			onDeleteClick: (id) => {
 				console.log('onDeleteClick');
 				dispatch(deleteNote(id)); //Delete the current note
+				dispatch(setEditorNote(-1)); //Delete the current note
 				dispatch(setEditorState('VIEW')); //Ensure a viewing state
 			}
 

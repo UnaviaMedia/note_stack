@@ -3,11 +3,7 @@ import ButtonBarContainer from '../containers/ButtonBarContainer';
 
 require('../styles/NoteEditor.scss');
 
-const ViewNote = ({ note = {} }) => {
-	if (note === null) {
-		//TODO: Add handling for initial state
-	}
-
+const ViewNote = ({ note }) => {
 	return (
 		<div className='editor editor--view'>
 			<div className='editor__header'>
@@ -20,9 +16,7 @@ const ViewNote = ({ note = {} }) => {
 }
 
 const EditNote = ({ note }) => {
-	if (!note) {
-
-	}
+	console.log(note);
 	return (
 		<div className='editor editor--edit'>
 			<div className='editor__header'>
@@ -42,7 +36,7 @@ const NoteEditor = ({ note, editorState = 'VIEW' }) => {
 
 	switch (editorState) {
 		case 'ADD':
-			return <EditNote />;
+			return <EditNote note={note} />;
 		case 'EDIT':
 			return <EditNote note={note} />;
 		case 'VIEW':
