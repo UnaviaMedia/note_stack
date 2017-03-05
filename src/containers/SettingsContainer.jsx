@@ -1,7 +1,10 @@
 import { connect } from 'react-redux';					//Import connect function to generate container
-import Settings from '../components/Settings';
 import { reset } from 'redux-form';						//Import reset form function from form-redux
-import { toggleSettingsState } from '../actions/note';	//Import UI state changes
+import Settings from '../components/Settings';
+import {												//Import UI state changes
+	toggleSettingsState,
+	updateSettings
+} from '../actions/note';
 
 const handleModalEvent = (dispatch, formState) => {
 	//TODO: Remove Foundation calls
@@ -45,9 +48,10 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		//onSubmit is expected by redux-form and will run after the generated handleSubmit
 		onSubmit: (values) => {
+			console.log('onSettingsSubmit');
 			console.log(values);
-			//console.log(values.offset);
 			handleModalEvent(dispatch, 'CLOSE');
+			dispatch(updateSettings(values)); //Update the current filter text
 		}
 	};
 };

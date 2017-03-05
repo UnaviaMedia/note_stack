@@ -19,11 +19,11 @@ const ui = (state = {}, action) => {
 			return Object.assign({}, state, {
 				isSettingsShown: action.isSettingsShown
 			});
-		case 'CHANGE_FILTER_OPTIONS':
+		case 'UPDATE_FILTER_OPTIONS':
 			return Object.assign({}, state, {
+				filterOrder: action.filterOrder,
 				filterLimit: action.filterLimit,
-				filterStart: action.filterStart,
-				filterOrder: action.filterOrder
+				filterOffset: action.filterOffset
 			});
 		default:
 			return state;

@@ -31,12 +31,12 @@ export const toggleSettingsState = (isSettingsShown) => {
 };
 
 //Action to change the filter options
-export const changeFilterOptions = (filterOptions) => {
+export const updateSettings = (filterOptions) => {
 	return {
-		type: 'CHANGE_FILTER_OPTIONS',
-		filterLimit: filterOptions.filterLimit,
-		filterStart: filterOptions.filterStart,
-		filterOffset: filterOptions.filterOffset
+		type: 'UPDATE_FILTER_OPTIONS',
+		filterOrder: filterOptions.order,
+		filterLimit: filterOptions.limit,
+		filterOffset: filterOptions.offset
 	}
 };
 

@@ -61,7 +61,8 @@ let Settings = ({
 
 //Set up the redux-form binding to the unique id 'settings'
 Settings = reduxForm({
-	form: 'settings'
+	form: 'settings',
+	enableReinitialize: true
 })(Settings);
 
 export default Settings;
