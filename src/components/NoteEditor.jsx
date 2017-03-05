@@ -37,7 +37,6 @@ const EditNote = ({ note, isEditing }) => {
 const NoteEditor = ({ note, isEditing }) => {
 	//Called when one of the parameters changes state
 	console.log(note);
-	console.log(isEditing);
 
 	if (isEditing) {
 		return <EditNote isEditing='true' note={note} />

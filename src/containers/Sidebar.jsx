@@ -1,6 +1,6 @@
 import React from 'react';
 import NoteListContainer from './NoteListContainer';
-//import NoteFilter from './NoteFilter';
+import NoteFilterContainer from './NoteFilterContainer';
 
 require('../styles/Sidebar.scss');
 
@@ -8,7 +8,7 @@ class Sidebar extends React.Component {
 	render() {
 		return (
 			<section className='body__sidebar'>
-				{/*<NoteFilter />*/}
+				<NoteFilterContainer />
 				<NoteListContainer />
 			</section>
 		);

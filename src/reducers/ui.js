@@ -11,6 +11,10 @@ const ui = (state = {}, action) => {
 			return Object.assign({}, state, {
 				isEditing: action.isEditing
 			});
+		case 'CHANGE_FILTER_TEXT':
+			return Object.assign({}, state, {
+				filterText: action.filterText
+			});
 		default:
 			return state;
 	}

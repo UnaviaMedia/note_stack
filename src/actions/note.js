@@ -2,14 +2,22 @@
 export const loadNote = (id) => {
 	return {
 		type: 'LOAD_NOTE',
-		id: id
+		id
 	};
 };
 
+//Action to change the edit state of the app
 export const changeEditState = (isEditing) => {
 	return {
 		type: 'CHANGE_EDIT_STATE',
-		isEditing: isEditing
+		isEditing
+	};
+};
+
+export const changeFilterText = (filterText) => {
+	return {
+		type: 'CHANGE_FILTER_TEXT',
+		filterText
 	};
 };
 
@@ -18,7 +26,7 @@ export const changeEditState = (isEditing) => {
 export const getNote = (id) => {
 	return {
 		type: 'GET_NOTE',
-		id: id
+		id
 	};
 };
 
@@ -33,8 +41,8 @@ export const getNotes = () => {
 export const addNote = (title, content) => {
 	return {
 		type: 'ADD_NOTE',
-		title: title,
-		content: content
+		title,
+		content
 	};
 };
 
@@ -42,9 +50,9 @@ export const addNote = (title, content) => {
 export const updateNote = (id, title, content) => {
 	return {
 		type: 'UPDATE_NOTE',
-		id: id,
-		title: title,
-		content: content
+		id,
+		title,
+		content
 	};
 };
 
@@ -52,6 +60,6 @@ export const updateNote = (id, title, content) => {
 export const deleteNote = (id) => {
 	return {
 		type: 'DELETE_NOTE',
-		id: id
+		id
 	};
 };

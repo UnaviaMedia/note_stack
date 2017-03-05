@@ -30,6 +30,7 @@ const mapDispatchToProps = (dispatch) => {
 			},
 			onSaveClick: () => {
 				console.log('onSaveClick');
+				dispatch(changeEditState(false)); //Switch to a viewing state
 			}
 		}
 	};
