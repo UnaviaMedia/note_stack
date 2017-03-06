@@ -1,4 +1,12 @@
-//Reducer for notes
+// File:	src/reducers/notes.js
+// Purpose:	Provide a Redux reducer for Note actions
+
+/**
+ * Redux reducer for Notes
+ * @param {array}	state	Current Redux notes state
+ * @param {object}	action	Action to perform against state
+ * @return {array}	New Redux state
+ */
 const notes = (state = [], action) => {
 	switch (action.type) {
 		case 'GET_NOTE':
@@ -32,6 +40,7 @@ const notes = (state = [], action) => {
 			//Filter out the deleted note
 			return state.filter(note => note.id !== action.id);
 		default:
+			//Return the current state for unknown actions
 			return state;
 	}
 };

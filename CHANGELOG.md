@@ -55,3 +55,4 @@
 
 **March 06, 2017**
 - Cleaned up and refactored codebase
+- Restructured styles
