@@ -4,6 +4,22 @@ import ButtonBarContainer from '../containers/ButtonBarContainer';
 
 require('../styles/NoteEditor.scss');
 
+const EmptyEditor = () => {
+	return (
+		<div className='editor editor--empty'>
+			<div className='editor__header'>
+				<h2>No Note Selected</h2>
+				<ButtonBarContainer />
+			</div>
+			<div className='editor__content'>
+				<p>
+					Select a note from the panel to get starting with editing, or click the Add button to create a new Note.
+				</p>
+			</div>
+		</div>
+	);
+}
+
 const ViewNote = ({ note }) => {
 	return (
 		<div className='editor editor--view'>
@@ -17,7 +33,6 @@ const ViewNote = ({ note }) => {
 }
 
 const EditNote = ({ note, handleSubmit }) => {
-	console.log(note);
 	return (
 		<form id='editor-form' onSubmit={handleSubmit} className='editor editor--edit'>
 			<div className='editor__header'>
@@ -33,6 +48,10 @@ const EditNote = ({ note, handleSubmit }) => {
 
 
 let NoteEditor = ({ note, editorState = 'VIEW', handleSubmit }) => {
+	if (note.id === 0) {
+		return <EmptyEditor />;
+	}
+
 	//Render based on the current editor state
 	switch (editorState) {
 		case 'ADD':

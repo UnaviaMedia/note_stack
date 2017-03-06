@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
 	//Get the note that correponds to the selected item
 	let note = state.notes.filter((item) => state.ui.currentNoteId === item.id)[0];
 
-	//Pass an empty Note if the editor state is ADD (id of 0 is necessary)
+	//Pass an empty Note if the editor state is ADD
 	if (!note || state.ui.editorState === 'ADD') {
 		note = { id: 0, title: '', content: '' };
 	}
@@ -22,7 +22,9 @@ const mapStateToProps = (state) => {
 		initialValues: {
 			id: note.id,
 			title: note.title,
-			content: note.content
+			content: note.content,
+			//Passed to form simply to track editor state on submission
+			editorState: state.ui.editorState
 		}
 	};
 };
@@ -36,8 +38,8 @@ const mapDispatchToProps = (dispatch) => {
 			//Switch back to a viewing state and trigger the appropriate action
 			dispatch(setEditorState('VIEW'));
 
-			//Dispatch added and updated notes to different locations (added notes always have an id of 0)
-			if (values.id === 0) {
+			//Dispatch added and updated notes to different locations
+			if (values.editorState === 'ADD') {
 				values.id = uuidV4();
 				dispatch(addNote(values));
 				dispatch(setEditorNote(values.id));
