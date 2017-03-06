@@ -14,3 +14,13 @@ $sidebar-colour: rgb(225, 225, 225);
 @mixin button-colour($colour) {
     background-color: $colour;
 }
+
+/**
+ * Mixin for messages
+ */
+@mixin message($type) {
+	@if $type == 'empty' {
+		color: grey;
+		font-style: italic;
+	}
+}

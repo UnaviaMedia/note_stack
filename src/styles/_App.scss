@@ -4,8 +4,6 @@
 //Fix for full height
 html, body, #root, .app { height: 100%; }
 
-hr { width: 100%; }
-
 .app {
 	display: flex;
 	flex-direction: column;
@@ -52,3 +50,7 @@ hr { width: 100%; }
 	width: 70vw;
 	padding: 1rem 2rem;
 }
+
+//Global styles
+
+hr { width: 100%; }

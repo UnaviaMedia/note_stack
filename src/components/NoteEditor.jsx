@@ -47,7 +47,7 @@ const EditNote = ({ note, handleSubmit }) => {
 				<ButtonBarContainer />
 			</div>
 			<div className='editor__content'>
-				<Field type='textarea' name='content' className='editor__content input' component='input' />
+				<Field type='textarea' name='content' className='editor__content input' component='textarea' />
 			</div>
 		</form>
 	);

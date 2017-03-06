@@ -11,13 +11,18 @@
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
+
+	.warning--empty {
+		text-align: center;
+		@include message('empty');
+	}
 }
 
 .note-card {
 	padding: 0.5rem;
 	background-color: white;
-	border-bottom: 1px solid $sidebar-colour;
 	cursor: pointer;
+	border-bottom: 1px solid $sidebar-colour;
 
 	&:hover {
 		border-color: $app-primary-colour;

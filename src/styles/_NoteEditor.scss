@@ -39,7 +39,7 @@
 
 		p {
 			margin-top: 5rem;
-			color: darkgray;
+			@include message('empty')
 			max-width: 350px;
 			width: 75%;
 		}
@@ -47,7 +47,7 @@
 
 	h2 {
 		font-weight: normal;
-		font-style: italic;
+		@include message('empty');
 	}
 }
 
@@ -67,7 +67,7 @@
 		border: none;
 		box-shadow: none;
 	}
-	
+
 	input[type=text] {
 		flex-grow: 1;
 		width: auto;
