@@ -10,3 +10,7 @@ npm-debug.log
 dist/bundle.js
 dist/styles.css
 dist/*.map
+dist/*.svg
+dist/*.eot
+dist/*.woff
+dist/*.ttf

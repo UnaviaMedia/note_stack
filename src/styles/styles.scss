@@ -1,0 +1,25 @@
+// File:    /src/styles/styles.scss
+// Purpose: Parent style sheet that gathers the necessary styles together
+
+@import 'variables';
+@import 'settings';
+@import 'foundation';
+
+//Import specific foundation-sites components
+@include foundation-global-styles;
+@include foundation-flex-grid;
+@include foundation-flex-classes;
+@include foundation-visibility-classes;
+@include foundation-forms;
+@include foundation-button;
+@include foundation-button-group;
+@include foundation-reveal;
+@include foundation-switch;
+
+//Import app components
+// NOTE: Decided to handle this here rather than in each component
+//		 simply because of the small size of the app
+@import 'App';
+@import 'Sidebar';
+@import 'NoteEditor';
+@import 'Settings';

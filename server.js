@@ -74,5 +74,5 @@ app.get('*', function(req, res) {
  * Listen on specified port or default above if unspecified
  */
 app.listen(process.env.PORT || PORT, process.env.IP, function() {
-	console.log('Node server listening on port 3000');
+	console.log('Node server listening');
 });

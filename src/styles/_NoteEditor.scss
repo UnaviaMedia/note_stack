@@ -1,10 +1,13 @@
-//Note editing styles
+// File:    /src/styles/NoteEditor.scss
+// Purpose: Styles for the NoteEditor container
+
 .editor {
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
 }
 
+//Editor actions bar
 .editor__actions {
 	display: inline-block;
 	margin-left: 2rem;
@@ -28,6 +31,7 @@
 	.button--cancel { background-color: #607D8B; }
 }
 
+//Empty editor (no note selected)
 .editor--empty {
 	.editor__content {
 		align-items: center;
@@ -57,25 +61,25 @@
 
 //Styles that pertain to editing mode only
 .editor--edit {
+	input {
+		background-color: transparent;
+		border: none;
+		box-shadow: none;
+	}
+	
 	input[type=text] {
 		flex-grow: 1;
 		width: auto;
 		padding: 0.25rem 0;
 		font-size: 24px;
 		font-weight: bold;
-		background-color: transparent;
-		border: none;
 		border-bottom: 2px solid indianred;
-		box-shadow: none;
 	}
 
 	input[type=textarea], textarea {
 		padding: 0.5rem;
-		background-color: transparent;
-		border: none;
 		border-right: 1px solid indianred;
 		border-left: 1px solid indianred;
-		box-shadow: none;
 	}
 }
 

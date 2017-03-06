@@ -1,0 +1,32 @@
+// File:    /src/styles/Settings.scss
+// Purpose: Styles for the Settings container
+
+//Settings bar
+.settings {
+	a { display: block; }
+
+	i.fi-widget {
+		color: lightgray;
+		font-size: 32px;
+	}
+}
+
+//Settings modal
+.settings-modal {
+	h2 {
+	  	margin: 0;
+		text-align: center;
+	}
+
+	label {
+		display: inline-block;
+		margin-bottom: 0.25rem;
+		font-weight: bold;
+	}
+
+	.button {
+		width: 100%;
+		font-weight: bold;
+		text-decoration: none;
+	}
+}

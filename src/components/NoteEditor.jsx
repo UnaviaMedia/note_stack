@@ -2,8 +2,6 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import ButtonBarContainer from '../containers/ButtonBarContainer';
 
-require('../styles/NoteEditor.scss');
-
 const EmptyEditor = () => {
 	return (
 		<div className='editor editor--empty'>

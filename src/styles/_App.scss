@@ -1,21 +1,10 @@
-//Import foundation-sites
-@import 'settings';
-@import 'foundation';
-
-@include foundation-global-styles;
-@include foundation-flex-grid;
-@include foundation-flex-classes;
-@include foundation-visibility-classes;
-@include foundation-forms;
-@include foundation-button;
-@include foundation-button-group;
-@include foundation-reveal;
-@include foundation-switch;
-
-@import 'base';
+// File:    /src/styles/App.scss
+// Purpose: Styles for the App container
 
 //Fix for full height
 html, body, #root, .app { height: 100%; }
+
+hr { width: 100%; }
 
 .app {
 	display: flex;
@@ -33,34 +22,6 @@ html, body, #root, .app { height: 100%; }
 	h1 {
 		flex-grow: 1;
 		margin: 0;
-	}
-}
-
-.settings {
-	a { display: block; }
-
-	i.fi-widget {
-		color: lightgray;
-		font-size: 32px;
-	}
-}
-
-.settings-modal {
-	h2 {
-	  	margin: 0;
-		text-align: center;
-	}
-
-	label {
-		display: inline-block;
-		margin-bottom: 0.25rem;
-		font-weight: bold;
-	}
-
-	.button {
-		width: 100%;
-		font-weight: bold;
-		text-decoration: none;
 	}
 }
 

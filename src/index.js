@@ -1,3 +1,6 @@
+// File:	src/index.js
+// Purpose:	Entry point to app
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -15,6 +18,7 @@ import 'script-loader!foundation-sites/js/foundation.util.mediaQuery';
 import 'script-loader!foundation-sites/js/foundation.util.motion';
 import 'script-loader!foundation-sites/js/foundation.reveal';
 
+//Create initialized store (development)
 let store = createStore(noteApp, {
 	notes: [
 		{ id: uuidV4(), title: 'React is cool', content: 'This is the content of the note' },
@@ -29,6 +33,7 @@ let store = createStore(noteApp, {
 	}
 }, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
+//Render the app
 ReactDOM.render(
 	<Provider store={store}>
 		<App />
