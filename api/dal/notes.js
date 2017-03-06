@@ -1,18 +1,21 @@
+// File:	api/dal/notes.js
+// Purpose:	Provide DAL functionality with the database
+
 'use strict'
 
+//Require necessary modules
 const ApiResponse = requireModule('api/api_response.js');
-
-//Require database connection
 const db = requireModule('db');
 
-//Function to verify that a number is a valid, positive integer
-function checkNumber(number) {
-	return /^\d+$/.test(number) ? parseInt(number) : 0;
-}
-
-//TODO: Return response logic to the router (here)
-
+/**
+ * Data Access Layer class for API consumption
+ */
 class NoteDAL {
+	/**
+	 * Test function to demonstrate the use of Promises
+	 * @param {int} param	Input to compare
+	 * @return {Promise} Promised with resolve and reject handlers
+	 */
 	static test(param) {
 		return new Promise(function(resolve, reject) {
 			if (param > 5) {
@@ -23,6 +26,13 @@ class NoteDAL {
 		});
 	}
 
+	/**
+	 * Return a list of notes from the database with optional query parameters
+	 * @param {int}		limit	Limit parameter
+	 * @param {int} 	start	Offset parameter
+	 * @param {string}	limit	Order parameter
+	 * @return {Promise} Promise with resolve and reject handlers
+	 */
 	static list(limit, start, order) {
 		return new Promise(function(resolve, reject) {
 			db.query('call sp_GetNotes(?, ?, ?)', [limit, start, order], function(err, result, fields) {
@@ -39,6 +49,11 @@ class NoteDAL {
 		});
 	}
 
+	/**
+	 * Return a specified note from the database
+	 * @param {int}	id	Note id
+	 * @return {Promise} Promise with resolve and reject handlers
+	 */
 	static get(id) {
 		return new Promise(function(resolve, reject) {
 			db.query('CALL sp_GetNote(?)', [id], function(err, result, fields) {
@@ -55,6 +70,12 @@ class NoteDAL {
 		});
 	}
 
+	/**
+	 * Create a note in the database
+	 * @param {string}	title	Note title
+	 * @param {string}	content	Note content
+	 * @return {Promise} Promise with resolve and reject handlers
+	 */
 	static create(title, content) {
 		return new Promise(function(resolve, reject) {
 			db.query('CALL sp_CreateNote(?, ?);', [title, content], function(err, result, fields) {
@@ -68,6 +89,13 @@ class NoteDAL {
 		});
 	}
 
+	/**
+	 * Update a note in the database
+	 * @param {int}		id		Note id
+	 * @param {string}	title	Note title
+	 * @param {string}	content	Note content
+	 * @return {Promise} Promise with resolve and reject handlers
+	 */
 	static update(id, title, content) {
 		return new Promise(function(resolve, reject) {
 			db.query('CALL sp_UpdateNote(?, ?, ?)', [id, title, content], function(err, result, fields) {
@@ -82,6 +110,11 @@ class NoteDAL {
 		});
 	}
 
+	/**
+	 * Delete a note from the database
+	 * @param {int}		id		Note id
+	 * @return {Promise} Promise with resolve and reject handlers
+	 */
 	static delete(id) {
 		return new Promise(function(resolve, reject) {
 			db.query(`CALL sp_DeleteNote(?);`, [id], function(err, result, fields) {
