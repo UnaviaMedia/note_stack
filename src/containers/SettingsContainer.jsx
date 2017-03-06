@@ -49,7 +49,6 @@ const mapDispatchToProps = (dispatch) => {
 		//onSubmit is expected by redux-form and will run after the generated handleSubmit
 		onSubmit: (values) => {
 			console.log('onSettingsSubmit');
-			console.log(values);
 			handleModalEvent(dispatch, 'CLOSE');
 			dispatch(updateSettings(values)); //Update the current filter text
 		}

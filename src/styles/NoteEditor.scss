@@ -38,7 +38,7 @@
 
 //Styles that pertain to editing mode only
 .editor--edit {
-	input {
+	input[type=text] {
 		flex-grow: 1;
 		width: auto;
 		padding: 0.25rem 0;
@@ -50,7 +50,7 @@
 		box-shadow: none;
 	}
 
-	textarea {
+	input[type=textarea], textarea {
 		padding: 0.5rem;
 		background-color: transparent;
 		border: none;

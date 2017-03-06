@@ -6,9 +6,28 @@ const notes = (state = [], action) => {
 		case 'GET_NOTES':
 			return state;
 		case 'ADD_NOTE':
-			return state;
+			//Append the new note to the current state
+			return [
+				...state,
+				{
+					id: 33,
+					title: action.title,
+					content: action.content
+				}
+			];
 		case 'UPDATE_NOTE':
-			return state;
+			//Map the current state to a new state, replacing the old note with the updated one
+			return state.map(note => {
+				if (note.id === action.id) {
+					return {
+						id: action.id,
+						title: action.title,
+						content: action.content
+					};
+				}
+
+				return note;
+			});
 		case 'DELETE_NOTE':
 			//Filter out the deleted note
 			return state.filter(note => note.id !== action.id);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Field, reduxForm } from 'redux-form';
 import ButtonBarContainer from '../containers/ButtonBarContainer';
 
 require('../styles/NoteEditor.scss');
@@ -15,34 +16,40 @@ const ViewNote = ({ note }) => {
 	);
 }
 
-const EditNote = ({ note }) => {
+let EditNote = ({ note, handleSubmit }) => {
 	console.log(note);
 	return (
-		<div className='editor editor--edit'>
+		<form id='editor-form' onSubmit={handleSubmit} className='editor editor--edit'>
 			<div className='editor__header'>
-				<input type='text' className='editor__title input' placeholder='Title' value={note.title} />
+				<Field type='text' name='title' className='editor__title input' component='input' placeholder='Title' />
 				<ButtonBarContainer />
 			</div>
 			<div className='editor__content'>
-				<textarea className='editor__content input' value={note.content} />
+				<Field type='textarea' name='content' className='editor__content input' component='input' />
 			</div>
-		</div>
+		</form>
 	);
 }
 
-const NoteEditor = ({ note, editorState = 'VIEW' }) => {
+
+let NoteEditor = ({ note, editorState = 'VIEW', handleSubmit }) => {
 	//Called when one of the parameters changes state
 	console.log(note);
 
 	switch (editorState) {
 		case 'ADD':
-			return <EditNote note={note} />;
+			return <EditNote note={note} handleSubmit={handleSubmit} />;
 		case 'EDIT':
-			return <EditNote note={note} />;
+			return <EditNote note={note} handleSubmit={handleSubmit} />;
 		case 'VIEW':
 		default:
 			return <ViewNote note={note} />;
 	}
 };
+//Set up the redux-form binding to the unique id 'editor'
+NoteEditor = reduxForm({
+	form: 'editor-form',
+	enableReinitialize: true
+})(NoteEditor);
 
 export default NoteEditor;

@@ -6,8 +6,7 @@ const ButtonBar = ({ currentNoteId, editorState = 'VIEW', events }) => {
 		return (
 			<div className='editor__actions button-group'>
 				<Button icon='x' className='button--cancel' onClick={() => events.onCancelClick()} />
-				<Button icon='check' className='button--save' onClick={() => events.onSaveClick()} type='submit' />
-				<Button icon='trash' className='button--delete' onClick={() => events.onDeleteClick(currentNoteId)} />
+				<Button icon='check' className='button--save' type='submit' />
 			</div>
 		);
 	}

@@ -22,10 +22,6 @@ const mapDispatchToProps = (dispatch) => {
 				console.log('onEditClick');
 				dispatch(setEditorState('EDIT')); //Switch to an editing state
 			},
-			onSaveClick: () => {
-				console.log('onSaveClick');
-				dispatch(setEditorState('VIEW')); //Switch to a viewing state
-			},
 			onCancelClick: () => {
 				console.log('onCancelClick');
 				dispatch(setEditorState('VIEW')); //Switch back to a viewing state

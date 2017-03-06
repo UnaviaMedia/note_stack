@@ -41,6 +41,7 @@ export const updateSettings = (filterOptions) => {
 };
 
 
+
 //Action to get a note
 export const getNote = (id) => {
 	return {
@@ -57,21 +58,22 @@ export const getNotes = () => {
 };
 
 //Action to add a note
-export const addNote = (title, content) => {
+export const addNote = (note) => {
 	return {
 		type: 'ADD_NOTE',
-		title,
-		content
+		id: note.id,
+		title: note.title,
+		content: note.content
 	};
 };
 
 //Action to update a note
-export const updateNote = (id, title, content) => {
+export const updateNote = (note) => {
 	return {
 		type: 'UPDATE_NOTE',
-		id,
-		title,
-		content
+		id: note.id,
+		title: note.title,
+		content: note.content
 	};
 };
 
