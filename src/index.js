@@ -9,6 +9,7 @@ import noteApp from './reducers';
 import App from './components/App';
 import uuidV4 from 'uuid';
 
+//Import necessary foundation scripts (for modal)
 import 'script-loader!jquery';
 import 'script-loader!foundation-sites/js/foundation.core';
 import 'script-loader!foundation-sites/js/foundation.util.keyboard';

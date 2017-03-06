@@ -24,3 +24,9 @@ $sidebar-colour: rgb(225, 225, 225);
 		font-style: italic;
 	}
 }
+
+@mixin overflow-ellipsis() {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

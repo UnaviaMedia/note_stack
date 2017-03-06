@@ -32,4 +32,6 @@
 .note__title {
 	width: 100%;
 	font-weight: bold;
+
+	@include overflow-ellipsis;
 }
