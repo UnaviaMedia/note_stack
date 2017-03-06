@@ -1,9 +1,15 @@
+// File:	src/containers/ButtonBarContainer.js
+// Purpose:	Container for the App button bar
+
 import { connect } from 'react-redux';
 import { reset } from 'redux-form';
 import { setEditorState, setEditorNote, deleteNote } from '../actions/note';
 import ButtonBar from '../components/ButtonBar';
 
-//Map the container props to the presentational component
+/**
+ * Map the store state to the Presentational component props
+ * @param {object}	state	Store state
+ */
 const mapStateToProps = (state) => {
 	return {
 		currentNoteId: state.ui.currentNoteId,
@@ -11,7 +17,10 @@ const mapStateToProps = (state) => {
 	};
 };
 
-//Map the container dispatch handlers to the presentational component
+/**
+ * Map the store dispatch to the Presentational component props
+ * @param {function}	dispatch	Store dispatch method
+ */
 const mapDispatchToProps = (dispatch) => {
 	return {
 		events: {

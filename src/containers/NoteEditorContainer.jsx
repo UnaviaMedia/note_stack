@@ -1,10 +1,16 @@
+// File:	src/containers/NoteEditorContainer.js
+// Purpose:	Container for the App editor
+
 import React from 'react';
 import { connect } from 'react-redux';
 import { setEditorState, setEditorNote, addNote, updateNote } from '../actions/note';
 import uuidV4 from 'uuid';
 import NoteEditor from '../components/NoteEditor';
 
-//Map the container props to the presentational component
+/**
+ * Map the store state to the Presentational component props
+ * @param {object}	state	Store state
+ */
 const mapStateToProps = (state) => {
 	//Get the note that correponds to the selected item
 	let note = state.notes.filter((item) => state.ui.currentNoteId === item.id)[0];
@@ -29,7 +35,10 @@ const mapStateToProps = (state) => {
 	};
 };
 
-//Map the container dispatch handlers to the presentational component
+/**
+ * Map the store dispatch to the Presentational component props
+ * @param {function}	dispatch	Store dispatch method
+ */
 const mapDispatchToProps = (dispatch) => {
 	return {
 		//Handler for editor submit button
