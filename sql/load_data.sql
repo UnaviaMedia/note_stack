@@ -1,3 +1,6 @@
+-- File:    sql/load_data.sql
+-- Purpose: Load some sample data into the database
+
 USE NoteStack;
 
 -- Load some sample data

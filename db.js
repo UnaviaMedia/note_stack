@@ -1,9 +1,14 @@
+// File:	db.js
+// Purpose:	Provide a database connection
+
 var mysql = require('mysql');
 
 const dbHost = process.env.IP || 'localhost';
 const dbUser = 'ns_api';
 
-//Create a mysql connection
+/**
+ * Create a mysql connection
+ */
 const db = mysql.createConnection({
 	host:		dbHost,
 	user:		dbUser,
@@ -14,7 +19,9 @@ const db = mysql.createConnection({
 	]
 });
 
-//Open a connection to the database
+/**
+ * Open a connection to the database
+ */
 db.connect(function(err) {
 	if (err) {
 		console.error(`Error connecting: ${err.stack}`);

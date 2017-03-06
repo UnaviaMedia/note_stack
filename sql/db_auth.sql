@@ -1,3 +1,6 @@
+-- File:    sql/db_auth.sql
+-- Purpose: Create an API user and give them permissions to the appropriate stored procedures
+
 USE NoteStack;
 
 -- Grant harmless privilege (to create user if it doesn't exist) and then delete

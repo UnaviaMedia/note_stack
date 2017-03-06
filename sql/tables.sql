@@ -1,4 +1,7 @@
--- This script must be run as the root/admin user and will create the database tables
+-- File:	sql/tables.sql
+-- Purpose:	Create the database and tables
+
+-- NOTE: This script must be run as the root/admin user and will create the database tables
 
 CREATE DATABASE IF NOT EXISTS NoteStack;
 USE NoteStack;

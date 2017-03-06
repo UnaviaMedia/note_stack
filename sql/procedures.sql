@@ -1,13 +1,16 @@
+-- File:    sql/procedures.sql
+-- Purpose: Created stored procedures for data access
+
 USE NoteStack;
 
 DELIMITER $$
 
-/**
- * Get a single note
- * @param	p_id	ID of the note to get
- */
 DROP PROCEDURE IF EXISTS sp_GetNote$$
 
+/**
+ * Get a single note
+ * @param TINYINT	p_id	ID of the note to get
+ */
 CREATE PROCEDURE sp_GetNote(IN p_id TINYINT)
 BEGIN
 	SELECT id, title, content, dateCreated, dateModified
@@ -17,14 +20,14 @@ BEGIN
 END$$
 
 
-/**
- * Get a list of notes with optional queries
- * @param	p_limit		Amount of notes
- * @param	p_offset	Starting point
- * @param	p_order		Sorting order
- */
 DROP PROCEDURE IF EXISTS sp_GetNotes$$
 
+/**
+ * Get a list of notes with optional queries
+ * @param INT		p_limit		Amount of notes
+ * @param INT		p_offset	Starting point
+ * @param VARCHAR	p_order		Sorting order
+ */
 CREATE PROCEDURE sp_GetNotes(IN p_limit INT, IN p_offset INT, IN p_order VARCHAR(5))
 BEGIN
 	-- A limit of 0 should be no limit, and also disables offset
@@ -43,14 +46,13 @@ BEGIN
 END$$
 
 
-/**
- * Create a note
- * @param	p_id		ID of the note to created
- * @param	p_title		Note title
- * @param	p_content	Note content
- */
 DROP PROCEDURE IF EXISTS sp_CreateNote$$
 
+/**
+ * Create a note
+ * @param VARCHAR	p_title		Note title
+ * @param TEXT		p_content	Note content
+ */
 CREATE PROCEDURE sp_CreateNote(IN p_title VARCHAR(50), IN p_content TEXT)
 BEGIN
 	INSERT INTO Note(title, content)
@@ -58,14 +60,14 @@ BEGIN
 END$$
 
 
-/**
- * Update a note
- * @param	p_id		ID of the note to update
- * @param	p_title		Updated note title
- * @param	p_content	Updated note content
- */
 DROP PROCEDURE IF EXISTS sp_UpdateNote$$
 
+/**
+ * Update a note
+ * @param INT		p_id		Note ID to update
+ * @param VARCHAR	p_title		Note title
+ * @param TEXT		p_content	Note content
+ */
 CREATE PROCEDURE sp_UpdateNote(IN p_id INT, IN p_title VARCHAR(50), IN p_content TEXT)
 BEGIN
 	UPDATE Note
@@ -73,12 +75,13 @@ BEGIN
 	WHERE id = p_id;
 END$$
 
-/**
- * Delete a note
- * @param	p_id	ID of the note to delete
- */
+
 DROP PROCEDURE IF EXISTS sp_DeleteNote$$
 
+/**
+ * Delete a note
+ * @param TINYINT	p_id	ID of the note to delete
+ */
 CREATE PROCEDURE sp_DeleteNote(IN p_id TINYINT)
 BEGIN
     DELETE FROM Note
@@ -86,8 +89,3 @@ BEGIN
 END$$
 
 DELIMITER ;
-
-
--- Grant permissions for API user
-GRANT EXECUTE ON NoteStack.* TO 'ns_api'@'localhost';
-FLUSH PRIVILEGES;

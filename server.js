@@ -1,3 +1,6 @@
+// File:	server.js
+// Purpose:	Handle server functionality and requests
+
 'use strict'
 
 //Enable the global appRequire function to eliminate unnecessary paths
@@ -35,23 +38,29 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 /* API Routes */
 
-//Require the API routes
+//Require the API routes and attach them to the '/note' endpoint
 const noteRoutes = require('./api/routes/notes');
 app.use('/note', noteRoutes);
 
 /* Default Routes */
 
-//Index route
+/**
+ * Index route
+ */
 app.get('/', function(req, res) {
 	res.sendFile(path.join(DIST_DIR, 'index.html'));
 });
 
-//Sample route
+/**
+ * Sample route
+ */
 app.get('/test', function(req, res) {
 	res.json({ msg: 'GET: Test endpoint reached successfully' });
 });
 
-//Catch-all route (used for error handling)
+/**
+ * Catch-all route for error handling
+ */
 app.get('*', function(req, res) {
 	//TODO: Change this to display an error page
 	res.sendFile(path.join(DIST_DIR, 'error.html'));
@@ -61,7 +70,9 @@ app.get('*', function(req, res) {
 //	Server Listen
 //////////////////////////////////////////////////
 
-// Listen on specified port (or 3000) if unspecified
+/**
+ * Listen on specified port or default above if unspecified
+ */
 app.listen(process.env.PORT || PORT, process.env.IP, function() {
 	console.log('Node server listening on port 3000');
 });

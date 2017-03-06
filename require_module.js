@@ -1,3 +1,6 @@
+// File:	require_module.js
+// Purpose:	Simplify requiring node modules
+
 'use strict'
 
 //Idea inspired by:
