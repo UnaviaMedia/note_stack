@@ -28,8 +28,6 @@ const getFilteredNotes = (notes, filterText = '', filterOrder = 'DESC') => {
  * @param {object}	state	Store state
  */
 const mapStateToProps = (state) => {
-	console.log('test');
-	console.log(getFilteredNotes(state.notes, state.ui.filterText, state.ui.filterOrder))
 	return {
 		notes: getFilteredNotes(state.notes, state.ui.filterText, state.ui.filterOrder)
 	};

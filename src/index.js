@@ -22,10 +22,10 @@ import 'script-loader!foundation-sites/js/foundation.reveal';
 //Create initialized store (development)
 let store = createStore(noteApp, {
 	notes: [
-		{ id: uuidV4(), title: 'React is cool', content: 'This is the content of the note' },
+		/*{ id: uuidV4(), title: 'React is cool', content: 'This is the content of the note' },
 		{ id: uuidV4(), title: 'Redux is nice', content: 'Random contents of the note' },
 		{ id: uuidV4(), title: 'Partway to completion!', content: 'More text to follow' },
-		{ id: uuidV4(), title: 'I am getting tired though', content: 'Lorem impsum asdkfjs afqwej oiu kj ojaaksjdi' }
+		{ id: uuidV4(), title: 'I am getting tired though', content: 'Lorem impsum asdkfjs afqwej oiu kj ojaaksjdi' }*/
 	],
 	ui: {
 		//TODO: Dynamically change this
