@@ -16,7 +16,7 @@ const ViewNote = ({ note }) => {
 	);
 }
 
-let EditNote = ({ note, handleSubmit }) => {
+const EditNote = ({ note, handleSubmit }) => {
 	console.log(note);
 	return (
 		<form id='editor-form' onSubmit={handleSubmit} className='editor editor--edit'>
@@ -33,12 +33,9 @@ let EditNote = ({ note, handleSubmit }) => {
 
 
 let NoteEditor = ({ note, editorState = 'VIEW', handleSubmit }) => {
-	//Called when one of the parameters changes state
-	console.log(note);
-
+	//Render based on the current editor state
 	switch (editorState) {
 		case 'ADD':
-			return <EditNote note={note} handleSubmit={handleSubmit} />;
 		case 'EDIT':
 			return <EditNote note={note} handleSubmit={handleSubmit} />;
 		case 'VIEW':
@@ -46,6 +43,7 @@ let NoteEditor = ({ note, editorState = 'VIEW', handleSubmit }) => {
 			return <ViewNote note={note} />;
 	}
 };
+
 //Set up the redux-form binding to the unique id 'editor'
 NoteEditor = reduxForm({
 	form: 'editor-form',

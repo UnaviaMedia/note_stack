@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { reset } from 'redux-form';
 import { setEditorState, setEditorNote, deleteNote } from '../actions/note';
 import ButtonBar from '../components/ButtonBar';
 
@@ -27,6 +28,7 @@ const mapDispatchToProps = (dispatch) => {
 			//Handler for the Cancel operation button
 			onCancelClick: () => {
 				console.log('onCancelClick');
+				dispatch(reset('editor-form'));
 				dispatch(setEditorState('VIEW'));
 			},
 			//Handler for the Delete Note button

@@ -15,6 +15,7 @@ const mapStateToProps = (state) => {
 	}
 
 	return {
+		//Note being displayed/edited
 		note: note,
 		editorState: state.ui.editorState,
 		//Contains initial form values (for redux-form)
