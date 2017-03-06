@@ -13,9 +13,7 @@ import NoteList from '../components/NoteList';
  */
 const getFilteredNotes = (notes, filterText = '', filterOrder = 'DESC') => {
 	//Apply the filter text (if specified)
-	notes = notes.filter(note =>
-		note.title.toLowerCase().includes(filterText.toLowerCase())
-	);
+	notes = notes.filter(note => note.title.toLowerCase().includes(filterText.toLowerCase()));
 
 	//Sort the notes by the specified order
 	if (filterOrder === 'ASC') {
@@ -45,8 +43,9 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		onNoteClick: (id) => {
 			console.log('onNoteClick');
-			dispatch(setEditorNote(id)); //Load the selected note into the editor
-			dispatch(setEditorState('VIEW')); //Ensure a viewing state
+			//Load the selectd note and set a view state
+			dispatch(setEditorNote(id));
+			dispatch(setEditorState('VIEW'));
 		}
 	};
 };
