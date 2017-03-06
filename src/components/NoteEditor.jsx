@@ -43,7 +43,7 @@ const EditNote = ({ note, handleSubmit }) => {
 		<form id='editor-form' onSubmit={handleSubmit} className='editor editor--edit'>
 			<div className='editor__header'>
 				<Field type='text' name='title' className='editor__title input' component='input' placeholder='Title'
-					pattern='.{3,}' title='Must be at least 3 characters long' required
+					pattern='.{3,50}' title='Must be between 3 and 50 characters' required
 				/>
 				<ButtonBarContainer />
 			</div>

@@ -9,9 +9,9 @@ DROP PROCEDURE IF EXISTS sp_GetNote$$
 
 /**
  * Get a single note
- * @param TINYINT	p_id	ID of the note to get
+ * @param VARCHAR	p_id	ID of the note to get
  */
-CREATE PROCEDURE sp_GetNote(IN p_id TINYINT)
+CREATE PROCEDURE sp_GetNote(IN p_id VARCHAR(50))
 BEGIN
 	SELECT id, title, content, dateCreated, dateModified
 	FROM Note
@@ -50,13 +50,14 @@ DROP PROCEDURE IF EXISTS sp_CreateNote$$
 
 /**
  * Create a note
+ * @param VARCHAR	p_id		Note ID
  * @param VARCHAR	p_title		Note title
  * @param TEXT		p_content	Note content
  */
-CREATE PROCEDURE sp_CreateNote(IN p_title VARCHAR(50), IN p_content TEXT)
+CREATE PROCEDURE sp_CreateNote(IN p_id VARCHAR(50), IN p_title VARCHAR(50), IN p_content TEXT)
 BEGIN
-	INSERT INTO Note(title, content)
-	VALUES(p_title, p_content);
+	INSERT INTO Note(id, title, content)
+	VALUES(p_id, p_title, p_content);
 END$$
 
 
@@ -64,11 +65,11 @@ DROP PROCEDURE IF EXISTS sp_UpdateNote$$
 
 /**
  * Update a note
- * @param INT		p_id		Note ID to update
+ * @param VARCHAR	p_id		Note ID to update
  * @param VARCHAR	p_title		Note title
  * @param TEXT		p_content	Note content
  */
-CREATE PROCEDURE sp_UpdateNote(IN p_id INT, IN p_title VARCHAR(50), IN p_content TEXT)
+CREATE PROCEDURE sp_UpdateNote(IN p_id VARCHAR(50), IN p_title VARCHAR(50), IN p_content TEXT)
 BEGIN
 	UPDATE Note
 	SET title = p_title, content = p_content
@@ -80,9 +81,9 @@ DROP PROCEDURE IF EXISTS sp_DeleteNote$$
 
 /**
  * Delete a note
- * @param TINYINT	p_id	ID of the note to delete
+ * @param VARCHAR	p_id	ID of the note to delete
  */
-CREATE PROCEDURE sp_DeleteNote(IN p_id TINYINT)
+CREATE PROCEDURE sp_DeleteNote(IN p_id VARCHAR(50))
 BEGIN
     DELETE FROM Note
     WHERE id = p_id;
