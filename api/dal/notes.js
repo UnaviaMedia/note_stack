@@ -41,9 +41,10 @@ class NoteDAL {
 					return;
 				}
 
-				//Extract necessary data from result (caused by stored procedure?)
+				//Extract necessary data from result (caused by stored procedure/node-mysql?)
 				result = result[0];
 
+				//TODO: Handle responses with no affected rows
 				resolve(ApiResponse(0, `GET: ${result ? result.length: 0} rows returned`, result));
 			});
 		});
@@ -62,9 +63,10 @@ class NoteDAL {
 					return;
 				}
 
-				//Extract necessary data from result (caused by stored procedure?)
+				//Extract necessary data from result (caused by stored procedure/node-mysql?)
 				result = result[0];
 
+				//TODO: Handle responses with no affected rows
 				resolve(ApiResponse(0, `GET: ${result ? result.length : 0} rows returned`, result));
 			});
 		});
@@ -84,6 +86,7 @@ class NoteDAL {
 					return;
 				}
 
+				//TODO: Handle responses with no affected rows
 				resolve(ApiResponse(0, `POST: ${result ? result.affectedRows: 0} rows affected`, result));
 			});
 		});
@@ -104,7 +107,7 @@ class NoteDAL {
 					return;
 				}
 
-				//TODO: Still have undefined warning
+				//TODO: Handle responses with no affected rows
 				resolve(ApiResponse(0, `UPDATE: ${result ? result.affectedRows : 0} rows affected`, result));
 			});
 		});
@@ -123,6 +126,7 @@ class NoteDAL {
 					return;
 				}
 
+				//TODO: Handle responses with no affected rows
 				resolve(ApiResponse(0, `DELETE: ${result ? result.affectedRows : 0} rows affected`, result));
 			});
 		});
