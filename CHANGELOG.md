@@ -45,3 +45,13 @@
 - Additional webpack configuration for SCSS sourcemaps
 - Added Foundation Sites SCSS
 - Learned about Redux from an Egghead.io course and following along in CodePen
+- Added filter to Sidebar and filter functionality
+
+**March 05, 2017**
+- Add Foundation Sites JS
+- Created modal and additional styles for it
+- Added functionality and Redux state persistance to Settings menu using redux-form
+- Utilized redux-form to add Adding/Editing functionality to the Editor
+
+**March 06, 2017**
+- Cleaned up and refactored codebase
