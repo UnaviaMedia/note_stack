@@ -1,7 +1,6 @@
 // File:    /src/styles/styles.scss
 // Purpose: Parent style sheet that gathers the necessary styles together
 
-@import 'variables';
 @import 'settings';
 @import 'foundation';
 
@@ -19,6 +18,7 @@
 //Import app components
 // NOTE: Decided to handle this here rather than in each component
 //		 simply because of the small size of the app
+@import 'variables';
 @import 'App';
 @import 'Sidebar';
 @import 'NoteEditor';

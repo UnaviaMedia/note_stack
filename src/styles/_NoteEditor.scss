@@ -25,10 +25,11 @@
 		text-decoration: none;
 	}
 
-	.button--delete { background-color: #F44336; }
-	.button--edit { background-color: #2196F3; }
-	.button--save, .button--add { background-color: #4CAF50; }
-	.button--cancel { background-color: #607D8B; }
+	//Use @button-colour() mixin to generate the button colours and hover effects
+	.button--delete { @include button-colour(#F44336); }
+	.button--edit { @include button-colour(#2196F3); }
+	.button--save, .button--add { @include button-colour(#4CAF50); }
+	.button--cancel { @include button-colour(#607D8B); }
 }
 
 //Empty editor (no note selected)
@@ -73,13 +74,13 @@
 		padding: 0.25rem 0;
 		font-size: 24px;
 		font-weight: bold;
-		border-bottom: 2px solid indianred;
+		border-bottom: 2px solid $app-primary-colour;
 	}
 
 	input[type=textarea], textarea {
 		padding: 0.5rem;
-		border-right: 1px solid indianred;
-		border-left: 1px solid indianred;
+		border-right: 1px solid $app-primary-colour;
+		border-left: 1px solid $app-primary-colour;
 	}
 }
 
@@ -93,6 +94,6 @@
 	flex-direction: column;
 	flex-grow: 1;
 	width: 100%;
-	max-width: 100%;
-	min-height: 50px;
+	//max-width: 100%;
+	//min-height: 50px;
 }

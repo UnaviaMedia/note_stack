@@ -1,3 +1,16 @@
 // File:    /src/styles/_variables.scss
 // Purpose: Style sheet containing variables for the rest of the sheets to use
 
+//Colours for the app
+$app-bar-colour: rgb(60, 60, 60);
+$app-bar-text-colour: rgb(250, 250, 250);
+$app-primary-colour: indianred;
+
+$sidebar-colour: rgb(225, 225, 225);
+
+/**
+ * Mixin for button colours
+ */
+@mixin button-colour($colour) {
+    background-color: $colour;
+}
