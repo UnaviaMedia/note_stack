@@ -10,7 +10,7 @@ const notes = (state = [], action) => {
 			return [
 				...state,
 				{
-					id: 33,
+					id: action.id,
 					title: action.title,
 					content: action.content
 				}

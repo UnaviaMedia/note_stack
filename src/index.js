@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import noteApp from './reducers';
 import App from './components/App';
+import uuidV4 from 'uuid';
 
 import 'script-loader!jquery';
 import 'script-loader!foundation-sites/js/foundation.core';
@@ -16,14 +17,13 @@ import 'script-loader!foundation-sites/js/foundation.reveal';
 
 let store = createStore(noteApp, {
 	notes: [
-		{ id: 1, title: 'React is cool', content: 'This is the content of the note' },
-		{ id: 2, title: 'Redux is nice', content: 'Random contents of the note' },
-		{ id: 3, title: 'Partway to completion!', content: 'More text to follow' },
-		{ id: 4, title: 'I am getting tired though', content: 'Lorem impsum asdkfjs afqwej oiu kj ojaaksjdi' }
+		{ id: uuidV4(), title: 'React is cool', content: 'This is the content of the note' },
+		{ id: uuidV4(), title: 'Redux is nice', content: 'Random contents of the note' },
+		{ id: uuidV4(), title: 'Partway to completion!', content: 'More text to follow' },
+		{ id: uuidV4(), title: 'I am getting tired though', content: 'Lorem impsum asdkfjs afqwej oiu kj ojaaksjdi' }
 	],
 	ui: {
 		//TODO: Dynamically change this
-		currentNoteId: 1,
 		editorState: 'VIEW',		//View mode at start
 		isSettingsShown: false	//Settings hidden at start
 	}

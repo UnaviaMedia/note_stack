@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { setEditorState, setEditorNote, deleteNote } from '../actions/note';
 import ButtonBar from '../components/ButtonBar';
 
-//Call whenever current note id changes
+//Map the container props to the presentational component
 const mapStateToProps = (state) => {
 	return {
 		currentNoteId: state.ui.currentNoteId,
@@ -10,33 +10,39 @@ const mapStateToProps = (state) => {
 	};
 };
 
+//Map the container dispatch handlers to the presentational component
 const mapDispatchToProps = (dispatch) => {
 	return {
 		events: {
+			//Handler for the Add Note button
 			onAddClick: () => {
 				console.log('onAddClick');
-				//dispatch(setEditorNote(-1));
-				dispatch(setEditorState('ADD'));//Switch to an editing state
+				dispatch(setEditorState('ADD'));
 			},
+			//Handler for the Edit Note button
 			onEditClick: () => {
 				console.log('onEditClick');
-				dispatch(setEditorState('EDIT')); //Switch to an editing state
+				dispatch(setEditorState('EDIT'));
 			},
+			//Handler for the Cancel operation button
 			onCancelClick: () => {
 				console.log('onCancelClick');
-				dispatch(setEditorState('VIEW')); //Switch back to a viewing state
+				dispatch(setEditorState('VIEW'));
 			},
+			//Handler for the Delete Note button
 			onDeleteClick: (id) => {
 				console.log('onDeleteClick');
-				dispatch(deleteNote(id)); //Delete the current note
-				dispatch(setEditorNote(-1)); //Delete the current note
-				dispatch(setEditorState('VIEW')); //Ensure a viewing state
+				//Delete the current note and reset the editor
+				dispatch(deleteNote(id));
+				dispatch(setEditorNote(null));
+				dispatch(setEditorState('VIEW'));
 			}
 
 		}
 	};
 };
 
+//Connect the container to the presentation component
 const ButtonBarContainer = connect(
 	mapStateToProps,
 	mapDispatchToProps

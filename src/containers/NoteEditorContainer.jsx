@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setEditorState, setEditorNote, addNote, updateNote } from '../actions/note';
+import uuidV4 from 'uuid';
 import NoteEditor from '../components/NoteEditor';
 
+//Map the container props to the presentational component
 const mapStateToProps = (state) => {
 	//Get the note that correponds to the selected item
 	let note = state.notes.filter((item) => state.ui.currentNoteId === item.id)[0];
@@ -24,6 +26,7 @@ const mapStateToProps = (state) => {
 	};
 };
 
+//Map the container dispatch handlers to the presentational component
 const mapDispatchToProps = (dispatch) => {
 	return {
 		//Handler for editor submit button
@@ -34,8 +37,9 @@ const mapDispatchToProps = (dispatch) => {
 
 			//Dispatch added and updated notes to different locations (added notes always have an id of 0)
 			if (values.id === 0) {
+				values.id = uuidV4();
 				dispatch(addNote(values));
-				dispatch(setEditorNote(-1));
+				dispatch(setEditorNote(values.id));
 			} else {
 				dispatch(updateNote(values));
 			}
