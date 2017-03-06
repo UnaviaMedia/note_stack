@@ -20,13 +20,23 @@ function checkNumber(number) {
 	return /^\d+$/.test(number) ? parseInt(number) : 0;
 }
 
+/**
+ * Verify that an input is provided and matches a given length
+ * @param  {int}	input	Input to validate
+ * @param  {int}	input	Minimum length
+ * @return {bool}	Evaluation of whether the input is valid
+ */
+function validateInput(input, minLength = 0) {
+	return input !== null && input !== undefined && input.length > minLength;
+}
+
 
 /**
  * Sample route to demonstrate the use of Promises
  */
 router.get('/test/:number', function(req, res) {
 	let number = req.params.number;
-	
+
 	//Call the DAL function and handle the return promise
 	noteDAL.test(number).then(function(result) {
 		res.json(result);
@@ -43,7 +53,7 @@ router.get('/', function(req, res) {
 	let limit = checkNumber(req.query.limit);
 	let start = checkNumber(req.query.start);
 	let order = new Set(['asc', 'desc']).has(req.query.order) ? req.query.order : 'desc';
-	
+
 	//Call the DAL function and handle the return promise
 	noteDAL.list(limit, start, order).then(function(result) {
 		res.json(result);
@@ -56,19 +66,19 @@ router.get('/', function(req, res) {
  * GET route to retrieve a single note
  */
 router.get('/:id', function(req, res) {
-	let id = checkNumber(req.params.id);
+	let id = req.params.id;
 
 	//Ensure a possible id was provided
-	if (id <= 0) {
+	if (!validateInput(id)) {
 		res.json(ApiResponse(1, 'GET FAILED: Select failed with invalid id', { id: id }));
 		return;
 	}
-	
+
 	//Call the DAL function and handle the return promise
 	noteDAL.get(id).then(function(result) {
 		res.json(result);
 	}).catch(function(result) {
-		res.json(result);	
+		res.json(result);
 	});
 });
 
@@ -76,18 +86,19 @@ router.get('/:id', function(req, res) {
  * POST route to create a note
  */
 router.post('/add', function(req, res) {
+	let id = req.body.id;
 	let title = req.body.title;
 	let content = req.body.content;
-	
+
 	//Validate the parameters
-	if (!title || !content) {
+	if (!validateInput(id) || !validateInput(title, 3) || !validateInput(content)) {
 		res.json(ApiResponse(1, 'POST INVALID: Create failed with invalid body', { title: title, content: content }));
 		return;
 	}
-	
+
 	//Call the DAL function and handle the return promise
-	noteDAL.create(title, content).then(function(result) {
-		res.json(result);	
+	noteDAL.create(id, title, content).then(function(result) {
+		res.json(result);
 	}).catch(function(result) {
 		res.json(result);
 	});
@@ -97,22 +108,16 @@ router.post('/add', function(req, res) {
  * PUT route to update a note
  */
 router.put('/:id', function(req, res) {
-	let id = checkNumber(req.params.id);
+	let id = req.params.id;
 	let title = req.body.title;
 	let content = req.body.content;
-	
-	//Ensure a possible id was provided
-	if (id <= 0) {
-		res.json(ApiResponse(1, 'UPDATE FAILED: Update failed with invalid id', { id: id }));
-		return;
-	}
 
 	//Validate the parameters
-	if (!title || !content) {
+	if (!validateInput(id) || !validateInput(title, 3) || !validateInput(content)) {
 		res.json(ApiResponse(1, 'UPDATE INVALID: Update failed with invalid body', { id: id, title: title, content: content }));
 		return;
 	}
-	
+
 	//Call the DAL function and handle the return promise
 	noteDAL.update(id, title, content).then(function(result) {
 		res.json(result);
@@ -125,19 +130,19 @@ router.put('/:id', function(req, res) {
  * DELETE route to delete a note
  */
 router.delete('/:id', function(req, res) {
-	let id = checkNumber(req.params.id);
-	
+	let id = req.params.id;
+
 	//Ensure a possible id was provided
-	if (id <= 0) {
+	if (validateInput(id)) {
 		res.json(ApiResponse(1, 'DELETE FAILED: Delete failed with invalid id', { id: id }));
 		return;
 	}
-	
+
 	//Call the DAL function and handle the return promise
 	noteDAL.delete(id).then(function(result) {
 		res.json(result);
 	}).catch(function(result) {
-		res.json(result);	
+		res.json(result);
 	});
 });
 

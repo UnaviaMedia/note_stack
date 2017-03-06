@@ -52,7 +52,7 @@ class NoteDAL {
 
 	/**
 	 * Return a specified note from the database
-	 * @param {int}	id	Note id
+	 * @param {string}	id	Note id
 	 * @return {Promise} Promise with resolve and reject handlers
 	 */
 	static get(id) {
@@ -74,13 +74,14 @@ class NoteDAL {
 
 	/**
 	 * Create a note in the database
+	 * @param {string}	id		Note id
 	 * @param {string}	title	Note title
 	 * @param {string}	content	Note content
 	 * @return {Promise} Promise with resolve and reject handlers
 	 */
-	static create(title, content) {
+	static create(id, title, content) {
 		return new Promise(function(resolve, reject) {
-			db.query('CALL sp_CreateNote(?, ?);', [title, content], function(err, result, fields) {
+			db.query('CALL sp_CreateNote(?, ?, ?);', [id, title, content], function(err, result, fields) {
 				if (err) {
 					reject(ApiResponse(1, 'CREATE DB ERROR', err));
 					return;
@@ -94,7 +95,7 @@ class NoteDAL {
 
 	/**
 	 * Update a note in the database
-	 * @param {int}		id		Note id
+	 * @param {string}	id		Note id
 	 * @param {string}	title	Note title
 	 * @param {string}	content	Note content
 	 * @return {Promise} Promise with resolve and reject handlers
@@ -115,7 +116,7 @@ class NoteDAL {
 
 	/**
 	 * Delete a note from the database
-	 * @param {int}		id		Note id
+	 * @param {string}	id		Note id
 	 * @return {Promise} Promise with resolve and reject handlers
 	 */
 	static delete(id) {
