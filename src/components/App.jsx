@@ -1,3 +1,6 @@
+// File:	src/components/App.jsx
+// Purpose:	App presentational component
+
 import React from 'react';
 import Header from './Header';
 import SidebarContainer from '../containers/SidebarContainer';

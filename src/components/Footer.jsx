@@ -1,3 +1,6 @@
+// File:	src/components/Footer.jsx
+// Purpose:	Footer presentational component
+
 import React from 'react';
 
 const Footer = () => {

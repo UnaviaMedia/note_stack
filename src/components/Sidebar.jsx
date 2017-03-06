@@ -1,3 +1,6 @@
+// File:	src/components/Sidebar.jsx
+// Purpose:	Sidebar presentational component
+
 import React from 'react';
 import NoteListContainer from '../containers/NoteListContainer';
 import NoteFilterContainer from '../containers/NoteFilterContainer';

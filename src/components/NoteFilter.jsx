@@ -1,3 +1,6 @@
+// File:	src/components/NoteFilter.jsx
+// Purpose:	NoteFilter presentational component
+
 import React from 'react';
 
 const NoteFilter = ({ onTextChange }) => {

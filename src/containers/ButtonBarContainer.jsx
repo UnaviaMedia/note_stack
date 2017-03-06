@@ -3,7 +3,8 @@
 
 import { connect } from 'react-redux';
 import { reset } from 'redux-form';
-import { setEditorState, setEditorNote, deleteNote } from '../actions/note';
+import { setEditorState, setEditorNote } from '../actions/ui';
+import { deleteNote } from '../actions/note';
 import ButtonBar from '../components/ButtonBar';
 
 /**

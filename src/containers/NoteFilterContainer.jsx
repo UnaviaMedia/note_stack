@@ -2,7 +2,7 @@
 // Purpose:	Container for the App sidebar filter
 
 import { connect } from 'react-redux';
-import { changeFilterText } from '../actions/note';
+import { changeFilterText } from '../actions/ui';
 import NoteFilter from '../components/NoteFilter';
 
 /**

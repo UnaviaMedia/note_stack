@@ -1,3 +1,6 @@
+// File:	src/components/Note.jsx
+// Purpose:	Note presentational component
+
 import React from 'react';
 
 const Note = ({ title, content, onClick }) => {

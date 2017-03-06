@@ -1,3 +1,6 @@
+// File:	src/components/Header.jsx
+// Purpose:	Header presentational component
+
 import React from 'react';
 import SettingsContainer from '../containers/SettingsContainer';
 

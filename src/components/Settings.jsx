@@ -1,3 +1,6 @@
+// File:	src/components/Settings.jsx
+// Purpose:	Settings presentational component
+
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 

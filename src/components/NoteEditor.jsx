@@ -1,7 +1,14 @@
+// File:	src/components/NoteEditor.jsx
+// Purpose:	NoteEditor presentational component
+
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import ButtonBarContainer from '../containers/ButtonBarContainer';
 
+//NOTE: Figure out how to refactor all these components.
+//			Although the fact that I need a form only one is a problem
+
+//Empty editor component
 const EmptyEditor = () => {
 	return (
 		<div className='editor editor--empty'>
@@ -18,6 +25,7 @@ const EmptyEditor = () => {
 	);
 }
 
+//Viewing component
 const ViewNote = ({ note }) => {
 	return (
 		<div className='editor editor--view'>
@@ -30,6 +38,7 @@ const ViewNote = ({ note }) => {
 	);
 }
 
+//Editing component
 const EditNote = ({ note, handleSubmit }) => {
 	return (
 		<form id='editor-form' onSubmit={handleSubmit} className='editor editor--edit'>
@@ -44,7 +53,7 @@ const EditNote = ({ note, handleSubmit }) => {
 	);
 }
 
-
+//Parent component that chooses a component to display
 let NoteEditor = ({ note, editorState = 'VIEW', handleSubmit }) => {
 	if (note.id === 0) {
 		return <EmptyEditor />;

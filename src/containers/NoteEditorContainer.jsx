@@ -3,7 +3,8 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { setEditorState, setEditorNote, addNote, updateNote } from '../actions/note';
+import { setEditorState, setEditorNote } from '../actions/ui';
+import { addNote, updateNote } from '../actions/note';
 import uuidV4 from 'uuid';
 import NoteEditor from '../components/NoteEditor';
 

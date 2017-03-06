@@ -1,3 +1,6 @@
+// File:	src/components/ButtonBar.jsx
+// Purpose:	ButtonBar presentational component
+
 import React from 'react';
 import Button from './Button';
 

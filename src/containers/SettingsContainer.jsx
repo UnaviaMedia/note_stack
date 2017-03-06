@@ -4,7 +4,7 @@
 import { connect } from 'react-redux';
 import { reset } from 'redux-form';
 import Settings from '../components/Settings';
-import { toggleSettingsState, updateSettings } from '../actions/note';
+import { toggleSettingsState, updateSettings } from '../actions/ui';
 
 /**
  * Handle the settings container modal events

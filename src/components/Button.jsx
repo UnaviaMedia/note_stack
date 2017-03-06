@@ -1,3 +1,5 @@
+// File:	src/components/Button.jsx
+// Purpose:	Button presentational component
 import React from 'react';
 
 const Button = ({ icon = 'lock', type='', className = '', onClick }) => {

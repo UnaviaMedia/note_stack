@@ -2,7 +2,7 @@
 // Purpose:	Container for the App note list
 
 import { connect } from 'react-redux';
-import { setEditorState, setEditorNote } from '../actions/note';
+import { setEditorState, setEditorNote } from '../actions/ui';
 import NoteList from '../components/NoteList';
 
 /**

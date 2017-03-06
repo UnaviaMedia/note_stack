@@ -1,3 +1,6 @@
+// File:	src/components/NoteList.jsx
+// Purpose:	NoteList presentational component
+
 import React from 'react';
 import Note from './Note';
 
