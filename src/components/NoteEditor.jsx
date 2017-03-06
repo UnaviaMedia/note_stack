@@ -6,7 +6,8 @@ import { Field, reduxForm } from 'redux-form';
 import ButtonBarContainer from '../containers/ButtonBarContainer';
 
 //NOTE: Figure out how to refactor all these components.
-//			Although the fact that I need a form for only one is a problem
+//			Although the fact that I need a form for only one is a problem.
+//			Could possibly change the container to a class
 
 //Empty editor component
 const EmptyEditor = () => {
@@ -41,11 +42,15 @@ const EditNote = ({ note, handleSubmit }) => {
 	return (
 		<form id='editor-form' onSubmit={handleSubmit} className='editor editor--edit'>
 			<div className='editor__header'>
-				<Field type='text' name='title' className='editor__title input' component='input' placeholder='Title' />
+				<Field type='text' name='title' className='editor__title input' component='input' placeholder='Title'
+					pattern='.{3,}' title='Must be at least 3 characters long' required
+				/>
 				<ButtonBarContainer />
 			</div>
 			<div className='editor__content'>
-				<Field type='textarea' name='content' className='editor__content input' component='textarea' />
+				<Field type='textarea' name='content' className='editor__content input' component='textarea'
+					pattern='(.{0}||.{3,})' title='Must be empty or at least 3 characters long'
+				/>
 			</div>
 		</form>
 	);
