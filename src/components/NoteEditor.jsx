@@ -17,9 +17,7 @@ const EmptyEditor = () => {
 				<ButtonBarContainer />
 			</div>
 			<div className='editor__content'>
-				<p>
-					Select a note from the panel to get starting with editing, or click the Add button to create a new Note.
-				</p>
+				<p>Select a note from the panel to get starting with editing, or click the Add button to create Notes.</p>
 			</div>
 		</div>
 	);
