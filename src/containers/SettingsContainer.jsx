@@ -41,7 +41,7 @@ const mapStateToProps = (state) => {
 		isSettingsShown: state.ui.isSettingsShown || false,
 		//Contains initial form values
 		initialValues: {
-			order: state.ui.filterOrder || false,
+			order: state.ui.filterOrder === 'ASC' ? true : false,
 			limit: state.ui.filterLimit || 0,
 			offset: state.ui.filterOffset || 0
 		}

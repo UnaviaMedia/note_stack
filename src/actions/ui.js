@@ -37,9 +37,8 @@ export const toggleSettingsState = (isSettingsShown) => {
 export const updateSettings = (filterOptions) => {
 	return {
 		type: 'UPDATE_FILTER_OPTIONS',
-		filterOrder: filterOptions.order,
+		filterOrder: filterOptions.order ? 'ASC' : 'DESC',
 		filterLimit: filterOptions.limit,
 		filterOffset: filterOptions.offset
 	}
 };
-

@@ -6,7 +6,7 @@ import { Field, reduxForm } from 'redux-form';
 import ButtonBarContainer from '../containers/ButtonBarContainer';
 
 //NOTE: Figure out how to refactor all these components.
-//			Although the fact that I need a form only one is a problem
+//			Although the fact that I need a form for only one is a problem
 
 //Empty editor component
 const EmptyEditor = () => {

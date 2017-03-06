@@ -7,18 +7,22 @@ import NoteList from '../components/NoteList';
 
 /**
  * Get a list of filtered notes to attach to the presentational component
- * @param {array}	notes	List of notes
- * @param {string}	filter	Filter text
+ * @param {array}	notes		List of notes
+ * @param {string}	filterText	Filter text
+ * @param {bool}	filterOrder	Filter order
  */
-const getFilteredNotes = (notes, filter) => {
-	//Return all notes with an empty filter
-	if (!filter || filter === '') {
-		return notes;
+const getFilteredNotes = (notes, filterText = '', filterOrder = 'DESC') => {
+	//Apply the filter text (if specified)
+	notes = notes.filter(note =>
+		note.title.toLowerCase().includes(filterText.toLowerCase())
+	);
+
+	//Sort the notes by the specified order
+	if (filterOrder === 'ASC') {
+		return notes.sort((a, b) => a.title.localeCompare(b.title));
 	}
 
-	//Return all notes that match the filter text
-	return notes.filter(note =>
-		note.title.toLowerCase().includes(filter.toLowerCase()));
+	return notes.sort((a, b) => b.title.localeCompare(a.title));
 };
 
 /**
@@ -26,8 +30,10 @@ const getFilteredNotes = (notes, filter) => {
  * @param {object}	state	Store state
  */
 const mapStateToProps = (state) => {
+	console.log('test');
+	console.log(getFilteredNotes(state.notes, state.ui.filterText, state.ui.filterOrder))
 	return {
-		notes: getFilteredNotes(state.notes, state.ui.filterText)
+		notes: getFilteredNotes(state.notes, state.ui.filterText, state.ui.filterOrder)
 	};
 };
 
