@@ -16,8 +16,8 @@ const mapStateToProps = (state) => {
 	//Get the note that correponds to the selected item
 	let note = state.notes.filter((item) => state.ui.currentNoteId === item.id)[0];
 
-	//Pass an empty Note if the editor state is ADD
-	//TODO: Remove this !note (this should only happen in empty VIEW, but could check for that too)
+	//Pass a temporary Note if note is undefined or the editor state is ADD
+	//	Necessary for redux-form initialValues
 	if (!note || state.ui.editorState === 'ADD') {
 		note = { id: 0, title: '', content: '' };
 	}
@@ -68,56 +68,3 @@ const NoteEditorContainer = connect(
 )(NoteEditor);
 
 export default NoteEditorContainer;
-
-/*class NoteEditorContainer extends React.Component {
-	constructor(params) {
-		super(params);
-		this.state = {
-			note: {},
-			editorState: 'VIEW'
-		};
-	}
-
-	componentDidMount() {
-		const { store } = this.context;
-		this.unsubscribe = store.subscribe(() =>
-			this.forceUpdate()
-		);
-	}
-
-	componentWillUnmount() {
-		this.unsubscribe();
-	}
-
-	render() {
-		//const props = this.props;
-		const { store } = this.context;
-		const state = store.getState();
-
-		//Get current note and current editor state
-		const editorState = state.ui.editorState;
-		let note;
-
-		switch (editorState) {
-			case 'ADD':
-				note = { title: '', content: '' };
-				break;
-			case 'EDIT':
-			case 'VIEW':
-			default:
-				note = state.notes.filter((item) => state.ui.currentNoteId === item.id)[0];
-				//Handle either an invalid id or an empty state
-				if (!note || note.length === 0) {
-					note = state.notes[0];
-				}
-				break;
-		}
-
-		return (
-			<NoteEditor note={note} editorState={editorState} />
-		);
-	}
-}
-NoteEditorContainer.contextTypes = {
-	store: React.PropTypes.object
-};*/

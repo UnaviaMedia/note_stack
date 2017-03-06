@@ -41,7 +41,6 @@ const mapDispatchToProps = (dispatch) => {
 			console.log('onNoteClick');
 			dispatch(setEditorNote(id)); //Load the selected note into the editor
 			dispatch(setEditorState('VIEW')); //Ensure a viewing state
-			//TODO: Cancel changes (might be done automatically)
 		}
 	};
 };

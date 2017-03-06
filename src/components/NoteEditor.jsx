@@ -55,10 +55,6 @@ const EditNote = ({ note, handleSubmit }) => {
 
 //Parent component that chooses a component to display
 let NoteEditor = ({ note, editorState = 'VIEW', handleSubmit }) => {
-	if (note.id === 0) {
-		return <EmptyEditor />;
-	}
-
 	//Render based on the current editor state
 	switch (editorState) {
 		case 'ADD':
@@ -66,7 +62,8 @@ let NoteEditor = ({ note, editorState = 'VIEW', handleSubmit }) => {
 			return <EditNote note={note} handleSubmit={handleSubmit} />;
 		case 'VIEW':
 		default:
-			return <ViewNote note={note} />;
+			//Handle an empty editor (no selected note)
+			return note.id !== 0 ? <ViewNote note={note} /> : <EmptyEditor />;
 	}
 };
 

@@ -24,6 +24,7 @@ const mapStateToProps = (state) => {
  */
 const mapDispatchToProps = (dispatch) => {
 	return {
+		//NOTE: Handler for the onSaveClick() event is defined in the redux-form binding
 		events: {
 			//Handler for the Add Note button
 			onAddClick: () => {
