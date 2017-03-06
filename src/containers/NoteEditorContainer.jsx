@@ -17,6 +17,7 @@ const mapStateToProps = (state) => {
 	let note = state.notes.filter((item) => state.ui.currentNoteId === item.id)[0];
 
 	//Pass an empty Note if the editor state is ADD
+	//TODO: Remove this !note (this should only happen in empty VIEW, but could check for that too)
 	if (!note || state.ui.editorState === 'ADD') {
 		note = { id: 0, title: '', content: '' };
 	}
