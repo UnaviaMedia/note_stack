@@ -39,6 +39,7 @@ sudo mysql_secure_installation
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt install -y nodejs build-essential
 
+# Either clone repository or download zipped file to a directory (/home/[USER_NAME]/ works)
 cd {{project_directory}}
 
 # Create database
