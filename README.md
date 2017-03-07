@@ -4,33 +4,21 @@ NoteStack is an extremely simple web app developed as a code-along to learn a cu
 ## Stack
 The stack involved is a mix of technologies, including the following:
 
-- NodeJS
-  - Lightweight JavaScript server
-- ExpressJS
-  - Simple JS web server framework
-- React
-  - Clientside components and View-management
-- Redux
-  - Single source of stage management for React components
-- MySQL
-  - Relational database for persisting Notes
-- Webpack
-  - Bundles and processes client code
-- Babel
-  - ES2015 (EcmaScript6) transpiler
-- SASS
-
-### Helper Frameworks
-The development cycle was greatly improved by the following frameworks and stand-alone apps:
-
-- Git
-  - Source control management for code
-- Postman
-  - Used to send HTTP requests to test the API
-- Redux Debug Tools
-  - Enables viewing the state and history of Redux
-- Foundation 6
-  - Small helper utilities (such as modals)
+| Name                  | Description           |
+|-----------------------|-----------------------|
+| **NodeJS**            | Lightweight JavaScript server
+| **Express**           |Simple JS web server framework
+| **React**             | Clientside components and View-management
+| **Redux**             | Single source of stage management for React components
+| **MySQL**             | Relational database for persisting Notes
+| **Webpack**           | Bundles and processes client code
+| **Babel**             | ES2015 (EcmaScript6) transpiler
+| **SASS**              | CSS pre-processor
+|
+| **Git**               | Source control management for code
+| **Postman**           | Used to send HTTP requests to test the API
+| **Redux** Debug Tools | Enables viewing the state and history of Redux
+| **Foundation** 6      | Small helper utilities (such as modals)
 
 ## Helpful Docs
 - [Node.js MySQL GitHub](https://github.com/mysqljs/mysql)
