@@ -18,86 +18,49 @@
  */
 const notes = (state = [], action) => {
 	switch (action.type) {
-		case 'GET_NOTE':
+		//GET (single) reducer
+		case 'GET_RECEIVE_NOTE':
 			//NOTE: This is deliberately empty, as I couldn't think of why to use it (already have posts in state)
 			return state;
 
-		//GET (list) reducers
-		case 'GET_REQUEST_NOTES':
-			console.log('FETCH_REQUEST_NOTES');
-			return state;
+		//GET (list) reducer
 		case 'GET_RECEIVE_NOTES':
-			console.log('FETCH_RECEIVE_NOTES');
+			console.log('GET_RECEIVE_NOTES');
 			//CHANGE: Simple way of handling retrieval errors
-			return action.payload.data.constructor === Array ? action.payload.data : [];
-		case 'GET_FAILURE_NOTES':
-			console.error('FETCH_FAILURE_NOTES');
-			return state;
+			return action.notes.constructor === Array ? action.notes : [];
 
-		//ADD reducers
-		case 'ADD_REQUEST_NOTE':
-			console.log('ADD_REQUEST_NOTE');
-			return state;
+		//ADD reducer
 		case 'ADD_RECEIVE_NOTE':
 			console.log('ADD_RECEIVE_NOTE');
-			return state;
-		case 'ADD_FAILURE_NOTE':
-			console.log('ADD_FAILURE_NOTE');
-			return state;
-		//State reducer action
-		case 'ADD_NOTE':
-			//NOTE: This is currently unused due to redux-api-middleware usage
 			//Append the new note to the current state
 			return [
 				...state,
 				{
-					id: action.payload.data.id,
-					title: action.payload.data.title,
-					content: action.payload.data.content
+					id: action.note.id,
+					title: action.note.title,
+					content: action.note.content
 				}
 			];
-
-		//UPDATE reducers
-		case 'UPDATE_REQUEST_NOTE':
-			console.log('UPDATE_REQUEST_NOTE');
-			return state;
+		//UPDATE reducer
 		case 'UPDATE_RECEIVE_NOTE':
 			console.log('UPDATE_RECEIVE_NOTE');
-			return state;
-		case 'UPDATE_FAILURE_NOTE':
-			console.log('UPDATE_FAILURE_NOTE');
-			return state;
-		//State reducer action
-		case 'UPDATE_NOTE':
-			//NOTE: This is currently unused due to redux-api-middleware usage
 			//Map the current state to a new state, replacing the old note with the updated one
 			return state.map(note => {
-				if (note.id === action.id) {
+				if (note.id === action.note.id) {
 					return {
-						id: action.id,
-						title: action.title,
-						content: action.content
+						id: action.note.id,
+						title: action.note.title,
+						content: action.note.content
 					};
 				}
 
 				return note;
 			});
-
-		//DELETE REDUCERS
-		case 'DELETE_REQUEST_NOTE':
-			console.log('DELETE_REQUEST_NOTE');
-			return state;
+		//DELETE reducer
 		case 'DELETE_RECEIVE_NOTE':
 			console.log('DELETE_RECEIVE_NOTE');
-			return state;
-		case 'DELETE_FAILURE_NOTE':
-			console.log('DELETE_FAILURE_NOTE');
-			return state;
-		//State reducer action
-		case 'DELETE_NOTE':
-			//NOTE: This is currently unused due to redux-api-middleware usage
 			//Filter out the deleted note
-			return state.filter(note => note.id !== action.payload.data.id);
+			return state.filter(note => note.id !== action.id);
 		default:
 			//Return the current state for unknown actions
 			return state;
