@@ -4,7 +4,7 @@
 import { connect } from 'react-redux';
 import { reset } from 'redux-form';
 import { setEditorState, setEditorNote } from '../actions/ui';
-import { deleteNote } from '../actions/note';
+import { fetchDeleteNote } from '../actions/note';
 import ButtonBar from '../components/ButtonBar';
 
 /**
@@ -46,7 +46,7 @@ const mapDispatchToProps = (dispatch) => {
 			onDeleteClick: (id) => {
 				console.log('onDeleteClick');
 				//Delete the current note and reset the editor
-				dispatch(deleteNote(id));
+				dispatch(fetchDeleteNote(id));
 				dispatch(setEditorNote(null));
 				dispatch(setEditorState('VIEW'));
 			}

@@ -4,7 +4,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setEditorState, setEditorNote } from '../actions/ui';
-import { addNote, updateNote } from '../actions/note';
+import { fetchAddNote, fetchUpdateNote } from '../actions/note';
 import uuidV4 from 'uuid';
 import NoteEditor from '../components/NoteEditor';
 
@@ -49,13 +49,20 @@ const mapDispatchToProps = (dispatch) => {
 			//Switch back to a viewing state and trigger the appropriate action
 			dispatch(setEditorState('VIEW'));
 
+			//Create a Note object from the form values
+			const note = {
+				id: values.id,
+				title: values.title,
+				content: values.content
+			}
+
 			//Dispatch added and updated notes to different locations
 			if (values.editorState === 'ADD') {
-				values.id = uuidV4();
-				dispatch(addNote(values));
+				note.id = uuidV4();
+				dispatch(fetchAddNote(note));
 				dispatch(setEditorNote(values.id));
 			} else {
-				dispatch(updateNote(values));
+				dispatch(fetchUpdateNote(values));
 			}
 		}
 	};
