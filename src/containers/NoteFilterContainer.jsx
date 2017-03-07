@@ -11,10 +11,10 @@ import NoteFilter from '../components/NoteFilter';
  */
 const mapDispatchToProps = (dispatch) => {
 	return {
-		//Call whenever filter text changes
+		//Update the current filter text
 		onTextChange: (event) => {
 			console.log('onFilterTextChange');
-			dispatch(changeFilterText(event.target.value)); //Update the current filter text
+			dispatch(changeFilterText(event.target.value));
 		}
 	};
 };

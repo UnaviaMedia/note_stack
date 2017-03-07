@@ -11,17 +11,19 @@ import NoteList from '../components/NoteList';
  * @param {string}	filterText	Filter text
  * @param {bool}	filterOrder	Filter order
  */
-const getFilteredNotes = (notes, filterText = '', filterOrder = 'DESC') => {
+const getFilteredNotes = (notes = [], filterText = '', filterOrder = 'DESC') => {
+	//Handle empty arrays
+	if (!notes || notes.length === 0) { return; }
+
 	//Apply the filter text (if specified)
 	notes = notes.filter(note => note.title.toLowerCase().includes(filterText.toLowerCase()));
-	return notes;
 
 	//Sort the notes by the specified order
 	if (filterOrder === 'ASC') {
-		return notes.sort((a, b) => a.title.localeCompare(b.title));
+		return notes.sort((a, b) => new Date(a.dateCreated) - new Date(b.dateCreated));
 	}
 
-	return notes.sort((a, b) => b.title.localeCompare(a.title));
+	return notes.sort((a, b) => new Date(b.dateCreated) - new Date(a.dateCreated));
 };
 
 /**

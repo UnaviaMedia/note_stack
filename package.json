@@ -19,6 +19,7 @@
   "homepage": "https://github.com/UnaviaMedia/note_stack#readme",
   "dependencies": {
     "body-parser": "^1.17.0",
+    "dateformat": "^2.0.0",
     "express": "^4.14.1",
     "foundation-icons": "^1.0.1",
     "foundation-sites": "^6.3.1",

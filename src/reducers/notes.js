@@ -28,7 +28,8 @@ const notes = (state = [], action) => {
 			return state;
 		case 'GET_RECEIVE_NOTES':
 			console.log('FETCH_RECEIVE_NOTES');
-			return action.payload.data;
+			//CHANGE: Simple way of handling retrieval errors
+			return action.payload.data.constructor === Array ? action.payload.data : [];
 		case 'GET_FAILURE_NOTES':
 			console.error('FETCH_FAILURE_NOTES');
 			return state;

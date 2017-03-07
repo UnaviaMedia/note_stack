@@ -9,12 +9,12 @@ const EmptyList = () => {
 	return <li className='warning--empty'>Add a Note to get started!</li>;
 }
 
-const NoteList = ({ notes, onNoteClick }) => {
+const NoteList = ({ notes = [], onNoteClick }) => {
 	return (
 		<ul className='sidebar__list'>
-			{ !notes.length && <EmptyList /> }
+			{ (!notes || !notes.length) && <EmptyList /> }
 			{notes.map(note =>
-				<Note key={note.id} {...note} onClick={() => onNoteClick(note.id)} />
+				<Note key={note.id} content={note.content.substr(0, 150)} title={note.title} onClick={() => onNoteClick(note.id)} />
 			)}
 		</ul>
 	);
