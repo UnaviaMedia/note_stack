@@ -4,7 +4,7 @@
 import { CALL_API } from 'redux-api-middleware';
 
 //Action to get a note
-export const getNote = (id) => {
+export const fetchGetNote = (id) => {
 	return {
 		[CALL_API] : {
 			endpoint: `http://localhost:3000/note?id=${id}`,
@@ -12,17 +12,13 @@ export const getNote = (id) => {
 			types: ['FETCH_REQUEST_NOTE', 'FETCH_RECEIVE_NOTE', 'FETCH_FAILURE_NOTE']
 		}
 	};
-	/*return {
-		type: 'GET_NOTE',
-		id
-	};*/
 };
 
 //Action to get all notes
 export const fetchGetNotes = (order = '', limit = '', offset = '') => {
 	return {
 		[CALL_API] : {
-			endpoint: `http://localhost:3000/note?order=${order}&limit=${limit}&start=${offset}`,
+			endpoint: `http://localhost:3000/note?order=${order.toLowerCase()}&limit=${limit}&start=${offset}`,
 			method: 'GET',
 			types: ['GET_REQUEST_NOTES', 'GET_RECEIVE_NOTES', 'GET_FAILURE_NOTES']
 		}
@@ -43,10 +39,6 @@ export const fetchAddNote = (note) => {
 			body: JSON.stringify(note),
 			types: ['ADD_REQUEST_NOTE', 'ADD_RECEIVE_NOTE', 'ADD_FAILURE_NOTE']
 		}
-		/*type: 'ADD_NOTE',
-		id: note.id,
-		title: note.title,
-		content: note.content*/
 	};
 };
 
