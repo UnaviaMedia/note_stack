@@ -7,6 +7,7 @@ The stack involved is a mix of technologies, including the following:
 - NodeJS
 - ExpressJS
 - React
+- Redux
 - MySQL
 - SASS
 

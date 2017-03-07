@@ -57,4 +57,5 @@
 - Cleaned up and refactored codebase
     - Restructured styles
     - Refactored actions
+- Integrated API into Redux state management
 - Completely overhauled Reducers and Actions with thunk principles
