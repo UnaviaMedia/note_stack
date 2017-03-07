@@ -38,7 +38,7 @@ export const fetchAddNote = (note) => {
 			method: 'POST',
 			headers: {
 				'Accept': 'application/json',
-                'Content-Type': 'application/json'
+				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify(note),
 			types: ['ADD_REQUEST_NOTE', 'ADD_RECEIVE_NOTE', 'ADD_FAILURE_NOTE']
@@ -60,7 +60,7 @@ export const fetchUpdateNote = (note) => {
 			method: 'PUT',
 			headers: {
 				'Accept': 'application/json',
-                'Content-Type': 'application/json'
+				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify(note),
 			types: ['UPDATE_REQUEST_NOTE', 'UPDATE_RECEIVE_NOTE', 'UPDATE_FAILURE_NOTE']
@@ -84,7 +84,7 @@ export const fetchDeleteNote = (id) => {
 			method: 'DELETE',
 			headers: {
 				'Accept': 'application/json',
-                'Content-Type': 'application/json'
+				'Content-Type': 'application/json'
 			},
 			types: ['DELETE_REQUEST_NOTE', 'DELETE_RECEIVE_NOTE', 'DELETE_FAILURE_NOTE']
 		}

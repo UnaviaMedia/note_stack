@@ -6,7 +6,7 @@
 //			- _RECEIVE_NOTE - Handles updating the local state after a successful request
 //			- _FAILURE_NOTE - Handles updating the local state after a failed request
 //		I have not handled the REQUEST or FAILURE events due to time constraints,
-//			but they would be fairly straightforward
+//			but they would be fairly straightforward and I wanted to leave them here so you can see they are triggered
 //			(ie. displaying a spinner when REQUEST is received and hiding it when RECEIVE is received)
 //		It does result in a large file, but I think it's clearer and easier for future use
 
