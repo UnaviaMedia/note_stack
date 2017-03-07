@@ -17,11 +17,11 @@
 **March 01, 2017**
 - Added sample API call from component
 - Restructured files
-	- [Intro to JS ES6 Modules](https://strongloop.com/strongblog/an-introduction-to-javascript-es6-modules/) for JavaScript ES6 modules
+  - [Intro to JS ES6 Modules](https://strongloop.com/strongblog/an-introduction-to-javascript-es6-modules/) for JavaScript ES6 modules
 - Added MySQL and database files
 - Worked through issues on dev machine with mysql
 - Added Node and Express API
-	- CRUD operations and advanced querying
+  - CRUD operations and advanced querying
 
 **March 02, 2017**
 - Configured C9 to act as a cloud editor
@@ -35,9 +35,9 @@
 - Standardized endpoint responses
 - Added Stored Procedures to replace SQL string queries and updated callers
 - Configured Webpack to support SCSS processing and extracting (forming a separate file from includes)
-	- [Setup Webpack with SASS](https://www.jonathan-petitcolas.com/2015/05/15/howto-setup-webpack-on-es6-react-application-with-sass.html)
-	- [Webpack - Migrating from v1 to v2](https://webpack.js.org/guides/migrating/) helped to understand and upgrade previous guide
-	- [extract-text-webpack-plugin](https://github.com/webpack-contrib/extract-text-webpack-plugin) for GitHub documentation
+  - [Setup Webpack with SASS](https://www.jonathan-petitcolas.com/2015/05/15/howto-setup-webpack-on-es6-react-application-with-sass.html)
+  - [Webpack - Migrating from v1 to v2](https://webpack.js.org/guides/migrating/) helped to understand and upgrade previous guide
+  - [extract-text-webpack-plugin](https://github.com/webpack-contrib/extract-text-webpack-plugin) for GitHub documentation
 - Added basic styling to app
 - Modularized SCSS files and updated components to match
 
@@ -55,7 +55,9 @@
 
 **March 06, 2017**
 - Cleaned up and refactored codebase
-    - Restructured styles
-    - Refactored actions
+  - Restructured styles
+  - Refactored actions
 - Integrated API into Redux state management
+  - Relied on Redux UI filter state when sending the query
+  - CRUD operations and persistance from the front-end to the API/database
 - Completely overhauled Reducers and Actions with thunk principles
