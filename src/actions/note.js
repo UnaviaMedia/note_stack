@@ -2,6 +2,7 @@
 // Purpose:	Handle Redux actions for Notes
 
 import { CALL_API } from 'redux-api-middleware';
+import { SERVER_ADDRESS, SERVER_PORT } from '../constants';
 
 //Action to get a note
 //NOTE: This is currently unused but let here for future use
@@ -24,10 +25,6 @@ export const fetchGetNotes = (order = '', limit = '', offset = '') => {
 			types: ['GET_REQUEST_NOTES', 'GET_RECEIVE_NOTES', 'GET_FAILURE_NOTES']
 		}
 	};
-	/*return {
-		type: 'DELETE_NOTE',
-		id
-	};*/
 };
 
 //Action to add a note
@@ -44,12 +41,6 @@ export const fetchAddNote = (note) => {
 			types: ['ADD_REQUEST_NOTE', 'ADD_RECEIVE_NOTE', 'ADD_FAILURE_NOTE']
 		}
 	};
-	/*return {
-		type: 'CREATE_NOTE',
-		id: note.id,
-		title: note.title,
-		content: note.content
-	};*/
 };
 
 //Action to update a note
@@ -66,12 +57,6 @@ export const fetchUpdateNote = (note) => {
 			types: ['UPDATE_REQUEST_NOTE', 'UPDATE_RECEIVE_NOTE', 'UPDATE_FAILURE_NOTE']
 		}
 	};
-	/*return {
-		type: 'UPDATE_NOTE',
-		id: note.id,
-		title: note.title,
-		content: note.content
-	};*/
 };
 
 //Action to delete a note
@@ -89,8 +74,4 @@ export const fetchDeleteNote = (id) => {
 			types: ['DELETE_REQUEST_NOTE', 'DELETE_RECEIVE_NOTE', 'DELETE_FAILURE_NOTE']
 		}
 	};
-	/*return {
-		type: 'DELETE_NOTE',
-		id
-	};*/
 };

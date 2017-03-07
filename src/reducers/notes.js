@@ -46,13 +46,14 @@ const notes = (state = [], action) => {
 			return state;
 		//State reducer action
 		case 'ADD_NOTE':
+			//NOTE: This is currently unused due to redux-api-middleware usage
 			//Append the new note to the current state
 			return [
 				...state,
 				{
-					id: action.id,
-					title: action.title,
-					content: action.content
+					id: action.payload.data.id,
+					title: action.payload.data.title,
+					content: action.payload.data.content
 				}
 			];
 
@@ -60,14 +61,15 @@ const notes = (state = [], action) => {
 		case 'UPDATE_REQUEST_NOTE':
 			console.log('UPDATE_REQUEST_NOTE');
 			return state;
-		case 'DELETE_RECEIVE_NOTE':
+		case 'UPDATE_RECEIVE_NOTE':
 			console.log('UPDATE_RECEIVE_NOTE');
 			return state;
-		case 'DELETE_FAILURE_NOTE':
+		case 'UPDATE_FAILURE_NOTE':
 			console.log('UPDATE_FAILURE_NOTE');
 			return state;
 		//State reducer action
 		case 'UPDATE_NOTE':
+			//NOTE: This is currently unused due to redux-api-middleware usage
 			//Map the current state to a new state, replacing the old note with the updated one
 			return state.map(note => {
 				if (note.id === action.id) {
@@ -93,8 +95,9 @@ const notes = (state = [], action) => {
 			return state;
 		//State reducer action
 		case 'DELETE_NOTE':
+			//NOTE: This is currently unused due to redux-api-middleware usage
 			//Filter out the deleted note
-			return state.filter(note => note.id !== action.id);
+			return state.filter(note => note.id !== action.payload.data.id);
 		default:
 			//Return the current state for unknown actions
 			return state;

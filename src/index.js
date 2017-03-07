@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import { apiMiddleware } from 'redux-api-middleware';
-import thunk from 'redux-thunk';
+import ReduxThunk from 'redux-thunk';
 import noteApp from './reducers';
 import App from './components/App';
 import uuidV4 from 'uuid';
@@ -22,7 +22,9 @@ import 'script-loader!foundation-sites/js/foundation.util.motion';
 import 'script-loader!foundation-sites/js/foundation.reveal';
 
 //Include redux dev tools in the enhancers
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+//const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+//Add this line below instead of applyMiddleware()
+//}, composeEnhancers(applyMiddleware(apiMiddleware, ReduxThunk)));
 
 //Create initialized store (development)
 let store = createStore(noteApp, {
@@ -33,7 +35,7 @@ let store = createStore(noteApp, {
 		editorState: 'VIEW',
 		isSettingsShown: false
 	}
-}, composeEnhancers(applyMiddleware(apiMiddleware, thunk)));
+}, applyMiddleware(apiMiddleware, ReduxThunk));
 
 //Populate the store
 import { fetchGetNotes } from './actions/note';
