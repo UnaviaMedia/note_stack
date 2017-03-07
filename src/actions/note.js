@@ -1,8 +1,6 @@
 // File:	src/actions/note.js
 // Purpose:	Handle Redux actions for Notes
 
-import { SERVER_ADDRESS, SERVER_PORT } from '../constants';
-
 //Action to get a note
 //NOTE: This is currently unused but let here for future use
 export const fetchGetNote = (id) => {
