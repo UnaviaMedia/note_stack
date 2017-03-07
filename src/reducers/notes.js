@@ -10,18 +10,16 @@
 const notes = (state = [], action) => {
 	switch (action.type) {
 		case 'GET_NOTE':
+			//NOTE: This is deliberately empty, as I couldn't think of why to use it (already have posts in state)
 			return state;
-		//This would set the state to show a spinner
+		//NOTE: This would set the state to show a spinner
 		case 'FETCH_REQUEST_NOTES':
 			console.log('FETCH_REQUEST_NOTES');
-			console.log(action);
 			return state;
 		//This handles a successful retrieval of data
 		case 'FETCH_RECEIVE_NOTES':
 			console.log('FETCH_RECEIVE_NOTES');
-			//TODO: Change this to not mutate state
-			state = action.payload.data;
-			return state;
+			return action.payload.data;
 		case 'FETCH_FAILURE_NOTES':
 			console.error('FETCH_FAILURE_NOTES');
 			console.log(action);

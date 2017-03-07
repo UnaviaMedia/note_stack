@@ -12,10 +12,10 @@ export const getNote = (id) => {
 };
 
 //Action to get all notes
-export const fetchGetNotes = () => {
+export const fetchGetNotes = (order = '', limit = '', start = '') => {
 	return {
 		[CALL_API] : {
-			endpoint: 'http://localhost:3000/note',
+			endpoint: `http://localhost:3000/note?order=${order}&limit=${limit}&start=${start}`,
 			method: 'GET',
 			types: ['FETCH_REQUEST_NOTES', 'FETCH_RECEIVE_NOTES', 'FETCH_FAILURE_NOTES']
 		}

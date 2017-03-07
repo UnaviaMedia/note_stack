@@ -26,7 +26,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 //Create initialized store (development)
 let store = createStore(noteApp, {
-	notes: [ /*{ id: uuidV4(), title: 'React is cool', content: 'This is the content of the note' }, */ ],
+	//notes: [ { id: uuidV4(), title: 'React is cool', content: 'This is the content of the note' } ],
 	ui: {
 		//TODO: Dynamically change this
 		editorState: 'VIEW',
@@ -34,8 +34,9 @@ let store = createStore(noteApp, {
 	}
 }, composeEnhancers(applyMiddleware(apiMiddleware, thunk)));
 
-import { getNotes } from './actions/note';
-store.dispatch(fetchGetNotes());
+//Populate the store
+import { fetchGetNotes } from './actions/note';
+store.dispatch(fetchGetNotes('desc', 0, 0));
 
 //Render the app
 ReactDOM.render(
