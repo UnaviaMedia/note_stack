@@ -5,7 +5,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
-import { apiMiddleware } from 'redux-api-middleware';
 import ReduxThunk from 'redux-thunk';
 import noteApp from './reducers';
 import App from './components/App';
@@ -35,11 +34,11 @@ let store = createStore(noteApp, {
 		editorState: 'VIEW',
 		isSettingsShown: false
 	}
-}, applyMiddleware(apiMiddleware, ReduxThunk));
+}, applyMiddleware(ReduxThunk));
 
 //Populate the store
 import { fetchGetNotes } from './actions/note';
-store.dispatch(fetchGetNotes('desc', 0, 0));
+store.dispatch(fetchGetNotes());
 
 //Render the app
 ReactDOM.render(

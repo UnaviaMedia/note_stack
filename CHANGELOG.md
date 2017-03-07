@@ -57,3 +57,4 @@
 - Cleaned up and refactored codebase
     - Restructured styles
     - Refactored actions
+- Completely overhauled Reducers and Actions with thunk principles

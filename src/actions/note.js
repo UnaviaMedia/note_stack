@@ -1,7 +1,6 @@
 // File:	src/actions/note.js
 // Purpose:	Handle Redux actions for Notes
 
-import { CALL_API } from 'redux-api-middleware';
 import { SERVER_ADDRESS, SERVER_PORT } from '../constants';
 
 //Action to get a note
