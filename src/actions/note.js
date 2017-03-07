@@ -32,7 +32,7 @@ export const receiveGetNote = (note) => {
 //Action to get all notes
 export const fetchGetNotes = (order = '', limit = '', offset = '') => {
 	return function (dispatch) {
-		return fetch(`http://localhost:3000/note`, {
+		return fetch(`http://localhost:3000/note?order=${order.toLowerCase()}&limit=${limit}&start=${offset}`, {
 			method: 'GET',
 			headers: {
 				'Accept': 'application/json',
