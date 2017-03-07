@@ -37,7 +37,7 @@ sudo mysql_secure_installation
 
 # NodeJS
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo apt install -y nodejs build-essentials
+sudo apt install -y nodejs build-essential
 
 cd {{project_directory}}
 
