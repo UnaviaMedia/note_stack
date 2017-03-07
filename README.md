@@ -27,7 +27,8 @@ The stack involved is a mix of technologies, including the following:
 - [Redux Docs](http://redux.js.org/)
 
 ## Installation
-Download or clone the repository after configuring the server setup and extract (ie. in home directory). Developed on Ubuntu 16.04.
+Download or clone the repository after configuring the server setup and extract (ie. in home directory). Note, it currently has a lot of debuggin features still enabled, both for ease of development as well as enabling following the flow of events/actions. For example, the project still uses Webpacks dev middleware, so it needs to be run with `npm run start` which starts the webpack build and loads it internally.
+- Developed on Ubuntu 16.04.
 
 ```bash
 # MySQL
