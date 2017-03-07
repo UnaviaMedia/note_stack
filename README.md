@@ -59,3 +59,15 @@ source ~/.bashrc
 # Start server and build webpack
 npm run start
 ```
+
+## Remaining Steps
+Since most of the technologies listed above were new to me, I did have a steep learning curve when trying to integrate them together (especially Webpack). However, I enjoyed most of the challenges that it brought and look forward to working with them again. Here's a list of the things that stick out to me that should be addressed yet:
+
+- [ ] **Error Handling**
+  - Due to time constraints I didn't put much focus on error handling (other than the API). However, the Redux async actions don't take the possible errors in to account (implementation will take a bit but is a good idea).
+- [ ] **Refactoring Dispatch Actions**
+  - I got partway through developing the Redux async actions and realized that my current implementation of `dispatch` methods should change to reflect the async nature and possibility of errors. For example, there are several places where I send off a `dispatch` method to the Redux async actions (for API consumption) and then immediately update the state of the editor. This should instead be done after the async call has completed (as this will allow the handling of errors/warnings), rather than dispatching several other actions right away assuming the call will complete.
+- [ ] **Webpack Production Build**
+  - I didn't focus on configuring Webpack for a production build but this is something that should be done as well to put a final polish on the packaging cycle.
+- [ ] **Tests**
+  - While learning Redux I used an assertion package to check the immutability of the state, but didn't transfer this to the project for lack of time. However, test driven development is an interesting concept that I'd like to focus on more.
