@@ -29,6 +29,9 @@ let store = createStore(noteApp, {
 	//notes: [ { id: uuidV4(), title: 'React is cool', content: 'This is the content of the note' } ],
 	ui: {
 		//TODO: Dynamically change this
+		filterOrder: 'DESC',
+		filterLimit: 0,
+		filterOffset: 0,
 		editorState: 'VIEW',
 		isSettingsShown: false
 	}
@@ -37,6 +40,9 @@ let store = createStore(noteApp, {
 //Populate the store
 import { fetchGetNotes } from './actions/note';
 store.dispatch(fetchGetNotes('desc', 0, 0));
+
+import { fetchAddNote } from './actions/note';
+store.dispatch(fetchAddNote({ id: '234232432', title: 'Test POST', content: 'Content' }));
 
 //Render the app
 ReactDOM.render(

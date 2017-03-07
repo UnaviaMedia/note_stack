@@ -1,9 +1,14 @@
 // File:    /src/styles/Sidebar.scss
 // Purpose: Styles for the Sidebar container
 
+.sidebar__actions {
+	display: flex;
+	margin-bottom: 1rem;
+}
+
 .sidebar__filter {
 	width: 100%;
-	margin-bottom: 1rem;
+	margin-bottom: 0rem;
 	padding: 0.5rem;
 }
 

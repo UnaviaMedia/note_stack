@@ -92,7 +92,7 @@ router.post('/add', function(req, res) {
 
 	//Validate the parameters
 	if (!validateInput(id) || !validateInput(title, 3) || !validateInput(content)) {
-		res.json(ApiResponse(1, 'POST INVALID: Create failed with invalid body', { title: title, content: content }));
+		res.json(ApiResponse(1, 'POST INVALID: Create failed with invalid body', { id: id, title: title, content: content }));
 		return;
 	}
 

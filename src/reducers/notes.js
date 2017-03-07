@@ -12,17 +12,22 @@ const notes = (state = [], action) => {
 		case 'GET_NOTE':
 			//NOTE: This is deliberately empty, as I couldn't think of why to use it (already have posts in state)
 			return state;
+
+		//GET reducers
 		//NOTE: This would set the state to show a spinner
-		case 'FETCH_REQUEST_NOTES':
+		case 'GET_REQUEST_NOTES':
 			console.log('FETCH_REQUEST_NOTES');
 			return state;
 		//This handles a successful retrieval of data
-		case 'FETCH_RECEIVE_NOTES':
+		case 'GET_RECEIVE_NOTES':
 			console.log('FETCH_RECEIVE_NOTES');
 			return action.payload.data;
-		case 'FETCH_FAILURE_NOTES':
+		case 'GET_FAILURE_NOTES':
 			console.error('FETCH_FAILURE_NOTES');
-			console.log(action);
+			return state;
+
+		//ADD reducers
+		case 'ADD_RECEIVE_NOTES':
 			return state;
 		case 'ADD_NOTE':
 			//Append the new note to the current state
@@ -34,6 +39,8 @@ const notes = (state = [], action) => {
 					content: action.content
 				}
 			];
+
+		//UPDATE reducers
 		case 'UPDATE_NOTE':
 			//Map the current state to a new state, replacing the old note with the updated one
 			return state.map(note => {
@@ -47,6 +54,8 @@ const notes = (state = [], action) => {
 
 				return note;
 			});
+
+		//DELETE REDUCERS
 		case 'DELETE_NOTE':
 			//Filter out the deleted note
 			return state.filter(note => note.id !== action.id);
