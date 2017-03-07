@@ -14,6 +14,7 @@ import NoteList from '../components/NoteList';
 const getFilteredNotes = (notes, filterText = '', filterOrder = 'DESC') => {
 	//Apply the filter text (if specified)
 	notes = notes.filter(note => note.title.toLowerCase().includes(filterText.toLowerCase()));
+	return notes;
 
 	//Sort the notes by the specified order
 	if (filterOrder === 'ASC') {
