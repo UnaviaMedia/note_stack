@@ -133,7 +133,7 @@ router.delete('/:id', function(req, res) {
 	let id = req.params.id;
 
 	//Ensure a possible id was provided
-	if (validateInput(id)) {
+	if (!validateInput(id)) {
 		res.json(ApiResponse(1, 'DELETE FAILED: Delete failed with invalid id', { id: id }));
 		return;
 	}
