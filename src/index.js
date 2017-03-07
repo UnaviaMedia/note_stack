@@ -3,8 +3,10 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { apiMiddleware } from 'redux-api-middleware';
+import thunk from 'redux-thunk';
 import noteApp from './reducers';
 import App from './components/App';
 import uuidV4 from 'uuid';
@@ -19,20 +21,21 @@ import 'script-loader!foundation-sites/js/foundation.util.mediaQuery';
 import 'script-loader!foundation-sites/js/foundation.util.motion';
 import 'script-loader!foundation-sites/js/foundation.reveal';
 
+//Include redux dev tools in the enhancers
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 //Create initialized store (development)
 let store = createStore(noteApp, {
-	notes: [
-		/*{ id: uuidV4(), title: 'React is cool', content: 'This is the content of the note' },
-		{ id: uuidV4(), title: 'Redux is nice', content: 'Random contents of the note' },
-		{ id: uuidV4(), title: 'Partway to completion!', content: 'More text to follow' },
-		{ id: uuidV4(), title: 'I am getting tired though', content: 'Lorem impsum asdkfjs afqwej oiu kj ojaaksjdi' }*/
-	],
+	notes: [ /*{ id: uuidV4(), title: 'React is cool', content: 'This is the content of the note' }, */ ],
 	ui: {
 		//TODO: Dynamically change this
 		editorState: 'VIEW',
 		isSettingsShown: false
 	}
-}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+}, composeEnhancers(applyMiddleware(apiMiddleware, thunk)));
+
+import { getNotes } from './actions/note';
+store.dispatch(fetchGetNotes());
 
 //Render the app
 ReactDOM.render(

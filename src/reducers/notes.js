@@ -11,7 +11,20 @@ const notes = (state = [], action) => {
 	switch (action.type) {
 		case 'GET_NOTE':
 			return state;
-		case 'GET_NOTES':
+		//This would set the state to show a spinner
+		case 'FETCH_REQUEST_NOTES':
+			console.log('FETCH_REQUEST_NOTES');
+			console.log(action);
+			return state;
+		//This handles a successful retrieval of data
+		case 'FETCH_RECEIVE_NOTES':
+			console.log('FETCH_RECEIVE_NOTES');
+			//TODO: Change this to not mutate state
+			state = action.payload.data;
+			return state;
+		case 'FETCH_FAILURE_NOTES':
+			console.error('FETCH_FAILURE_NOTES');
+			console.log(action);
 			return state;
 		case 'ADD_NOTE':
 			//Append the new note to the current state

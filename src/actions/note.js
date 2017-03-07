@@ -1,6 +1,8 @@
 // File:	src/actions/note.js
 // Purpose:	Handle Redux actions for Notes
 
+import { CALL_API } from 'redux-api-middleware';
+
 //Action to get a note
 export const getNote = (id) => {
 	return {
@@ -10,9 +12,13 @@ export const getNote = (id) => {
 };
 
 //Action to get all notes
-export const getNotes = () => {
+export const fetchGetNotes = () => {
 	return {
-		type: 'GET_NOTES'
+		[CALL_API] : {
+			endpoint: 'http://localhost:3000/note',
+			method: 'GET',
+			types: ['FETCH_REQUEST_NOTES', 'FETCH_RECEIVE_NOTES', 'FETCH_FAILURE_NOTES']
+		}
 	};
 };
 
