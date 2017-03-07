@@ -27,7 +27,7 @@ The stack involved is a mix of technologies, including the following:
 - [Redux Docs](http://redux.js.org/)
 
 ## Installation
-Download or clone the repository after configuring the server setup
+Download or clone the repository after configuring the server setup and extract (ie. in home directory). Developed on Ubuntu 16.04.
 
 ```bash
 # MySQL
