@@ -66,6 +66,8 @@ npm run start
 Since most of the technologies listed above were new to me, I did have a steep learning curve when trying to integrate them together (especially Webpack). However, I enjoyed most of the challenges that it brought and look forward to working with them again. Here's a list of the things that stick out to me that should be addressed yet:
 
 - [ ] **Fix Note card time display issue**
+- [ ] **Prop Types**
+  - Add React PropTypes and PropDefault declarations to components
 - [ ] **Error Handling**
   - Due to time constraints I didn't put much focus on error handling (other than the API). However, the Redux async actions don't take the possible errors in to account (implementation will take a bit but is a good idea).
 - [ ] **Refactoring Dispatch Actions**
