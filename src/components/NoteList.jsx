@@ -14,7 +14,12 @@ const NoteList = ({ notes = [], onNoteClick }) => {
 		<ul className='sidebar__list'>
 			{ (!notes || !notes.length) && <EmptyList /> }
 			{notes.map(note =>
-				<Note key={note.id} content={note.content.substr(0, 100)} title={note.title} onClick={() => onNoteClick(note.id)} />
+				<Note key={note.id}
+					content={note.content.substr(0, 100)}
+					title={note.title}
+					dateCreated={note.dateCreated}
+					onClick={() => onNoteClick(note.id)}
+				/>
 			)}
 		</ul>
 	);
