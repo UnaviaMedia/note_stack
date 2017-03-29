@@ -1,7 +1,7 @@
 // File:	src/components/NoteEditor.jsx
 // Purpose:	NoteEditor presentational component
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import ButtonBarContainer from '../containers/ButtonBarContainer';
 
@@ -68,6 +68,12 @@ let NoteEditor = ({ note, editorState = 'VIEW', handleSubmit }) => {
 			//Handle an empty editor (no selected note)
 			return note.id !== 0 ? <ViewNote note={note} /> : <EmptyEditor />;
 	}
+};
+
+NoteEditor.propTypes = {
+	note: PropTypes.object.isRequired,
+	editorState: PropTypes.string,
+	handleSubmit: PropTypes.func
 };
 
 //Set up the redux-form binding to the unique id 'editor'

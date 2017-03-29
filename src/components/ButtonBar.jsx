@@ -1,10 +1,10 @@
 // File:	src/components/ButtonBar.jsx
 // Purpose:	ButtonBar presentational component
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Button from './Button';
 
-const ButtonBar = ({ currentNoteId, editorState = 'VIEW', events }) => {
+const ButtonBar = ({ currentNoteId = 0, editorState = 'VIEW', events }) => {
 	//Display the available actions when the editor state is add/edit
 	if (editorState === 'ADD' || editorState === 'EDIT') {
 		return (
@@ -25,6 +25,12 @@ const ButtonBar = ({ currentNoteId, editorState = 'VIEW', events }) => {
 			{ currentNoteId && <Button icon='trash' className='button--delete' onClick={() => events.onDeleteClick(currentNoteId)} /> }
 		</div>
 	);
+};
+
+ButtonBar.propTypes = {
+	currentNoteId: PropTypes.string,
+	editorState: PropTypes.string,
+	events: PropTypes.object.isRequired
 };
 
 export default ButtonBar;

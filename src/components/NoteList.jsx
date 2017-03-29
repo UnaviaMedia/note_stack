@@ -1,7 +1,7 @@
 // File:	src/components/NoteList.jsx
 // Purpose:	NoteList presentational component
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Note from './Note';
 
 //Display a warning if there are no Notes
@@ -23,6 +23,11 @@ const NoteList = ({ notes = [], onNoteClick }) => {
 			)}
 		</ul>
 	);
+};
+
+NoteList.propTypes = {
+	notes: PropTypes.array,
+	onNoteClick: PropTypes.func
 };
 
 export default NoteList;

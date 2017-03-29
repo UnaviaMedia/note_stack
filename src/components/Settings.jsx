@@ -1,7 +1,7 @@
 // File:	src/components/Settings.jsx
 // Purpose:	Settings presentational component
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 let Settings = ({
@@ -60,6 +60,13 @@ let Settings = ({
 			</form>
 		</div>
 	);
+};
+
+Settings.propTypes = {
+	isSettingsShown: PropTypes.bool,
+	onSettingsClick: PropTypes.func.isRequired,
+	onSettingsCancelClick: PropTypes.func.isRequired,
+	handleSubmit: PropTypes.func.isRequired
 };
 
 //Set up the redux-form binding to the unique id 'settings'

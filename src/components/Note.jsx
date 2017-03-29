@@ -1,7 +1,7 @@
 // File:	src/components/Note.jsx
 // Purpose:	Note presentational component
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import dateFormat from 'dateformat';
 
 const Note = ({ title, content, dateCreated, onClick }) => {
@@ -12,6 +12,13 @@ const Note = ({ title, content, dateCreated, onClick }) => {
 			<div className='note__content'>{content}</div>
 		</div>
 	);
+};
+
+Note.propTypes = {
+	title: PropTypes.string.isRequired,
+	content: PropTypes.string.isRequired,
+	dateCreated: PropTypes.string,
+	onClick: PropTypes.func
 };
 
 export default Note;

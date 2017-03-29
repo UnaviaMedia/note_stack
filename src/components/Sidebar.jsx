@@ -1,7 +1,7 @@
 // File:	src/components/Sidebar.jsx
 // Purpose:	Sidebar presentational component
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import NoteListContainer from '../containers/NoteListContainer';
 import NoteFilterContainer from '../containers/NoteFilterContainer';
 import Button from './Button';
@@ -18,6 +18,11 @@ const Sidebar = ({ filterOptions, onSyncClick }) => {
 			<NoteListContainer />
 		</section>
 	);
+};
+
+Sidebar.propTypes = {
+	filterOptions: PropTypes.object.isRequired,
+	onSyncClick: PropTypes.func.isRequired
 };
 
 export default Sidebar;
