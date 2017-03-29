@@ -46,8 +46,6 @@ const mapDispatchToProps = (dispatch) => {
 		//Handler for editor submit button
 		onSubmit: (values) => {
 			console.log('onEditorSubmit');
-			//Switch back to a viewing state and trigger the appropriate action
-			dispatch(setEditorState('VIEW'));
 
 			//Create a Note object from the form values
 			const note = {
@@ -60,10 +58,13 @@ const mapDispatchToProps = (dispatch) => {
 			if (values.editorState === 'ADD') {
 				note.id = uuidV4();
 				dispatch(fetchAddNote(note));
-				dispatch(setEditorNote(values.id));
+				dispatch(setEditorNote(note.id));
 			} else {
 				dispatch(fetchUpdateNote(values));
 			}
+			
+			//Switch back to a viewing state and trigger the appropriate action
+			dispatch(setEditorState('VIEW'));
 		}
 	};
 };

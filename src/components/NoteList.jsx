@@ -4,12 +4,22 @@
 import React, { PropTypes } from 'react';
 import Note from './Note';
 
-//Display a warning if there are no Notes
+/**
+ * Warning when NoteList is empty
+ */
 const EmptyList = () => {
 	return <li className='warning--empty'>Add a Note to get started!</li>;
 }
 
-const NoteList = ({ notes = [], onNoteClick }) => {
+/**
+ * List of Note cards
+ * @param {Array}  notes			Array of Notes
+ * @param {Function} onNoteClick	Click event handler for Note card
+ */
+const NoteList = ({
+	notes = [],
+	onNoteClick
+}) => {
 	return (
 		<ul className='sidebar__list'>
 			{ (!notes || !notes.length) && <EmptyList /> }

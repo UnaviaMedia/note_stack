@@ -9,7 +9,9 @@ import ButtonBarContainer from '../containers/ButtonBarContainer';
 //			Although the fact that I need a form for only one is a problem.
 //			Could possibly change the container to a class
 
-//Empty editor component
+/**
+ * Empty editor state component
+ */
 const EmptyEditor = () => {
 	return (
 		<div className='editor editor--empty'>
@@ -24,7 +26,10 @@ const EmptyEditor = () => {
 	);
 }
 
-//Viewing component
+/**
+ * Viewing editor state component
+ * @param {Object} note	Current Note in editor
+ */
 const ViewNote = ({ note }) => {
 	return (
 		<div className='editor editor--view'>
@@ -37,7 +42,11 @@ const ViewNote = ({ note }) => {
 	);
 }
 
-//Editing component
+/**
+ * Editing editor state component
+ * @param {Object} note				Current Note in editor
+ * @param {Function} handleSubmit	Event handler expected by redux-form (calls the onSubmit event from container)
+ */
 const EditNote = ({ note, handleSubmit }) => {
 	return (
 		<form id='editor-form' onSubmit={handleSubmit} className='editor editor--edit'>
@@ -56,8 +65,17 @@ const EditNote = ({ note, handleSubmit }) => {
 	);
 }
 
-//Parent component that chooses a component to display
-let NoteEditor = ({ note, editorState = 'VIEW', handleSubmit }) => {
+/**
+ * Parent editor component that chooses a subcomponent to display
+ * @param {Object} note				Current Note in editor
+ * @param {String} editorState		Current editor state
+ * @param {Function} handleSubmit	Event handler expected by redux-form (calls the onSubmit event from container)
+ */
+let NoteEditor = ({
+	note,
+	editorState = 'VIEW',
+	handleSubmit
+}) => {
 	//Render based on the current editor state
 	switch (editorState) {
 		case 'ADD':

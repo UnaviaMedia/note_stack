@@ -4,7 +4,19 @@
 import React, { PropTypes } from 'react';
 import dateFormat from 'dateformat';
 
-const Note = ({ title, content, dateCreated, onClick }) => {
+/**
+ * Note card for list display
+ * @param {String} title		Note title
+ * @param {String} content		Note content
+ * @param {String} dateCreated	Creation date of the note
+ * @param {Function} onClick	Click event handler for Note cards
+ */
+const Note = ({
+	title,
+	content,
+	dateCreated,
+	onClick
+}) => {
 	return (
 		<div className='note-card' onClick={onClick}>
 			<div className='note__title'>{title}</div>

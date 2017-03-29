@@ -50,7 +50,6 @@ const mapDispatchToProps = (dispatch) => {
 				dispatch(setEditorNote(null));
 				dispatch(setEditorState('VIEW'));
 			}
-
 		}
 	};
 };

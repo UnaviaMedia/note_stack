@@ -4,11 +4,18 @@
 import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
+/**
+ * Settings form and modal
+ * @param {Boolean} isSettingsShown			Whether the setting modal is shown (UNUSED)
+ * @param {Function} onSettingsClick		Click event handler for modal display button
+ * @param {Function} onSettingsCancelClick	Click event handler for modal cancel button
+ * @param {Function} handleSubmit			Event handler expected by redux-form (calls the onSubmit event from container)
+ */
 let Settings = ({
-	isSettingsShown,		//Whether modal is shown (UNUSED)
-	onSettingsClick,		//Handler for Settings button (gear)
-	onSettingsCancelClick,	//Handler for Cancel button
-	handleSubmit			//Handler expected by redux-form (calls the onSubmit event from container)
+	isSettingsShown,
+	onSettingsClick,
+	onSettingsCancelClick,
+	handleSubmit
 }) => {
 	return (
 		<div className='settings'>

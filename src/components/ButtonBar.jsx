@@ -4,7 +4,17 @@
 import React, { PropTypes } from 'react';
 import Button from './Button';
 
-const ButtonBar = ({ currentNoteId = 0, editorState = 'VIEW', events }) => {
+/**
+ * Button bar in editor
+ * @param {Number} currentNoteId	Id of current note
+ * @param {String} editorState		Current editor state
+ * @param {Object} events			Event handlers for Button Bar events
+ */
+const ButtonBar = ({
+	currentNoteId = 0,
+	editorState = 'VIEW',
+	events
+}) => {
 	//Display the available actions when the editor state is add/edit
 	if (editorState === 'ADD' || editorState === 'EDIT') {
 		return (

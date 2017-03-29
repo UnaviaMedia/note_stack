@@ -10,6 +10,9 @@ import Footer from './Footer';
 import '../styles/styles.scss';
 import 'foundation-icons/foundation-icons.scss';
 
+/**
+ * App container
+ */
 const App = () => {
 	return (
 		<section className='app'>

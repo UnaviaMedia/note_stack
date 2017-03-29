@@ -3,6 +3,9 @@
 
 import React from 'react';
 
+/**
+ * Footer for app
+ */
 const Footer = () => {
 	return (
 		<footer className='app__footer'>

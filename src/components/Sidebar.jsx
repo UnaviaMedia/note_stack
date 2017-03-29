@@ -6,7 +6,15 @@ import NoteListContainer from '../containers/NoteListContainer';
 import NoteFilterContainer from '../containers/NoteFilterContainer';
 import Button from './Button';
 
-const Sidebar = ({ filterOptions, onSyncClick }) => {
+/**
+ * App sidebar with notes and filter text
+ * @param {Object} filterOptions	Current filter options
+ * @param {Function} onSyncClick	Click event handler for Note sync button
+ */
+const Sidebar = ({
+	filterOptions,
+	onSyncClick
+}) => {
 	return (
 		<section className='body__sidebar'>
 			<div className='sidebar__actions'>
