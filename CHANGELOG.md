@@ -61,3 +61,7 @@
   - Relied on Redux UI filter state when sending the query
   - CRUD operations and persistance from the front-end to the API/database
 - Completely overhauled Reducers and Actions with thunk principles
+
+**March 18, 2017**
+- Fixed time display issue on note cards
+	- Container didn't pass the time parameter in
