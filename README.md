@@ -1,6 +1,8 @@
 # NoteStack
 NoteStack is an extremely simple web app developed as a code-along to learn a custom JavaScript stack. It is capable of performing CRUD operations against a database to retrieve and update Notes, as well as simply query actions/limits when retrieving the list of notes. The app focuses around a React front-end, Redux state management, and a Node/MySQL API.
 
+**NOTE:** Development/fixing has temporarily been halted while taking a course on ES6 and React/Redux development
+
 ## Stack
 The stack involved is a mix of technologies, including the following:
 
