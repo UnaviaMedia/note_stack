@@ -14,7 +14,7 @@ The stack involved is a mix of technologies, including the following:
 | **Webpack**           | Bundles and processes client code
 | **Babel**             | ES2015 (EcmaScript6) transpiler
 | **SASS**              | CSS pre-processor
-|
+|                       |
 | **Git**               | Source control management for code
 | **Postman**           | Used to send HTTP requests to test the API
 | **Redux** Debug Tools | Enables viewing the state and history of Redux
