@@ -1,9 +1,12 @@
 # NoteStack
+
 NoteStack is an extremely simple web app developed as a code-along to learn a custom JavaScript stack. It is capable of performing CRUD operations against a database to retrieve and update Notes, as well as simply query actions/limits when retrieving the list of notes. The app focuses around a React front-end, Redux state management, and a Node/MySQL API.
+
+> **NOTE:** This project was developed as part of my initial foray into the React and Node environments, and has served its purpose (_hasn't been updated in years_). While I prefer Vue to React, I still enjoy working with React; however, current technology stacks usually revolve around an SPA with a Docker setup if needed.
 
 ~~**NOTE:** Development/fixing has temporarily been halted while taking a course on ES6 and React/Redux development~~
 
-**NOTE:** Development/fixing has been suspended semi-permanently while taking more to time to examine the fundamentals of React/Redux and the surrounding environment. While the project is not complete, and is currently missing a working build/production phase, I am shifting my focus to a simple app that will advance at a slower pace, adding technologies as necessary rather than diving headfirst into all of them at once (overexaggerated, but somewhat true).
+~~**NOTE:** Development/fixing has been suspended semi-permanently while taking more to time to examine the fundamentals of React/Redux and the surrounding environment. While the project is not complete, and is currently missing a working build/production phase, I am shifting my focus to a simple app that will advance at a slower pace, adding technologies as necessary rather than diving headfirst into all of them at once (overexaggerated, but somewhat true).~~
 
 ## Stack
 The stack involved is a mix of technologies, including the following:
@@ -11,7 +14,7 @@ The stack involved is a mix of technologies, including the following:
 | Name                  | Description           |
 |-----------------------|-----------------------|
 | **NodeJS**            | Lightweight JavaScript server
-| **Express**           |Simple JS web server framework
+| **Express**           | Simple JS web server framework
 | **React**             | Clientside components and View-management
 | **Redux**             | Single source of stage management for React components
 | **MySQL**             | Relational database for persisting Notes
